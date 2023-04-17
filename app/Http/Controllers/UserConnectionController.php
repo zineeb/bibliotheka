@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\User;
+use App\Notifications\CustomResetPassword;
 use Carbon\Carbon;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
@@ -37,13 +39,16 @@ class UserConnectionController extends Controller
                     //User login
                     Auth::login($user);
 
+                    $token = $user->createToken('authToken')->plainTextToken;
+
                     $booksUser = Book::allBooks($user->id);
                     $infosUser = User::allInformations($user->id);
 
                     return response()->json([
-                        'okay' => 'welcome to your dashboard',
-                        'books user' => $booksUser,
-                        'infos user' => $infosUser,
+                        'status' => 'success',
+                        'token' => $token,
+                        'infos_user' => $infosUser,
+                        'books_user' => $booksUser,
                     ], 200);
                 } else {
                     //Redirection to the login view with the realized error
@@ -85,7 +90,7 @@ class UserConnectionController extends Controller
                     'created_at' => Carbon::now()
                 ]);
                 //Send an email for the link to the password reset page
-                $user->notify(new ResetPassword($token));
+                $user->notify(new CustomResetPassword($token, $user->email));
                 //Redirection to the forgotten password page with a success
                 return response()->json([
                     'success' => 'Un email de réinitialisation de mot de passe a été envoyé.',
@@ -96,6 +101,13 @@ class UserConnectionController extends Controller
                 ], 500);
             }
         }
+    }
+
+    public function showResetPasswordForm(Request $request)
+    {
+        $token = $request->input('token');
+        $email = $request->input('email');
+        return view('resetPassword', ['token' => $token, 'email' => $email]);
     }
 
 
@@ -113,6 +125,8 @@ class UserConnectionController extends Controller
                 'errors' => $validateData->errors()
             ], 422);
         }
+
+        Log::info("ici on a dépassé la validation des données");
         //Changing the password with the new password entered by the user
         $user = User::where('email', $request['email'])->first();
         $user->password = Hash::make($request['password']);

@@ -28,7 +28,7 @@ class Book extends Model
     {
         return DB::table('books')
             ->select('books.title', 'books.author', 'books.publication_date', 'books.cover_image', 'status.status', 'status.page', 'categories.name as category', 'reviews.review', 'reviews.rating')
-            ->leftJoin('status', function ($join) use ($userId) {
+            ->join('status', function ($join) use ($userId) {
                 $join->on('books.google_books_id', '=', 'status.google_books_id')
                     ->where('status.user_id', '=', $userId);
             })
@@ -43,4 +43,5 @@ class Book extends Model
             })
             ->get();
     }
+
 }

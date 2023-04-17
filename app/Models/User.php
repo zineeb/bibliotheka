@@ -47,7 +47,7 @@ class User extends Authenticatable
     public static function allInformations($userId)
     {
         return DB::table('users')
-            ->select('name','email','profile_image')
+            ->select('id','name','email','profile_image')
             ->where('id',$userId)
             ->get();
     }

@@ -1,0 +1,3 @@
+const CAPTCHA_SITE_KEY = '6LcpBBokAAAAADc_7Wcm_XPCNLGGu3EUpyBJqj4J';
+
+export { CAPTCHA_SITE_KEY };
