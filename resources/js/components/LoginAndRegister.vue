@@ -1,55 +1,70 @@
 <template>
+    <!-- Main container for the login and registration component -->
     <div class="login-and-register">
+        <!-- Login section -->
         <div class="login-section">
             <h2>Connexion</h2>
+            <!-- Form to submit login credentials -->
             <form @submit.prevent="login">
                 <div>
                     <label for="login-email">Email :</label>
                     <input type="email" id="login-email" v-model="loginForm.email" required>
+                    <!-- Display email errors if any -->
                     <small v-if="errors.email">{{ errors.email[0] }}</small>
                 </div>
                 <div>
                     <label for="login-password">Mot de passe :</label>
                     <input type="password" id="login-password" v-model="loginForm.password" required>
+                    <!-- Display password errors if any -->
                     <small v-if="errors.password">{{ errors.password[0] }}</small>
                 </div>
+                <!-- Button to submit login form -->
                 <button type="submit">Se connecter</button>
             </form>
             <div>
+                <!-- Link to navigate to the forgot-password component -->
                 <router-link to="/forgot-password">Mot de passe oublié ?</router-link>
             </div>
             <div>
+                <!-- Button to log in with Google -->
                 <button @click="loginWithGoogle">Se connecter avec Google</button>
             </div>
         </div>
+        <!-- Registration section -->
         <div class="register-section">
             <h2>Inscription</h2>
+            <!-- Form to submit registration details -->
             <form @submit.prevent="register" enctype="multipart/form-data">
                 <div>
                     <div>
+                        <!-- Display user's selected profile image or default image -->
                         <img :src="imageSrc" alt="Image de profil par défaut" width="50">
                     </div>
                     <div>
                         <label for="profil_picture">Image de profil :</label>
                         <input type="file" id="profil_picture" @change="onFileChange">
+                        <!-- Display profile picture errors if any -->
                         <small v-if="errors.profil_picture">{{ errors.profil_picture[0] }}</small>
                     </div>
                 </div>
                 <div>
                     <label for="username">Nom d'utilisateur :</label>
                     <input type="text" id="username" v-model="registerForm.username" required minlength="4" placeholder="Nom d'utilisateur">
+                    <!-- Display username errors if any -->
                     <small v-if="errors.username">{{ errors.username[0] }}</small>
                     <small>  Le nom d’utilisateur doit faire plus de 3 caractères.</small>
                 </div>
                 <div>
                     <label for="email">Email :</label>
                     <input type="email" id="email" v-model="registerForm.email" required placeholder="Email">
+                    <!-- Display email errors if any -->
                     <small v-if="errors.email">{{ errors.email[0] }}</small>
                     <small>  L’adresse email doit être valide.</small>
                 </div>
                 <div>
                     <label for="password">Mot de passe :</label>
                     <input type="password" id="password" v-model="registerForm.password" required :pattern="passwordPattern" placeholder="Mot de passe">
+                    <!-- Display password errors if any -->
                     <small v-if="errors.password">{{ errors.password[0] }}</small>
                     <small>  Le mot de passe doit comporter :
                     <ul>
@@ -60,10 +75,13 @@
                     </ul>
                     </small>
                 </div>
+                <!-- Google reCAPTCHA container -->
                 <div id="recaptcha" class="g-recaptcha" :data-sitekey="recaptchaSiteKey"></div>
+                <!-- Button to submit registration form -->
                 <button type="submit">S'inscrire</button>
             </form>
             <div>
+                <!-- Button to sign up with Google -->
                 <button @click="loginWithGoogle">S'inscrire avec Google</button>
             </div>
         </div>
@@ -95,6 +113,7 @@ export default {
         };
     },
     methods: {
+        // Method to log in the user
         async login() {
             try {
                 const response = await axios.post('api/login', this.loginForm);
@@ -109,6 +128,7 @@ export default {
                 }
             }
         },
+        // Method to register a new user
         async register() {
             try {
                 const response = await axios.post('api/register', this.registerForm);
@@ -124,6 +144,7 @@ export default {
                 }
             }
         },
+        // Method to log in or register with Google
         async loginWithGoogle() {
             try {
                 const response = await axios.get('/auth/google');
@@ -135,10 +156,12 @@ export default {
                 console.error('Erreur lors de la connexion avec Google :', error);
             }
         },
+        // Method to handle file changes for the profile picture
         onFileChange(event) {
             this.selectedFile = event.target.files[0]
             this.imageSrc = URL.createObjectURL(this.selectedFile)
         },
+        // Method to initialize Google reCAPTCHA
         initRecaptcha() {
             if (window.grecaptcha) {
                 window.grecaptcha.render('recaptcha', {
@@ -151,6 +174,7 @@ export default {
             }
         },
     },
+    // Lifecycle hook to initialize reCAPTCHA when the component is mounted
     mounted() {
         this.initRecaptcha();
     },

@@ -1,7 +1,6 @@
 <template>
     <div class="home">
         <div class="banner">
-            <!-- Remplacez 'banner.jpg' par le nom de votre fichier image -->
             <img src="/images/bibliotheka_icon.png" alt="Logo">
         </div>
         <div class="presentation">
@@ -27,5 +26,4 @@ export default {
 </script>
 
 <style scoped>
-/* Ajoutez ici vos styles pour la page d'accueil */
 </style>

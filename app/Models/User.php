@@ -44,6 +44,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    /**
+     * Retrieve all information (id, name, email, and profile_image) for the given user.
+     *
+     * @param $userId
+     * @return \Illuminate\Support\Collection
+     */
     public static function allInformations($userId)
     {
         return DB::table('users')

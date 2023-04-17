@@ -1,6 +1,6 @@
-<!-- UserInformations.vue -->
 <template>
     <div class="user-informations">
+        <!-- Display user information -->
         <div class="user-info">
             <h2>Vos informations : </h2>
             <img :src="`/${user[0].profile_image}`" alt="Image de profil">
@@ -9,6 +9,7 @@
                 <li>Email : {{ user[0].email }}</li>
             </ul>
         </div>
+        <!-- Form for updating user information -->
         <div class="user-update">
             <h2>Modifier données utilisateur : </h2>
             <form @submit.prevent="updateUser">
@@ -43,12 +44,11 @@ export default {
         };
     },
     methods: {
+        // Update user information
         updateUser() {
             const userId = this.$route.params.id;
-            // Assurez-vous de récupérer le token pour l'authentification
             const token = localStorage.getItem("token");
 
-            // Remplacez `your-api-url` par l'URL de votre API pour la mise à jour de l'utilisateur
             axios
                 .put(`/api/user/${userId}`, {
                     name: this.user.name,
@@ -60,23 +60,18 @@ export default {
                     },
                 })
                 .then((response) => {
-                    // Mettre à jour les informations de l'utilisateur avec les données renvoyées par l'API
                     this.infosUser = response.data;
-
-                    // Afficher un message de réussite
                     this.message = "Vos informations ont été mises à jour avec succès.";
                 })
                 .catch((error) => {
-                    // Gérer les erreurs ici
                     console.error("Erreur lors de la mise à jour des informations de l'utilisateur :", error);
                 });
         },
+        // Delete user account
         deleteUser() {
             const userId = this.$route.params.id;
-            // Assurez-vous de récupérer le token pour l'authentification
             const token = localStorage.getItem("token");
 
-            // Remplacez `your-api-url` par l'URL de votre API pour la suppression de l'utilisateur
             axios
                 .delete(`/api/user/${userId}`, {
                     headers: {
@@ -84,14 +79,10 @@ export default {
                     },
                 })
                 .then(() => {
-                    // Supprimer le token du stockage local et déconnecter l'utilisateur
                     localStorage.removeItem("token");
-
-                    // Rediriger vers la page principale après la suppression de l'utilisateur
                     this.$router.push({ name: "home" });
                 })
                 .catch((error) => {
-                    // Gérer les erreurs ici
                     console.error("Erreur lors de la suppression de l'utilisateur :", error);
                 });
         },

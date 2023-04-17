@@ -24,6 +24,11 @@ class Book extends Model
         'cover_image',
     ];
 
+    /**
+     * Retrieve all books and their related information for the given user.
+     * @param $userId
+     * @return \Illuminate\Support\Collection
+     */
     public static function allBooks($userId)
     {
         return DB::table('books')

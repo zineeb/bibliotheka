@@ -48,7 +48,6 @@ class GoogleAuthController extends Controller
             return view('auth.google_callback', ['token' => $token]);
 
         } catch (\Exception $e) {
-            // Ajoutez ce log
             Log::error('Exception levée lors de handleGoogleCallback: ' . $e->getMessage());
 
             return response()->json([

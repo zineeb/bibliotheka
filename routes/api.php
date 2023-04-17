@@ -33,14 +33,10 @@ Route::middleware('api')->group(function () {
         Route::post('/addcategory', [BooksController::class, 'addCategory'])->name('book.addCategory');
         Route::post('/researchbook', [BooksController::class, 'retrieveBook'])->name('book.addCategory');
         Route::post('/addBook', [BooksController::class, 'addBook'])->name('book.addBook');
+        Route::post('/deletebook', [BooksController::class, 'deleteBook'])->name('book.deleteBook');
+
     });
 });
-
-
-//        Route::post('/addbook', [BooksController::class, 'addBook'])->name('book.addBook');
-//        Route::post('/addreview', [BooksController::class, 'addRewiew'])->name('book.addRewiew');
-//        Route::post('/deletebook', [BooksController::class, 'deleteBook'])->name('book.deleteBook');
-
 
 
 

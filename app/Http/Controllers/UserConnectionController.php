@@ -18,6 +18,12 @@ use Illuminate\Support\Str;
 
 class UserConnectionController extends Controller
 {
+    /**
+     * This function handles user authentication and registration.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function connectRegister(Request $request)
     {
         //Verification of the correct connection of the data by the user
@@ -66,6 +72,12 @@ class UserConnectionController extends Controller
         }
     }
 
+    /**
+     * This function handles the forgot password process for users.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function forgotPassword(Request $request)
     {
         // Verification of the correct connection of the data by the user
@@ -103,14 +115,29 @@ class UserConnectionController extends Controller
         }
     }
 
+    /**
+     * This function displays the reset password form for users.
+     *
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
     public function showResetPasswordForm(Request $request)
     {
+        // Retrieve the token and email from the request input.
         $token = $request->input('token');
         $email = $request->input('email');
+
+        // Return the 'resetPassword' view with the token and email variables.
         return view('resetPassword', ['token' => $token, 'email' => $email]);
     }
 
 
+    /**
+     *  This function handles the password reset process for users.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function resetPassword(Request $request)
     {
         //Verification of the correct connection of the data by the user

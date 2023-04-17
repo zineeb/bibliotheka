@@ -17,19 +17,29 @@ use Illuminate\Support\Facades\Auth;
 
 class BooksController extends Controller
 {
+    /**
+     * This function is used to add a new category to the database.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function addCategory(Request $request)
     {
-        //Research if the category already exists
+        // Search for an existing category with the same name as the one provided in the request.
         $category = Category::where('name', '=', $request['category'])->first(['name']);
 
-        //If it's a new category, creation of this category in the table categories
+        // If the category does not exist, create a new one.
         if ($category == null) {
+            // Get the ID of the currently authenticated user.
             $user_id = Auth::id();
+
+            // Create a new category with the provided name and associate it with the current user.
             Category::create([
                 'name' => $request['category'],
                 'user_id' => $user_id,
             ]);
 
+            // Return a JSON response indicating the category has been created successfully.
             return response()->json([
                 'okay' => 'La category a été créé.',
             ], 200);
@@ -43,30 +53,35 @@ class BooksController extends Controller
 
     }
 
+    /**
+     * This function is used to retrieve book information using the Google Books API.
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function retrieveBook(Request $request)
     {
+        // Validate the request data.
         $validateData = Validator::make($request->all(), [
             'title' => 'required|string',
             'author' => 'required|string',
             'isbn' => 'nullable|string',
         ]);
 
+        // If validation fails, return a JSON response with errors.
         if ($validateData->fails()) {
             return response()->json([
                 'errors' => $validateData->errors()
             ], 422);
         } else {
-            //Creation of the url for the call of the Google Books Api according to the existence of the isbn in the user's request
+            // Build the API request URL based on ISBN or title and author.
             if ($request['isbn'] != null) {
                 $request_uri = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' . $request['isbn'];
             } else {
                 $request_uri = 'https://www.googleapis.com/books/v1/volumes?q=' . $request['title'] . '+inauthor:' . $request['author'];
             }
 
-            Log::info(print_r('request_api : ' . $request_uri, true));
-
             try {
-                //Use Guzzle to send the http request
+                // Create a new Guzzle client with the appropriate SSL settings.
                 $client = new Client([
                     'verify' => storage_path('app/cacert.pem'),
                     'curl' => [
@@ -74,18 +89,21 @@ class BooksController extends Controller
                         CURLOPT_SSL_CIPHER_LIST => 'AES256-SHA256',
                     ],
                 ]);
+
+                // Make the API request and get the response.
                 $response = $client->get($request_uri);
                 $statContent = $response->getBody()->getContents();
 
-                //Retrieving data from the response to the request
+                // Decode the JSON response.
                 $data = json_decode($statContent, true);
 
-                //If the Google Books API does not return anything, you will be returned to the add book page with an error message
+                // Check if the book was found.
                 if (!isset($data['items'][0])) {
                     return response()->json([
                         'errors' => 'Le livre recherché n\'a pas été trouvé'
                     ], 422);
                 } else {
+                    // Extract book information from the response.
                     $bookData = $data['items'][0]['volumeInfo'];
                     $google_books_id = $data['items'][0]['id'];
                     $title = isset($bookData['title']) ? $bookData['title'] : "";
@@ -98,8 +116,7 @@ class BooksController extends Controller
                     $isbn = isset($bookData['industryIdentifiers'][0]['identifier']) ? $bookData['industryIdentifiers'][0]['identifier'] : "";
                     $cover_image = isset($bookData['imageLinks']['thumbnail']) ? $bookData['imageLinks']['thumbnail'] : "";
 
-                    Log::info('cover image : ' . print_r($cover_image, true));
-
+                    // Prepare the book data for the JSON response.
                     $book = [
                         'google_books_id' => $google_books_id,
                         'title' => $title,
@@ -113,6 +130,7 @@ class BooksController extends Controller
                         'coverimage' => $cover_image,
                     ];
 
+                    // Retrieve the latest 3 reviews for the book from the database.
                     $reviews = DB::table('reviews')
                         ->select('review', 'rating')
                         ->where('google_books_id', $google_books_id)
@@ -120,9 +138,11 @@ class BooksController extends Controller
                         ->limit(3)
                         ->pluck('rating', 'reviews');
 
+                    // Separate review and rating arrays.
                     $review = $reviews->keys();
                     $rating = $reviews->values();
 
+                    // Return a JSON response with the book and review information.
                     return response()->json([
                         'status' => 'success',
                         'book' => $book,
@@ -131,6 +151,7 @@ class BooksController extends Controller
                     ]);
                 }
             } catch (GuzzleException $e) {
+                // Log the exception and return an error response.
                 Log::error($e->getMessage());
                 return response()->json([
                     'errors' => 'Une erreur s\'est produite'
@@ -141,8 +162,15 @@ class BooksController extends Controller
 
     }
 
+    /**
+     * This function is used to add a book to the user's book collection.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\JsonResponse
+     */
     public function addBook(Request $request)
     {
+        // Retrieve the required book information and user-related data from the request.
         $google_books_id = $request->input('google_books_id');
         $title = $request->input('title');
         $description = $request->input('description');
@@ -159,11 +187,11 @@ class BooksController extends Controller
         $rating = $request->input('rating');
         $review = $request->input('review');
 
-        Log::info('reading status : ' . print_r($readingStatus));
-
+        // Check if the book with the provided Google Books ID already exists in the database.
         $book = Book::where('google_books_id', '=', $google_books_id)->first(['google_books_id']);
 
-        if(!isset($book)){
+        // If the book does not exist, create a new entry for it.
+        if (!isset($book)) {
             Book::create([
                 'google_books_id' => $google_books_id,
                 'title' => $title,
@@ -178,7 +206,10 @@ class BooksController extends Controller
             ]);
         }
 
+        // Check if the category already exists for the current user.
         $categ = Category::where('name', '=', $category)->where('user_id', '=', $user_id)->first(['id']);
+
+        // If the category does not exist, create a new entry for it and associate it with the book.
         if ($categ == null) {
             Category::create([
                 'name' => $category,
@@ -192,23 +223,30 @@ class BooksController extends Controller
                 'category_id' => $lastId
             ]);
         } else {
+            // If the category exists, associate it with the book.
             BookCategory::create([
                 'google_books_id' => $google_books_id,
                 'category_id' => $categ->id
             ]);
         }
 
-
-        //Depending on the reading status of the book, the actual number of pages will change
+        // Set the current page number based on the reading status.
         if ($readingStatus == 'read') {
             $page = $page_count;
+            // Create a new entry for the review and rating.
+            Review::create([
+                'review' => $review,
+                'rating' => $rating,
+                'user_id' => $user_id,
+                'google_books_id' => $google_books_id
+            ]);
         } elseif ($readingStatus == 'to_read') {
             $page = 0;
         } else {
             $page = $request->input('current_page');
         }
 
-//        //Insert into status table
+        // Create a new entry for the reading status and the current page number.
         Status::create([
             'google_books_id' => $google_books_id,
             'user_id' => $user_id,
@@ -216,56 +254,41 @@ class BooksController extends Controller
             'page' => $page,
         ]);
 
-        Review::create([
-            'review' => $review,
-            'rating' => $rating,
-            'user_id' => $user_id,
-            'google_books_id' => $google_books_id
-        ]);
-
-        //Return the review, rating and the book selected
+        // Return a JSON response indicating success.
         return response()->json([
             'status' => 'success',
         ]);
 
-}
-    public function deleteBook(Request $request)
-{
-    $google_books_id = $request->input('google_books_id');
-
-    DB::beginTransaction();
-
-    try {
-        // Delete entries in book_categories table
-        BookCategory::where('google_books_id', $google_books_id)->delete();
-
-        // Delete entries in reviews table
-        Review::where('google_books_id', $google_books_id)->delete();
-
-        // Delete entries in status table
-        Status::where('google_books_id', $google_books_id)->delete();
-
-        // Delete entry in books table
-        $book = Book::findOrFail($google_books_id);
-        $book->delete();
-
-        DB::commit();
-
-        return response()->json(['message' => 'Le livre a été supprimé avec succès.']);
-    } catch (\Exception $e) {
-        DB::rollback();
-        Log::error($e->getMessage());
-        return response()->json(['message' => 'Une erreur s\'est produite lors de la suppression du livre. Veuillez réessayer.']);
     }
-}
+
+    public function deleteBook(Request $request)
+    {
+        $google_books_id = $request->input('google_books_id');
+
+        DB::beginTransaction();
+
+        try {
+            // Delete entries in book_categories table
+            BookCategory::where('google_books_id', $google_books_id)->delete();
+
+            // Delete entries in reviews table
+            Review::where('google_books_id', $google_books_id)->delete();
+
+            // Delete entries in status table
+            Status::where('google_books_id', $google_books_id)->delete();
+
+            // Delete entry in books table
+            $book = Book::findOrFail($google_books_id);
+            $book->delete();
+
+            DB::commit();
+
+            return response()->json(['message' => 'Le livre a été supprimé avec succès.']);
+        } catch (\Exception $e) {
+            DB::rollback();
+            Log::error($e->getMessage());
+            return response()->json(['message' => 'Une erreur s\'est produite lors de la suppression du livre. Veuillez réessayer.']);
+        }
+    }
 
 }
-
-
-//if ($readingStatus == 'read') {
-//    $page = $page_count;
-//} elseif ($readingStatus == 'to_read') {
-//    $page = 0;
-//} else {
-//    //$page = $request['current_page'];
-//}
