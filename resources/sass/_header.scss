@@ -1,7 +1,7 @@
 // HEADER / NAV
 .header-container {
     width: 100vw;
-    height: 10vh;
+    height: 16vh;
     background-color: $light-brown;
     @include flex(row, space-between, center);
 
@@ -10,8 +10,8 @@
         @include flex(row, center, center);
 
         img {
-            width: 84px;
-            height: 84px;
+            width: 6.5em; //104px
+            height: 6.5em;
             border-radius: 100%;
             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         }
@@ -24,7 +24,7 @@
         @include flex(row, center, center);
 
         a {
-            background-color: $dark-brown;
+            background-color: $brown;
             color: $light-brown;
             font-family: $nunito;
             width: 14em;
