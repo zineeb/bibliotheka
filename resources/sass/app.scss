@@ -4,5 +4,49 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+.header-container {
+    width: 100vw;
+    height: 10vh;
+    background-color: var(--light-brown);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .logo {
+        /* background-color: lightblue; */
+        width: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 84px;
+            height: 84px;
+            border-radius: 100%;
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+    }
+
+    nav {
+        /* background-color: lightblue; */
+        width: 30%;
+        height: 100%;
+    
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a {
+            background-color: var(--dark-brown);
+            color: var(--light-brown);
+            font-family: 'Nunito', sans-serif;
+            width: 14em;
+            height: 2em;
+            border-radius: 20px;
+        
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
