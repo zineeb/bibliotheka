@@ -1,0 +1,37 @@
+footer {
+    width: 100vw;
+    height: 18vh;
+    background-color: $dark-brown;
+    @include flex-justify(center);
+
+    .footer-container {
+        width: 98%;
+        height: 100%;
+        @include flex(row, space-between, center);
+    
+        .text-footer {
+            color: $light-brown;
+            font-size: 1.2em;
+            font-family: $playfair;
+            font-style: italic;
+            
+            height: 80%;
+            width: 40%;
+            @include flex-align(center);
+        }
+        
+        .footer-socialmedia {
+            height: 100%;
+            width: 20%;
+
+            @include flex(row, center, center);
+            gap: .4em;
+
+            a {
+                color: $light-brown;
+                font-size: 1.2em;
+
+            }
+        }
+    }
+}

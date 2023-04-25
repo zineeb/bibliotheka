@@ -1,16 +1,69 @@
 @import url(https://fonts.bunny.net/css?family=Nunito);
+@import url(https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  text-decoration: none;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
 .header-container {
   width: 100vw;
   height: 10vh;
-  background-color: var(--light-brown);
+  background-color: #F5E5D7;
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 .header-container .logo {
-  /* background-color: lightblue; */
   width: 10%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
@@ -21,21 +74,61 @@
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .header-container nav {
-  /* background-color: lightblue; */
   width: 30%;
   height: 100%;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 .header-container nav a {
-  background-color: var(--dark-brown);
-  color: var(--light-brown);
+  background-color: #402B1B;
+  color: #F5E5D7;
   font-family: "Nunito", sans-serif;
   width: 14em;
   height: 2em;
   border-radius: 20px;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+footer {
+  width: 100vw;
+  height: 18vh;
+  background-color: #402B1B;
+  display: flex;
+  justify-content: center;
+}
+footer .footer-container {
+  width: 98%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+footer .footer-container .text-footer {
+  color: #F5E5D7;
+  font-size: 1.2em;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+  height: 80%;
+  width: 40%;
+  display: flex;
+  align-items: center;
+}
+footer .footer-container .footer-socialmedia {
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4em;
+}
+footer .footer-container .footer-socialmedia a {
+  color: #F5E5D7;
+  font-size: 1.2em;
 }

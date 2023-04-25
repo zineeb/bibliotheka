@@ -1,9 +1,14 @@
 <template>
     <footer>
         <div className="footer-container">
-            <a href="https://facebook.com" target="_blank">Facebook</a><br>
-            <a href="https://twitter.com" target="_blank">Twitter</a><br>
-            <a href="https://instagram.com" target="_blank">Instagram</a><br>
+            <div class="text-footer">
+                <p>Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+            </div>
+            <div class="footer-socialmedia">
+                <a href="https://facebook.com" target="_blank">Facebook</a>
+                <a href="https://twitter.com" target="_blank">Twitter</a>
+                <a href="https://instagram.com" target="_blank">Instagram</a>
+            </div>
         </div>
     </footer>
 </template>

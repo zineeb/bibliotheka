@@ -1,0 +1,21 @@
+@mixin flex($dir: row, $just: center, $align: center) {
+    display: flex;
+    flex-direction: $dir;
+    justify-content: $just;
+    align-items: $align;
+}
+// Tu as juste à mettre @include flex(row, center, center); 
+// dans le scss.
+// Exemple tu veux mettre en column, le justify-content en 
+// flex start et l'align-items en flex-end :
+// ça fera @include flex(column, flex-start, flex-end);
+
+@mixin flex-align($align: center){
+    display: flex;
+    align-items: $align;
+}
+
+@mixin flex-justify($just: center){
+    display:flex;
+    justify-content: $just;
+}
