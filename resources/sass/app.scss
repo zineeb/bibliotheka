@@ -1,8 +1,15 @@
 // Fonts
 @import url('https://fonts.bunny.net/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
 
-// Variables
+// Reset
+@import 'reset';
+
+// Variables & Mixins
 @import 'variables';
+@import 'mixins';
 
-// Bootstrap
-@import 'bootstrap/scss/bootstrap';
+// Components
+@import 'header';
+@import 'home';
+@import 'footer';
