@@ -1,14 +1,45 @@
-// resources/js/app.js
-import { createApp } from 'vue';
+import { createApp, ref, provide, onMounted } from 'vue';
+import router from './router';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
-import router from './router';
 
-const app = createApp({});
+const app = createApp({
+    setup() {
+        const userLoggedIn = ref(false);
+        provide('userLoggedIn', userLoggedIn);
+
+        onMounted(() => {
+            app._context.app._container.addEventListener('user-logged-in', () => {
+                userLoggedIn.value = true;
+            });
+        });
+
+        return { userLoggedIn };
+    }
+});
 
 app.component('app-header', AppHeader);
 app.component('app-footer', AppFooter);
 
-app.use(router);
+// Check if the URL contains a token and a redirectTo parameter
+const urlParams = new URLSearchParams(window.location.search);
+const token = urlParams.get('token');
+const redirectTo = urlParams.get('redirectTo');
 
-app.mount('#app');
+// Save the token in localStorage if it exists
+if (token) {
+    localStorage.setItem('token', token);
+    // Remove the token and redirectTo parameter from the URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+
+    // Redirect to the specified page if the redirectTo parameter exists
+    if (redirectTo) {
+        router.replace({ path: `/${redirectTo}` }).then(() => {
+            app.use(router).mount('#app');
+        });
+    } else {
+        app.use(router).mount('#app');
+    }
+} else {
+    app.use(router).mount('#app');
+}

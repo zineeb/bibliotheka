@@ -44,8 +44,8 @@ class GoogleAuthController extends Controller
             Auth::login($user);
             $token = $user->createToken('authToken')->plainTextToken;
 
-            // Return a view with a script that sends a message to the parent window
-            return view('auth.google_callback', ['token' => $token]);
+            // Redirect the user to the Vue.js app with the token and redirectTo parameter in the URL
+            return redirect()->away(env('VUE_APP_URL') . '?token=' . $token . '&redirectTo=dashboard');
 
         } catch (\Exception $e) {
             Log::error('Exception levée lors de handleGoogleCallback: ' . $e->getMessage());
