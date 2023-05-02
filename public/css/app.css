@@ -663,6 +663,22 @@ table {
   margin-bottom: 1em;
 }
 
+@media screen and (max-width: 768px) {
+  .forgot-password .container-forgot form div #login-email {
+    width: 30em;
+  }
+}
+@media screen and (max-width: 425px) {
+  .forgot-password .container-forgot {
+    width: 80%;
+  }
+  .forgot-password .container-forgot h2 {
+    font-size: 2.2em;
+  }
+  .forgot-password .container-forgot form div #login-email {
+    width: 22em;
+  }
+}
 .reset-password {
   width: 100vw;
   height: 66vh;
@@ -725,6 +741,34 @@ table {
   margin-bottom: 1em;
 }
 
+@media screen and (max-width: 1024px) {
+  .reset-password .container h1 {
+    font-size: 2.5em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .reset-password .container {
+    width: 80%;
+  }
+  .reset-password .container h1 {
+    font-size: 2.2em;
+  }
+}
+@media screen and (max-width: 425px) {
+  .reset-password .container {
+    width: 80%;
+  }
+  .reset-password .container h1 {
+    font-size: 2.2em;
+    text-align: center;
+  }
+  .reset-password .container form div #password {
+    width: 22em;
+  }
+  .reset-password .container form div:nth-child(4) label {
+    text-align: center;
+  }
+}
 footer {
   width: 100vw;
   height: 18vh;
