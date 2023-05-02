@@ -1,0 +1,230 @@
+.login-and-register {
+    width: 100vw;
+    height: 80vh;
+
+    @include flex(row, center, center);
+    
+    .container-login {
+        width: 80%;
+        height: 92%;
+        
+        border-radius: 7px;
+        background-color: $brown;
+        @include flex(row, center, center);
+
+        .login-section {
+            width: 50%;
+            height: 100%;
+            
+            @include flex(column, center, center);
+
+            h2 {
+                @include font-family($light-brown, 3em, $playfair, italic);
+            }
+
+            form {
+                width: 80%;
+                height: 80%;
+                
+                margin-top: 2em;
+                @include flex(column, center, center);
+                
+                > div:first-child {
+
+                    height: 6em;
+                    label:first-child {
+                        @include font-family($light-brown, 1.6em, $playfair, regular);
+
+                    }
+                    #login-email {
+                        height: 3em;
+                        width: 40em;
+
+                        border: none;
+                        border-radius: 5px;
+
+                        margin-top: .5em;
+                    }
+                }
+
+                > div:nth-child(2) {
+                    height: 6em;
+                    label:first-child {
+                        @include font-family($light-brown, 1.6em, $playfair, regular);
+
+                        
+                    }
+                    #login-password {
+                        height: 3em;
+                        width: 40em;
+                        border: none;
+                        border-radius: 5px;
+                        margin-top: .5em;
+
+                    }
+                }
+
+                > button:nth-child(3) {
+                    border: 0;
+                    background-color: $light-brown;
+                    width: 10em;
+                    height: 3em;
+                    border-radius: 5px;
+                    margin-bottom: 1em;
+                }
+
+                > div:nth-child(4) {
+                    color: $body-bg;
+                    margin-bottom: 1em;
+                }
+
+                > div:last-child {
+                    button {
+                        border: 1px solid grey;
+                        background-color: #fff;
+                        width: 14em;
+                        height: 3em;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+
+        #line-vertical {
+            height: 80%;
+            width: .2%;
+            background-color: $dark-brown;
+            border-radius: 2px;
+        }
+
+        .register-section {
+            width: 50%;
+            height: 90%;
+            margin-left: 2em;
+
+            @include flex(column, center, center);
+            h2 {
+                @include font-family($light-brown, 3em, $playfair, italic);
+            }
+
+            form {
+                width: 80%;
+                height: 100%;
+                
+                // margin-top: 2em;
+                @include flex(column, center, center);
+
+                > div:first-child {
+                    width: 100%;
+                    height: auto;
+                    @include flex(row, flex-start, center);
+                    margin-left: 1em;
+                    > div:first-child {
+                        width: 20%;
+                    }
+
+                    > div:last-child {
+                        label {
+                            @include font-family($light-brown, 1.2em, $playfair, regular);
+                        }
+
+                        input {
+                            margin-left: 1em;
+                            border: none;
+                            background-color: $light-brown;
+                            border-radius: 5px;
+                        }
+                    }
+                }
+
+                > div:nth-child(2) {
+                    @include flex(column, center, flex-start);
+
+                    height: 6em;
+                    label:first-child {
+                        @include font-family($light-brown, 1.6em, $playfair, regular);
+
+                        
+                    }
+                    #username {
+                        height: 3em;
+                        width: 40em;
+                        border: none;
+                        border-radius: 5px;
+                        margin-top: .5em;
+
+                    }
+                    small{
+                        @include font-family($light-brown, .8em, $playfair, regular);
+                    }
+                }
+
+                > div:nth-child(3) {
+                    @include flex(column, center, flex-start);
+
+                    height: 6em;
+                    label:first-child {
+                        @include font-family($light-brown, 1.6em, $playfair, regular);
+
+                        
+                    }
+                    #email {
+                        height: 3em;
+                        width: 40em;
+                        border: none;
+                        border-radius: 5px;
+                        margin-top: .5em;
+
+                    }
+                    small{
+                        @include font-family($light-brown, .8em, $playfair, regular);
+                    }
+                }
+
+                > div:nth-child(4) {
+                    @include flex(column, center, flex-start);
+
+                    height: 10em;
+                    label:first-child {
+                        @include font-family($light-brown, 1.6em, $playfair, regular);
+
+                        
+                    }
+                    #password {
+                        height: 3em;
+                        width: 40em;
+                        border: none;
+                        border-radius: 5px;
+                        margin-top: .5em;
+
+                    }
+                    small{
+                        @include font-family($light-brown, .8em, $playfair, regular);
+                    }
+                }
+
+                #recaptcha {
+                    margin-bottom: .4em;
+                }
+                > button:last-child {
+                    border: 0;
+                    background-color: $light-brown;
+                    width: 9em;
+                    height: 2.5em;
+                    border-radius: 5px;
+                    margin-bottom: 1em;
+                }
+            }
+
+            div:last-child {
+                button {
+                    border: 1px solid grey;
+                    background-color: #fff;
+                    width: 13em;
+                    height: 2.5em;
+                    border-radius: 5px;
+                }
+            }
+        }
+    }
+}

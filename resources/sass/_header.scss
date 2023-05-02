@@ -3,6 +3,7 @@
     width: 100vw;
     height: 16vh;
     background-color: $light-brown;
+    border-bottom: 1px solid $brown; 
     @include flex(row, space-between, center);
 
     .logo {

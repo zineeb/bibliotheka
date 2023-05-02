@@ -55,6 +55,7 @@ table {
   width: 100vw;
   height: 16vh;
   background-color: #F5E5D7;
+  border-bottom: 1px solid #AF8F7C;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -92,6 +93,248 @@ table {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+
+.login-and-register {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.login-and-register .container-login {
+  width: 80%;
+  height: 92%;
+  border-radius: 7px;
+  background-color: #AF8F7C;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.login-and-register .container-login .login-section {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-and-register .container-login .login-section h2 {
+  color: #F5E5D7;
+  font-size: 3em;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+.login-and-register .container-login .login-section form {
+  width: 80%;
+  height: 80%;
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-and-register .container-login .login-section form > div:first-child {
+  height: 6em;
+}
+.login-and-register .container-login .login-section form > div:first-child label:first-child {
+  color: #F5E5D7;
+  font-size: 1.6em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.login-and-register .container-login .login-section form > div:first-child #login-email {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+}
+.login-and-register .container-login .login-section form > div:nth-child(2) {
+  height: 6em;
+}
+.login-and-register .container-login .login-section form > div:nth-child(2) label:first-child {
+  color: #F5E5D7;
+  font-size: 1.6em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.login-and-register .container-login .login-section form > div:nth-child(2) #login-password {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+}
+.login-and-register .container-login .login-section form > button:nth-child(3) {
+  border: 0;
+  background-color: #F5E5D7;
+  width: 10em;
+  height: 3em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+.login-and-register .container-login .login-section form > div:nth-child(4) {
+  color: #EBE7E5;
+  margin-bottom: 1em;
+}
+.login-and-register .container-login .login-section form > div:last-child button {
+  border: 1px solid grey;
+  background-color: #fff;
+  width: 14em;
+  height: 3em;
+  border-radius: 5px;
+}
+.login-and-register .container-login #line-vertical {
+  height: 80%;
+  width: 0.2%;
+  background-color: #402B1B;
+  border-radius: 2px;
+}
+.login-and-register .container-login .register-section {
+  width: 50%;
+  height: 90%;
+  margin-left: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-and-register .container-login .register-section h2 {
+  color: #F5E5D7;
+  font-size: 3em;
+  font-family: "Playfair Display", serif;
+  font-style: italic;
+}
+.login-and-register .container-login .register-section form {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.login-and-register .container-login .register-section form > div:first-child {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left: 1em;
+}
+.login-and-register .container-login .register-section form > div:first-child > div:first-child {
+  width: 20%;
+}
+.login-and-register .container-login .register-section form > div:first-child > div:last-child label {
+  color: #F5E5D7;
+  font-size: 1.2em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.login-and-register .container-login .register-section form > div:first-child > div:last-child input {
+  margin-left: 1em;
+  border: none;
+  background-color: #F5E5D7;
+  border-radius: 5px;
+}
+.login-and-register .container-login .register-section form > div:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 6em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(2) label:first-child {
+  color: #F5E5D7;
+  font-size: 1.6em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.login-and-register .container-login .register-section form > div:nth-child(2) #username {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(2) small {
+  color: #F5E5D7;
+  font-size: 0.8em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.login-and-register .container-login .register-section form > div:nth-child(3) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 6em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(3) label:first-child {
+  color: #F5E5D7;
+  font-size: 1.6em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.login-and-register .container-login .register-section form > div:nth-child(3) #email {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(3) small {
+  color: #F5E5D7;
+  font-size: 0.8em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.login-and-register .container-login .register-section form > div:nth-child(4) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  height: 10em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(4) label:first-child {
+  color: #F5E5D7;
+  font-size: 1.6em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.login-and-register .container-login .register-section form > div:nth-child(4) #password {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(4) small {
+  color: #F5E5D7;
+  font-size: 0.8em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.login-and-register .container-login .register-section form #recaptcha {
+  margin-bottom: 0.4em;
+}
+.login-and-register .container-login .register-section form > button:last-child {
+  border: 0;
+  background-color: #F5E5D7;
+  width: 9em;
+  height: 2.5em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+.login-and-register .container-login .register-section div:last-child button {
+  border: 1px solid grey;
+  background-color: #fff;
+  width: 13em;
+  height: 2.5em;
+  border-radius: 5px;
 }
 
 .home {
@@ -189,4 +432,8 @@ footer .footer-container .footer-socialmedia {
 footer .footer-container .footer-socialmedia a {
   color: #F5E5D7;
   font-size: 1.2em;
+}
+
+body {
+  background-color: #EBE7E5;
 }

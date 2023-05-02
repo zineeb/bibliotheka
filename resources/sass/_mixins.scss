@@ -19,3 +19,10 @@
     display:flex;
     justify-content: $just;
 }
+
+@mixin font-family($color: $light-brown, $f-size: 1.2em, $f-family: $playfair, $f-style: italic) {
+    color: $color;
+    font-size: $f-size;
+    font-family: $f-family;
+    font-style: $f-style;
+}

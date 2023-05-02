@@ -11,5 +11,10 @@
 
 // Components
 @import 'header';
+@import 'signinup';
 @import 'home';
 @import 'footer';
+
+body {
+    background-color: $body-bg;
+}
