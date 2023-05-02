@@ -21552,11 +21552,9 @@ var routes = [{
   path: '/dashboard',
   component: _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
   meta: {
-    requiresAuth: false
+    requiresAuth: true
   }
-},
-// J'ai mis false le temps que je dev le front
-{
+}, {
   path: '/user-informations/:id',
   component: _components_UserInformations_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
 }];
