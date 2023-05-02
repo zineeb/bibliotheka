@@ -1,21 +1,23 @@
 <template>
     <!-- Main container for the forgot-password component -->
     <div class="forgot-password">
-        <!-- Title for the forgot-password form -->
-        <h2>Mot de passe oublié</h2>
-        <!-- Form to submit email address to request a password reset link -->
-        <form @submit.prevent="sendResetLink">
-            <div>
-                <!-- Label for the email input field -->
-                <label for="login-email">Email :</label>
-                <!-- Input field for the user's email address, bound to the forgotPassword.email data property -->
-                <input type="email" id="login-email" v-model="forgotPassword.email" required>
-            </div>
-            <!-- Submit button to send the password reset link -->
-            <button type="submit">Envoyer le lien de réinitialisation</button>
-        </form>
-        <!-- Display the message if there is any response or error from the server -->
-        <div v-if="message">{{ message }}</div>
+        <div class="container-forgot">
+            <!-- Title for the forgot-password form -->
+            <h2>Mot de passe oublié</h2>
+            <!-- Form to submit email address to request a password reset link -->
+            <form @submit.prevent="sendResetLink">
+                <div>
+                    <!-- Label for the email input field -->
+                    <label for="login-email">Email :</label>
+                    <!-- Input field for the user's email address, bound to the forgotPassword.email data property -->
+                    <input type="email" id="login-email" v-model="forgotPassword.email" required>
+                </div>
+                <!-- Submit button to send the password reset link -->
+                <button type="submit">Envoyer le lien de réinitialisation</button>
+            </form>
+            <!-- Display the message if there is any response or error from the server -->
+            <div v-if="message">{{ message }}</div>
+        </div>
     </div>
 </template>
 

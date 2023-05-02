@@ -395,6 +395,74 @@ table {
   margin-top: 3.6em;
 }
 
+.dashboard {
+  width: 100vw;
+  height: 100vh;
+  background-color: lightblue;
+}
+
+.forgot-password {
+  width: 100vw;
+  height: 66vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.forgot-password .container-forgot {
+  width: 60%;
+  height: 80%;
+  background-color: #AF8F7C;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.forgot-password .container-forgot h2 {
+  color: #F5E5D7;
+  font-size: 3em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.forgot-password .container-forgot form {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.forgot-password .container-forgot form div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.2em;
+}
+.forgot-password .container-forgot form div label:first-child {
+  color: #F5E5D7;
+  font-size: 1.6em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.forgot-password .container-forgot form div #login-email {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.forgot-password .container-forgot form button {
+  border: 0;
+  background-color: #F5E5D7;
+  width: 18em;
+  height: 2.5em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
 footer {
   width: 100vw;
   height: 18vh;

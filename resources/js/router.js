@@ -12,7 +12,8 @@ const routes = [
     { path: '/loginAndRegister', component: LoginAndRegister },
     { path: '/forgot-password', component: ForgotPassword },
     { path: '/reset_password', component: ResetPassword },
-    { path: '/dashboard', component: Dashboard, meta: { requiresAuth: true } },
+    { path: '/dashboard', component: Dashboard, meta: { requiresAuth: false } },
+    // J'ai mis false le temps que je dev le front
     { path: '/user-informations/:id', component: UserInformations }
 ];
 
