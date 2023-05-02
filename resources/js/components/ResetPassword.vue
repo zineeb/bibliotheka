@@ -1,19 +1,25 @@
 <template>
-    Récupérer le token pour l'authentification
-    <div class="container">
-        <!-- Form for resetting the password -->
-        <h1>Réinitialisation du mot de passe</h1>
-        <form @submit.prevent="submitForm">
-            <input type="hidden" name="token" v-model="token">
-            <input type="hidden" name="email" v-model="email">
-            <!-- New password input -->
-            <div>
-                <label for="password">Nouveau mot de passe:</label>
-                <input type="password" id="password" name="password" v-model="password">
-            </div>
-            <!-- Submit button for the form -->
-            <button type="submit">Modifier le mot de passe</button>
-        </form>
+    <div class="reset-password">
+            <!--Récupérer le token pour l'authentification-->
+        <div class="container">
+            <!-- Form for resetting the password -->
+            <h1>Réinitialisation du mot de passe</h1>
+            <form @submit.prevent="submitForm">
+                <input type="hidden" name="token" v-model="token">
+                <input type="hidden" name="email" v-model="email">
+                <!-- New password input -->
+                <div>
+                    <label for="password">Nouveau mot de passe:</label>
+                    <input type="password" id="password" name="password" v-model="password">
+                </div>
+                <div>
+                    <label for="password">Confirmation du nouveau mot de passe:</label>
+                    <input type="password" id="password" name="password" v-model="password">
+                </div>
+                <!-- Submit button for the form -->
+                <button type="submit">Modifier le mot de passe</button>
+            </form>
+        </div>
     </div>
 </template>
 <script>
