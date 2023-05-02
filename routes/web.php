@@ -16,14 +16,16 @@ use App\Http\Controllers\GoogleAuthController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('app');
 });
+
+Route::fallback(function () {
+    return view('app');
+});
+
 
 Route::middleware(['web'])->group(function () {
     Route::get('/auth/google', [GoogleAuthController::class, 'redirectToGoogle'])->name('auth.google');
     Route::get('/auth/callback/google', [GoogleAuthController::class, 'handleGoogleCallback']);
 });
 
-Route::get('/loginAndRegister', function () {return view('loginAndRegister');});
-Route::get('/forgot-password', function () { return view('forgotPassword');});
-Route::get('/reset_password', [UserConnectionController::class, 'showResetPasswordForm'])->name('user.reset_password');

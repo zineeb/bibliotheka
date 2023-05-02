@@ -279,6 +279,7 @@ export default {
                 .then(response => {
                     if (response.data.status === 'success') {
                         this.showModalBookInfo = false;
+                        this.refreshDashboardData();
                     } else {
                         // Handle errors, for example display an error message
                     }
@@ -287,24 +288,42 @@ export default {
                     console.error("Erreur lors de la mise à jour des informations de l'utilisateur :", error);
                 });
         },
+        refreshDashboardData() {
+            const token = localStorage.getItem("token");
+            axios
+                .get("api/dashboard_data", {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                })
+                .then((response) => {
+                    console.log(response.data);
+                    this.infosUser = response.data.infos_user;
+                    this.booksUser = response.data.books_user;
+                })
+                .catch((error) => {
+                    console.error("Erreur lors de la récupération des données du tableau de bord :", error);
+                });
+        },
     },
 
     created() {
-        const token = localStorage.getItem("token");
-        axios
-            .get("api/dashboard_data", {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-            .then((response) => {
-                console.log(response.data);
-                this.infosUser = response.data.infos_user;
-                this.booksUser = response.data.books_user;
-            })
-            .catch((error) => {
-                console.error("Erreur lors de la récupération des données du tableau de bord :", error);
-            });
+        this.refreshDashboardData();
+        // const token = localStorage.getItem("token");
+        // axios
+        //     .get("api/dashboard_data", {
+        //         headers: {
+        //             Authorization: `Bearer ${token}`,
+        //         },
+        //     })
+        //     .then((response) => {
+        //         console.log(response.data);
+        //         this.infosUser = response.data.infos_user;
+        //         this.booksUser = response.data.books_user;
+        //     })
+        //     .catch((error) => {
+        //         console.error("Erreur lors de la récupération des données du tableau de bord :", error);
+        //     });
     },
 };
 </script>

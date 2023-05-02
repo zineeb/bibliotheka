@@ -117,6 +117,7 @@ export default {
     },
     methods: {
         // Method to log in the user
+        // Method to log in the user
         async login() {
             try {
                 const response = await axios.post('api/login', this.loginForm);
@@ -124,6 +125,7 @@ export default {
                 if (response.data.status === 'success') {
                     localStorage.setItem('token', response.data.token);
                     this.$router.push('/dashboard');
+                    this.$emit('user-logged-in'); // Emit a custom event when the user is logged in successfully
                 }
             } catch (error) {
                 if (error.response && error.response.status === 422) {
@@ -149,16 +151,11 @@ export default {
         },
         // Method to log in or register with Google
         async loginWithGoogle() {
-            try {
-                const response = await axios.get('/auth/google');
-                if (response.data.status === 'success') {
-                    localStorage.setItem('token', response.data.token);
-                    this.$router.push('/dashboard');
-                }
-            } catch (error) {
-                console.error('Erreur lors de la connexion avec Google :', error);
-            }
-        },
+            // Remplacez cette URL par l'URL de redirection vers Google de votre application backend
+            const googleAuthUrl = 'http://localhost:8000/auth/google';
+            window.location.href = googleAuthUrl;
+        }
+        ,
         // Method to handle file changes for the profile picture
         onFileChange(event) {
             this.selectedFile = event.target.files[0]

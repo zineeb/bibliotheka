@@ -1,4 +1,3 @@
-// resources/js/router.js
 import { createRouter, createWebHistory } from 'vue-router';
 import Home from './components/Home.vue';
 import LoginAndRegister from './components/LoginAndRegister.vue';
@@ -14,7 +13,7 @@ const routes = [
     { path: '/forgot-password', component: ForgotPassword },
     { path: '/reset_password', component: ResetPassword },
     { path: '/dashboard', component: Dashboard, meta: { requiresAuth: true } },
-    {path: '/user-informations/:id', component: UserInformations}
+    { path: '/user-informations/:id', component: UserInformations }
 ];
 
 const router = createRouter({
@@ -23,7 +22,8 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-    if (to.meta.requiresAuth) {
+    console.log('Route:', to);
+    if (to.matched.some(record => record.meta.requiresAuth)) {
         const token = localStorage.getItem('token');
         if (token) {
             next();
