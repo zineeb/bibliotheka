@@ -95,6 +95,27 @@ table {
   align-items: center;
 }
 
+@media screen and (max-width: 1024px) {
+  .header-container .logo > img {
+    margin-left: 2em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header-container .logo > img {
+    margin-left: 4em;
+  }
+  .header-container nav {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .header-container .logo > img {
+    margin-left: 5em;
+  }
+  .header-container nav {
+    width: 60%;
+  }
+}
 .login-and-register {
   width: 100vw;
   height: 80vh;
@@ -231,6 +252,13 @@ table {
 .login-and-register .container-login .register-section form > div:first-child > div:first-child {
   width: 20%;
 }
+.login-and-register .container-login .register-section form > div:first-child > div:last-child {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2em;
+}
 .login-and-register .container-login .register-section form > div:first-child > div:last-child label {
   color: #F5E5D7;
   font-size: 1.2em;
@@ -347,6 +375,120 @@ table {
   border-radius: 5px;
 }
 
+@media screen and (max-width: 1440px) {
+  .login-and-register .container-login .login-section form > div:first-child #login-email {
+    width: 32em;
+  }
+  .login-and-register .container-login .login-section form > div:nth-child(2) #login-password {
+    width: 32em;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(2) #username {
+    width: 32em;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(3) #email {
+    width: 32em;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(4) #password {
+    width: 32em;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .login-and-register .container-login .login-section form > div:first-child #login-email {
+    width: 24em;
+  }
+  .login-and-register .container-login .login-section form > div:nth-child(2) #login-password {
+    width: 24em;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(2) #username {
+    width: 24em;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(3) #email {
+    width: 24em;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(4) #password {
+    width: 24em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .login-and-register {
+    height: 140vh;
+  }
+  .login-and-register .container-login {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .login-and-register .container-login .login-section h2 {
+    margin-top: 1em;
+  }
+  .login-and-register .container-login .login-section form > div:first-child #login-email {
+    width: 32em;
+  }
+  .login-and-register .container-login .login-section form > div:nth-child(2) #login-password {
+    width: 32em;
+  }
+  .login-and-register .container-login .login-section form > div:last-child button {
+    height: 2em;
+  }
+  .login-and-register .container-login #line-vertical {
+    width: 80%;
+    height: 0.2em;
+    margin-bottom: 2em;
+  }
+  .login-and-register .container-login .register-section h2 {
+    margin-bottom: 1em;
+  }
+  .login-and-register .container-login .register-section form {
+    width: 120%;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(2) #username {
+    width: 32em;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(3) #email {
+    width: 32em;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(4) #password {
+    width: 32em;
+  }
+  .login-and-register .container-login .register-section > div:last-child {
+    margin-bottom: 1em;
+  }
+}
+@media screen and (max-width: 425px) {
+  .login-and-register {
+    height: 150vh;
+  }
+  .login-and-register .container-login .login-section {
+    width: 100%;
+  }
+  .login-and-register .container-login .login-section form > div:first-child #login-email {
+    width: 22em;
+  }
+  .login-and-register .container-login .login-section form > div:nth-child(2) #login-password {
+    width: 22em;
+  }
+  .login-and-register .container-login .register-section {
+    width: 100%;
+    margin-left: 0;
+  }
+  .login-and-register .container-login .register-section form > div:first-child {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 0;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(2) #username {
+    width: 22em;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(3) #email {
+    width: 22em;
+  }
+  .login-and-register .container-login .register-section form > div:nth-child(4) #password {
+    width: 22em;
+  }
+}
 .home {
   width: 100vw;
   height: 75vh;
@@ -405,6 +547,54 @@ table {
   margin-top: 3.6em;
 }
 
+@media screen and (max-width: 1440px) {
+  .home .presentation .container-pres {
+    height: 80%;
+    width: 90%;
+  }
+  .home .presentation .container-pres > img {
+    left: 560px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .home .presentation .container-pres {
+    height: 85%;
+    width: 90%;
+  }
+  .home .presentation .container-pres > img {
+    left: 385px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .home .presentation .container-pres > img {
+    left: 275px;
+  }
+  .home .presentation .container-pres > p {
+    font-size: 0.9em;
+    padding: 2.5em;
+  }
+}
+@media screen and (max-width: 425px) {
+  .home .banner {
+    height: 45%;
+  }
+  .home .banner h1 {
+    font-size: 4.5em;
+  }
+  .home .presentation {
+    height: 55%;
+  }
+  .home .presentation .container-pres {
+    height: 90%;
+  }
+  .home .presentation .container-pres > img {
+    left: 115px;
+  }
+  .home .presentation .container-pres > p {
+    font-size: 0.9em;
+    padding: 2.5em;
+  }
+}
 .dashboard {
   width: 100vw;
   height: 100vh;
@@ -574,6 +764,22 @@ footer .footer-container .footer-socialmedia a {
   font-size: 1.2em;
 }
 
+@media screen and (max-width: 768px) {
+  footer .footer-container .footer-socialmedia {
+    width: 35%;
+  }
+}
+@media screen and (max-width: 425px) {
+  footer .footer-container .text-footer {
+    font-size: 1em;
+  }
+  footer .footer-container .footer-socialmedia {
+    width: 55%;
+  }
+  footer .footer-container .footer-socialmedia a {
+    font-size: 1em;
+  }
+}
 body {
   background-color: #EBE7E5;
 }

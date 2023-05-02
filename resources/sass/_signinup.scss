@@ -126,6 +126,8 @@
                     }
 
                     > div:last-child {
+                        @include flex(column, center, center);
+                        gap: .2em;
                         label {
                             @include font-family($light-brown, 1.2em, $playfair, regular);
                         }
@@ -236,6 +238,200 @@
                     width: 13em;
                     height: 2.5em;
                     border-radius: 5px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .login-and-register {
+        .container-login {
+            .login-section {
+                form {
+                    > div:first-child {
+                        #login-email {
+                            width: 32em;
+                        }
+                    }
+                    > div:nth-child(2) {
+                        #login-password {
+                            width: 32em;
+                        }
+                    }
+                }
+            }
+
+            .register-section {
+                form {
+                    > div:nth-child(2) {
+                        #username {
+                            width: 32em;
+                        }
+                    }
+                    > div:nth-child(3) {
+                        #email {
+                            width: 32em;
+                        }
+                    }
+                    > div:nth-child(4) {
+                        #password {
+                            width: 32em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .login-and-register {
+        .container-login {
+            .login-section {
+                form {
+                    > div:first-child {
+                        #login-email {
+                            width: 24em;
+                        }
+                    }
+                    > div:nth-child(2) {
+                        #login-password {
+                            width: 24em;
+                        }
+                    }
+                }
+            }
+
+            .register-section {
+                form {
+                    > div:nth-child(2) {
+                        #username {
+                            width: 24em;
+                        }
+                    }
+                    > div:nth-child(3) {
+                        #email {
+                            width: 24em;
+                        }
+                    }
+                    > div:nth-child(4) {
+                        #password {
+                            width: 24em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .login-and-register {
+        height: 140vh;
+        .container-login {
+            @include flex(column, flex-start, center);
+            .login-section {
+                h2 {
+                    margin-top: 1em;
+                }
+                form {
+                    > div:first-child {
+                        #login-email {
+                            width: 32em;
+                        }
+                    }
+                    > div:nth-child(2) {
+                        #login-password {
+                            width: 32em;
+                        }
+                    }
+                    > div:last-child {
+                        button {
+                            height: 2em;
+                        }
+                    }
+                }
+            }
+            #line-vertical {
+                width: 80%;
+                height: 0.2em;
+                margin-bottom: 2em;
+            }
+            .register-section {
+                h2 {
+                    margin-bottom: 1em;
+                }
+                form {
+                    width: 120%;
+                    > div:nth-child(2) {
+                        #username {
+                            width: 32em;
+                        }
+                    }
+                    > div:nth-child(3) {
+                        #email {
+                            width: 32em;
+                        }
+                    }
+                    > div:nth-child(4) {
+                        #password {
+                            width: 32em;
+                        }
+                    }
+                }
+
+                > div:last-child {
+                    margin-bottom: 1em;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .login-and-register {
+        height: 150vh;
+        .container-login {
+            .login-section {
+                width: 100%;
+                form {
+                    > div:first-child {
+                        #login-email {
+                            width: 22em;
+                        }
+                    }
+                    > div:nth-child(2) {
+                        #login-password {
+                            width: 22em;
+                        }
+                    }
+                }
+            }
+
+            .register-section {
+                width: 100%;
+                margin-left: 0;
+                form {
+                    > div:first-child {
+                        @include flex(column, center, center);
+                        margin-left: 0;
+                    }
+                    > div:nth-child(2) {
+                        #username {
+                            width: 22em;
+                        }
+                    }
+                    > div:nth-child(3) {
+                        #email {
+                            width: 22em;
+                        }
+                    }
+                    > div:nth-child(4) {
+                        #password {
+                            width: 22em;
+                        }
+                    }
                 }
             }
         }
