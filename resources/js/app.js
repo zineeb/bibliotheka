@@ -1,7 +1,20 @@
 import { createApp, ref, provide, onMounted } from 'vue';
+import axios from 'axios';
+axios.defaults.withCredentials = true;
+
 import router from './router';
 import AppHeader from './components/AppHeader.vue';
 import AppFooter from './components/AppFooter.vue';
+
+axios.interceptors.request.use((config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+}, (error) => {
+    return Promise.reject(error);
+});
 
 const app = createApp({
     setup() {

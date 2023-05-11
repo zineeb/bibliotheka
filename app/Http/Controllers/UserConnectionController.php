@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\User;
+use App\Notifications\ContactNotification;
 use App\Notifications\CustomResetPassword;
 use Carbon\Carbon;
 use Illuminate\Auth\Notifications\ResetPassword;
@@ -13,6 +14,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
@@ -153,7 +155,6 @@ class UserConnectionController extends Controller
             ], 422);
         }
 
-        Log::info("ici on a dépassé la validation des données");
         //Changing the password with the new password entered by the user
         $user = User::where('email', $request['email'])->first();
         $user->password = Hash::make($request['password']);
@@ -167,4 +168,33 @@ class UserConnectionController extends Controller
         ], 200);
 
     }
+
+    public function checkAuth(Request $request) {
+        Log::info('authentification : ' . print_r(Auth::check(),true));
+        return response()->json(['authenticated' => Auth::check()]);
+    }
+
+    public function logout(Request $request){
+        $request->user()->currentAccessToken()->delete();
+        return response()->json(['message' => 'Logged out']);
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required|email',
+            'message' => 'required'
+        ]);
+
+        $details = [
+            'name' => $request->name,
+            'email' => $request->email,
+            'message' => $request->message
+        ];
+
+        Notification::route('mail', 'mouazzazz@gmail.com')->notify(new ContactNotification($details));
+        return response()->json(['message' => 'Email sent successfully']);
+    }
+
 }

@@ -12,35 +12,27 @@
                 <li>Email : {{ infosUser[0].email }}</li>
             </ul>
             <!-- Link to view and edit user's information -->
-            <router-link :to="'/user-informations/' + infosUser[0].id">Voir et modifier mes informations</router-link>
-        </div>
-
-        <!-- Books container -->
-        <div class="books">
-            <h2>Livres : </h2>
-            <!-- Table of user's books -->
-            <table>
-                <thead>
-                <tr>
-                    <th>Titre</th>
-                    <th>Auteur</th>
-                    <th>Date de publication</th>
-                </tr>
-                </thead>
-                <tbody>
-                <!-- Loop through the list of books -->
-                <tr v-for="book in booksUser" :key="book.id">
-                    <td>{{ book.title }}</td>
-                    <td>{{ book.author }}</td>
-                    <td>{{ book.publication_date }}</td>
-                </tr>
-                </tbody>
-            </table>
+            <a :href="'/user-informations/' + infosUser[0].id">Voir et modifier mes informations</a>
         </div>
 
         <!-- Buttons to open modals for adding categories and books -->
         <button @click="showModalCategory = true">Ajouter Categorie</button>
         <button @click="showModalBook = true">Ajouter Livre</button>
+
+        <!-- Books container -->
+        <div class="books">
+            <h2>Livres : </h2>
+            <!-- List of user's books -->
+            <template v-for="(books, status) in booksByStatus">
+                <h2>{{ status }}</h2>
+                <div class="book-list" v-for="book in books" :key="book.id">
+                    <img :src="book.cover_image" alt="Cover image" width="100" @click="openBookInfoModal(book)">
+                    <div>{{ book.title }}</div>
+                </div>
+                <br>
+            </template>
+        </div>
+
 
         <!-- Modal for adding a category -->
         <modal v-if="showModalCategory" @close="showModalCategory = false">
@@ -62,9 +54,10 @@
             </template>
             <template v-slot:body>
                 <!-- Inputs for entering book's title, author, and ISBN -->
+                <p>Titre : *</p>
                 <input type="text" v-model="modalTitleInput" placeholder="Titre livre ..."/><br>
+                <p>Auteur : *</p>
                 <input type="text" v-model="modalAuthorInput" placeholder="Auteur"/><br>
-                <input type="text" v-model="modalISBNInput" placeholder="ISBN"/><br>
             </template>
             <template v-slot:footer>
                 <button @click="submitModalBook">Envoyer</button>
@@ -141,6 +134,51 @@
                 <button @click="showModalBookInfo = false">Fermer</button>
             </template>
         </modal>
+
+        <modal v-if="showBookInfoModal" @close="showBookInfoModal = false">
+            <template v-slot:header>
+                <h3>Informations du livre</h3>
+            </template>
+            <template v-slot:body>
+                <img :src="bookInfo.cover_image" alt="Couverture du livre"/>
+                <h4>{{ bookInfo.title }}</h4>
+                <p>Auteur : {{ bookInfo.author }}</p>
+                <p>Date de publication : {{ bookInfo.publication_date }}</p>
+                <p>Description : {{ bookInfo.description }}</p>
+                <p>Maison d'édition : {{ bookInfo.publisher }}</p>
+                <p>Nombre de pages : {{ bookInfo.page }}</p>
+                <p>Catégorie : {{ bookInfo.category }}</p>
+
+                <input type="hidden" v-model="bookInfo.google_books_id"/>
+
+                <label for="status">État de lecture :</label>
+                <select v-model="bookInfo.status" id="status">
+                    <option value="to_read">À lire</option>
+                    <option value="reading">En cours de lecture</option>
+                    <option value="read">Lu</option>
+                </select>
+
+                <div v-if="bookInfo.status === 'reading'">
+                    <label for="current_page">Page actuelle :</label>
+                    <input type="number" v-model="bookInfo.current_page" id="current_page" min="1" :max="bookInfo.page_count"
+                           placeholder="Page actuelle"/>
+                </div>
+
+                <div v-if="bookInfo.status === 'read'">
+                    <label for="rating">Note (1-5) :</label>
+                    <select v-model="bookInfo.rating" id="rating">
+                        <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
+                    </select>
+
+                    <label for="review">Avis :</label>
+                    <input type="text" v-model="bookInfo.review" id="review" placeholder="Votre avis sur le livre"/>
+                </div>
+            </template>
+            <template v-slot:footer>
+                <button @click="updateBookInfo">Enregistrer</button>
+                <button @click="showBookInfoModal = false">Fermer</button>
+            </template>
+        </modal>
     </div>
 </template>
 
@@ -160,6 +198,7 @@ export default {
             showModalCategory: false,
             showModalBook: false,
             showModalBookInfo: false,
+            showBookInfoModal: false,
             modalCategoryInput: "",
             modalTitleInput: "",
             modalAuthorInput: "",
@@ -177,7 +216,6 @@ export default {
     },
     methods: {
         submitModalCategory() {
-            console.log("Données soumises pour Modal Category:", this.modalCategoryInput);
             // Prepare the data to be sent
             const data = {
                 category: this.modalCategoryInput,
@@ -210,8 +248,6 @@ export default {
                 });
         },
         submitModalBook() {
-            console.log("Données soumises pour Modal 2:", this.modalTitleInput, this.modalAuthorInput, this.modalISBNInput);
-
             const data = {
                 title: this.modalTitleInput,
                 author: this.modalAuthorInput,
@@ -258,13 +294,16 @@ export default {
         addBooks() {
             const token = localStorage.getItem("token");
             if (!this.bookInfo) return;
-
             axios.post("/api/addBook", {
                 google_books_id: this.bookInfo.google_books_id,
                 title: this.bookInfo.title,
                 author: this.bookInfo.author,
+                description: this.bookInfo.description,
+                publisher: this.bookInfo.publisher,
                 publication_date: this.bookInfo.publication_date,
-                cover_image: this.bookInfo.cover_image,
+                page_count: this.bookInfo.page_count,
+                genre: this.bookInfo.genre,
+                cover_image: this.bookInfo.coverimage,
                 isbn: this.bookInfo.isbn,
                 reading_status: this.readingStatus,
                 category: this.category,
@@ -288,6 +327,18 @@ export default {
                     console.error("Erreur lors de la mise à jour des informations de l'utilisateur :", error);
                 });
         },
+        translateStatus(status) {
+            switch (status) {
+                case 'read':
+                    return 'Lu';
+                case 'to_read':
+                    return 'A lire';
+                case 'reading':
+                    return 'En cours de lecture';
+                default:
+                    return status;
+            }
+        },
         refreshDashboardData() {
             const token = localStorage.getItem("token");
             axios
@@ -297,33 +348,59 @@ export default {
                     },
                 })
                 .then((response) => {
-                    console.log(response.data);
                     this.infosUser = response.data.infos_user;
-                    this.booksUser = response.data.books_user;
+                    this.booksByStatus = this.groupBooksByStatus(response.data.books_user);
                 })
                 .catch((error) => {
                     console.error("Erreur lors de la récupération des données du tableau de bord :", error);
                 });
         },
-    },
+        groupBooksByStatus(books) {
+            return books.reduce((groups, book) => {
+                const status = this.translateStatus(book.status);
+                if (!groups[status]) {
+                    groups[status] = [];
+                }
+                console.log(book);
+                groups[status].push(book);
+                return groups;
+            }, {});
+        },
+        openBookInfoModal(book) {
+            this.bookInfo = book;
+            this.showBookInfoModal = true;
+        },
+        async updateBookInfo() {
+            const token = localStorage.getItem("token");
+            if (!this.bookInfo) return;
+            axios.post("/api/updateBook", {
+                google_books_id: this.bookInfo.google_books_id,
+                status: this.bookInfo.status,
+                rating: this.bookInfo.rating,
+                review: this.bookInfo.review,
+                current_page: this.bookInfo.current_page,
+            }, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            })
+                .then(response => {
+                    if (response.data.status === 'success') {
+                        this.showBookInfoModal = false;
+                        this.refreshDashboardData();
+                    } else {
+                        // Handle errors, for example display an error message
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
 
+
+        },
+    },
     created() {
         this.refreshDashboardData();
-        // const token = localStorage.getItem("token");
-        // axios
-        //     .get("api/dashboard_data", {
-        //         headers: {
-        //             Authorization: `Bearer ${token}`,
-        //         },
-        //     })
-        //     .then((response) => {
-        //         console.log(response.data);
-        //         this.infosUser = response.data.infos_user;
-        //         this.booksUser = response.data.books_user;
-        //     })
-        //     .catch((error) => {
-        //         console.error("Erreur lors de la récupération des données du tableau de bord :", error);
-        //     });
     },
 };
 </script>

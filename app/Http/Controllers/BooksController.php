@@ -64,7 +64,6 @@ class BooksController extends Controller
         $validateData = Validator::make($request->all(), [
             'title' => 'required|string',
             'author' => 'required|string',
-            'isbn' => 'nullable|string',
         ]);
 
         // If validation fails, return a JSON response with errors.
@@ -74,11 +73,8 @@ class BooksController extends Controller
             ], 422);
         } else {
             // Build the API request URL based on ISBN or title and author.
-            if ($request['isbn'] != null) {
-                $request_uri = 'https://www.googleapis.com/books/v1/volumes?q=isbn:' . $request['isbn'];
-            } else {
-                $request_uri = 'https://www.googleapis.com/books/v1/volumes?q=' . $request['title'] . '+inauthor:' . $request['author'];
-            }
+           $request_uri = 'https://www.googleapis.com/books/v1/volumes?q=' . $request['title'] . '+inauthor:' . $request['author'];
+
 
             try {
                 // Create a new Guzzle client with the appropriate SSL settings.
@@ -258,6 +254,56 @@ class BooksController extends Controller
         return response()->json([
             'status' => 'success',
         ]);
+
+    }
+
+    public function updateStatusBook(Request $request){
+
+        $user_id = auth()->user()->id;
+        $google_books_id = $request->input('google_books_id');
+        $page_count = $request->input('current_page');
+        $readingStatus = $request->input('status');
+        $rating = $request->input('rating');
+        $review = $request->input('review');
+
+        Log::info('$readingStatus:' . print_r($readingStatus,true));
+        Log::info('$page_count:' . print_r($page_count,true));
+
+        // Set the current page number based on the reading status.
+        if ($readingStatus == 'read') {
+            $page = $page_count;
+
+            $review = Review::where('google_books_id', $google_books_id)
+                ->where('user_id',$user_id)
+                ->first();
+
+            if(isset($review)) {
+                Review::create([
+                    'review' => $review,
+                    'rating' => $rating,
+                    'user_id' => $user_id,
+                    'google_books_id' => $google_books_id
+                ]);
+            } else {
+                Review::where('google_books_id',$google_books_id)
+                    ->where('user_id',$user_id)
+                    ->update([
+                        'review' => $review,
+                        'rating' => $rating
+                    ]);
+            }
+        } elseif ($readingStatus == 'to_read') {
+            $page = 0;
+        } else {
+            $page = $request->input('current_page');
+        }
+
+        Status::where('google_books_id',$google_books_id)
+            ->where('user_id',$user_id)
+            ->update([
+                'status' => $readingStatus,
+                'page' => $page
+            ]);
 
     }
 

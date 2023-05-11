@@ -52,7 +52,7 @@ class GoogleAuthController extends Controller
 
             return response()->json([
                 'error' => 'Une erreur est survenue lors de la connexion avec Google',
-                'message' => $e->getTraceAsString(),
+                'message' => $e->getMessage(),
             ], 422);
         }
     }
