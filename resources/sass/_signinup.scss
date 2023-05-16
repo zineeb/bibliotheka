@@ -1,60 +1,55 @@
 .login-and-register {
     width: 100vw;
     height: 80vh;
-
     @include flex(row, center, center);
     
     .container-login {
         width: 80%;
         height: 92%;
-        
         border-radius: 7px;
         background-color: $brown;
         @include flex(row, center, center);
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
         .login-section {
             width: 50%;
             height: 100%;
-            
             @include flex(column, center, center);
 
             h2 {
-                @include font-family($light-brown, 3em, $playfair, italic);
+                @include font-family($dark-brown, 3em, $nunito, italic);
             }
 
             form {
                 width: 80%;
                 height: 80%;
-                
                 margin-top: 2em;
                 @include flex(column, center, center);
                 
                 > div:first-child {
-
                     height: 6em;
-                    label:first-child {
-                        @include font-family($light-brown, 1.6em, $playfair, regular);
 
+                    label:first-child {
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);                     
                     }
+
                     #login-email {
                         height: 3em;
                         width: 40em;
-
                         border: none;
                         border-radius: 5px;
                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-
                         margin-top: .5em;
                     }
                 }
 
                 > div:nth-child(2) {
                     height: 6em;
-                    label:first-child {
-                        @include font-family($light-brown, 1.6em, $playfair, regular);
 
-                        
+                    label:first-child {
+                        @include font-family($dark-brown, 1.63em, $nunito, normal);                     
                     }
+                    
                     #login-password {
                         height: 3em;
                         width: 40em;
@@ -73,13 +68,23 @@
                     height: 3em;
                     border-radius: 5px;
                     margin-bottom: 1em;
+
+                    &:hover {
+                        background-color: $dark-brown;
+                        color: $light-brown;
+                        cursor: pointer;
+                    }
+                    &:active {
+                        background-color: $light-brown;
+                        color: $dark-brown;
+                    }
                 }
 
                 > div:nth-child(4) {
                     color: $body-bg;
                     margin-bottom: 1em;
                 }
-
+                
                 > div:last-child {
                     button {
                         border: 1px solid grey;
@@ -87,6 +92,19 @@
                         width: 14em;
                         height: 3em;
                         border-radius: 5px;
+                        
+                        &:hover {
+                            border: 1px solid #fff;
+                            background-color: grey;
+                            color: #fff;
+                            cursor: pointer;
+                        }
+                        &:active {
+                            border: 1px solid grey;
+                            background-color: #fff;
+                            color: black;
+
+                        }
                     }
                 }
             }
@@ -94,7 +112,7 @@
 
         #line-vertical {
             height: 80%;
-            width: .2%;
+            width: .1%;
             background-color: $dark-brown;
             border-radius: 2px;
         }
@@ -106,7 +124,7 @@
 
             @include flex(column, center, center);
             h2 {
-                @include font-family($light-brown, 3em, $playfair, italic);
+                @include font-family($dark-brown, 3em, $nunito, italic);            
             }
 
             form {
@@ -129,7 +147,7 @@
                         @include flex(column, center, center);
                         gap: .2em;
                         label {
-                            @include font-family($light-brown, 1.2em, $playfair, regular);
+                            @include font-family($dark-brown, 1.6em, $nunito, normal);                        
                         }
 
                         input {
@@ -148,7 +166,7 @@
 
                     height: 6em;
                     label:first-child {
-                        @include font-family($light-brown, 1.6em, $playfair, regular);
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);  
 
                         
                     }
@@ -174,7 +192,7 @@
 
                     height: 6em;
                     label:first-child {
-                        @include font-family($light-brown, 1.6em, $playfair, regular);
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);   
 
                         
                     }
@@ -199,7 +217,7 @@
 
                     height: 10em;
                     label:first-child {
-                        @include font-family($light-brown, 1.6em, $playfair, regular);
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);   
 
                         
                     }
@@ -228,6 +246,16 @@
                     height: 2.5em;
                     border-radius: 5px;
                     margin-bottom: 1em;
+
+                    &:hover {
+                        background-color: $dark-brown;
+                        color: $light-brown;
+                        cursor: pointer;
+                    }
+                    &:active {
+                        background-color: $light-brown;
+                        color: $dark-brown;
+                    }
                 }
             }
 
@@ -238,6 +266,19 @@
                     width: 13em;
                     height: 2.5em;
                     border-radius: 5px;
+
+                    &:hover {
+                        border: 1px solid #fff;
+                        background-color: grey;
+                        color: #fff;
+                        cursor: pointer;
+                    }
+                    &:active {
+                        border: 1px solid grey;
+                        background-color: #fff;
+                        color: black;
+
+                    }
                 }
             }
         }

@@ -69,12 +69,12 @@
                         <!-- Display password errors if any -->
                         <small v-if="errors.password">{{ errors.password[0] }}</small>
                         <small>  Le mot de passe doit comporter :
-                        <ul>
-                            <li>Au minimum 8 caractères.</li>
-                            <li>Une lettre en majuscules.</li>
-                            <li>Un chiffre.</li>
-                            <li>Un caractère spécial.</li>
-                        </ul>
+                            <ul>
+                                <li>Au minimum 8 caractères.</li>
+                                <li>Une lettre en majuscules.</li>
+                                <li>Un chiffre.</li>
+                                <li>Un caractère spécial.</li>
+                            </ul>
                         </small>
                     </div>
                     <!-- Google reCAPTCHA container -->

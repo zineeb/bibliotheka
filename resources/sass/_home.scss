@@ -1,40 +1,50 @@
 .home {
     width: 100vw;
-    height: 75vh;
+    height: auto;
 
     .banner {
         width: 100%;
-        height: 60%;
+        height: 30em;
         // background-color: $dark-brown;
         background-image: url("../../public/images/etageres_a_livres.jpg");
         background-size: cover;
         background-repeat: no-repeat;
-
+        
         @include flex(column, center, center);
         color: $light-brown;
         font-family: $playfair;
-
+        
         h1 {
             font-style: italic;
             font-size: 8em;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
         }
         h2 {
             font-size: 1.5em;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding-bottom: .5em;
         }
     }
 
     .presentation {
         width: 100%;
-        height: 40%;
+        height: 15em;
         background-color: #EBE7E5;
         @include flex(row, center, center);
+        border-bottom: 1px dashed $dark-brown;
 
         .container-pres {
             width: 50%;
-            height: 70%;
+            height: 80%;
             border-radius: 10px;
             background-color: $brown;
             position: relative;
+            text-align: center;
+            box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 
             img {
                 width: 10em;
@@ -56,6 +66,58 @@
                 margin-top: 3.6em;
             }
 
+        }
+
+    }
+
+    .contact-form {
+        width: 100vw;
+        height: 60vh;
+        @include flex(column, center, center);
+        background-color: $light-brown;
+
+        h2 {
+            @include font-family($dark-brown, 2em, $playfair, regular);
+            margin-bottom: .2em;
+        }
+
+        form {
+            @include flex(column, center, center);
+            
+            label {
+                @include font-family($dark-brown, 1.2em, $nunito, normal);
+                padding-bottom: .2em;
+                padding-top: .6em;
+            }
+            
+            input {
+                height: 3em;
+                width: 40em;
+                border: none;
+                border-radius: 5px;
+                margin-top: .5em;
+                box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+            }
+
+            textarea {
+                height: 9em;
+                width: 40em;
+                border: none;
+                border-radius: 5px;
+                margin-top: .5em;
+                box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                margin-bottom: 2em;
+            }
+
+            button {
+                border: 0;
+                background-color: $brown;
+                width: 9em;
+                height: 2.2em;
+                border-radius: 5px;
+                margin-bottom: 1em;
+                @include font-family($light-brown, 1em, $nunito, normal);
+            }
         }
     }
 }

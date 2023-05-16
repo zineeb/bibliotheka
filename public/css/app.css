@@ -144,9 +144,9 @@ table {
   align-items: center;
 }
 .login-and-register .container-login .login-section h2 {
-  color: #F5E5D7;
+  color: #402B1B;
   font-size: 3em;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
   font-style: italic;
 }
 .login-and-register .container-login .login-section form {
@@ -162,10 +162,10 @@ table {
   height: 6em;
 }
 .login-and-register .container-login .login-section form > div:first-child label:first-child {
-  color: #F5E5D7;
+  color: #402B1B;
   font-size: 1.6em;
-  font-family: "Playfair Display", serif;
-  font-style: regular;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
 }
 .login-and-register .container-login .login-section form > div:first-child #login-email {
   height: 3em;
@@ -179,10 +179,10 @@ table {
   height: 6em;
 }
 .login-and-register .container-login .login-section form > div:nth-child(2) label:first-child {
-  color: #F5E5D7;
-  font-size: 1.6em;
-  font-family: "Playfair Display", serif;
-  font-style: regular;
+  color: #402B1B;
+  font-size: 1.63em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
 }
 .login-and-register .container-login .login-section form > div:nth-child(2) #login-password {
   height: 3em;
@@ -200,6 +200,15 @@ table {
   border-radius: 5px;
   margin-bottom: 1em;
 }
+.login-and-register .container-login .login-section form > button:nth-child(3):hover {
+  background-color: #402B1B;
+  color: #F5E5D7;
+  cursor: pointer;
+}
+.login-and-register .container-login .login-section form > button:nth-child(3):active {
+  background-color: #F5E5D7;
+  color: #402B1B;
+}
 .login-and-register .container-login .login-section form > div:nth-child(4) {
   color: #EBE7E5;
   margin-bottom: 1em;
@@ -211,9 +220,20 @@ table {
   height: 3em;
   border-radius: 5px;
 }
+.login-and-register .container-login .login-section form > div:last-child button:hover {
+  border: 1px solid #fff;
+  background-color: grey;
+  color: #fff;
+  cursor: pointer;
+}
+.login-and-register .container-login .login-section form > div:last-child button:active {
+  border: 1px solid grey;
+  background-color: #fff;
+  color: black;
+}
 .login-and-register .container-login #line-vertical {
   height: 80%;
-  width: 0.2%;
+  width: 0.1%;
   background-color: #402B1B;
   border-radius: 2px;
 }
@@ -227,9 +247,9 @@ table {
   align-items: center;
 }
 .login-and-register .container-login .register-section h2 {
-  color: #F5E5D7;
+  color: #402B1B;
   font-size: 3em;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
   font-style: italic;
 }
 .login-and-register .container-login .register-section form {
@@ -260,10 +280,10 @@ table {
   gap: 0.2em;
 }
 .login-and-register .container-login .register-section form > div:first-child > div:last-child label {
-  color: #F5E5D7;
-  font-size: 1.2em;
-  font-family: "Playfair Display", serif;
-  font-style: regular;
+  color: #402B1B;
+  font-size: 1.6em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
 }
 .login-and-register .container-login .register-section form > div:first-child > div:last-child input {
   margin-left: 1em;
@@ -280,10 +300,10 @@ table {
   height: 6em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(2) label:first-child {
-  color: #F5E5D7;
+  color: #402B1B;
   font-size: 1.6em;
-  font-family: "Playfair Display", serif;
-  font-style: regular;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
 }
 .login-and-register .container-login .register-section form > div:nth-child(2) #username {
   height: 3em;
@@ -308,10 +328,10 @@ table {
   height: 6em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(3) label:first-child {
-  color: #F5E5D7;
+  color: #402B1B;
   font-size: 1.6em;
-  font-family: "Playfair Display", serif;
-  font-style: regular;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
 }
 .login-and-register .container-login .register-section form > div:nth-child(3) #email {
   height: 3em;
@@ -336,10 +356,10 @@ table {
   height: 10em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(4) label:first-child {
-  color: #F5E5D7;
+  color: #402B1B;
   font-size: 1.6em;
-  font-family: "Playfair Display", serif;
-  font-style: regular;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
 }
 .login-and-register .container-login .register-section form > div:nth-child(4) #password {
   height: 3em;
@@ -367,12 +387,32 @@ table {
   border-radius: 5px;
   margin-bottom: 1em;
 }
+.login-and-register .container-login .register-section form > button:last-child:hover {
+  background-color: #402B1B;
+  color: #F5E5D7;
+  cursor: pointer;
+}
+.login-and-register .container-login .register-section form > button:last-child:active {
+  background-color: #F5E5D7;
+  color: #402B1B;
+}
 .login-and-register .container-login .register-section div:last-child button {
   border: 1px solid grey;
   background-color: #fff;
   width: 13em;
   height: 2.5em;
   border-radius: 5px;
+}
+.login-and-register .container-login .register-section div:last-child button:hover {
+  border: 1px solid #fff;
+  background-color: grey;
+  color: #fff;
+  cursor: pointer;
+}
+.login-and-register .container-login .register-section div:last-child button:active {
+  border: 1px solid grey;
+  background-color: #fff;
+  color: black;
 }
 
 @media screen and (max-width: 1440px) {
@@ -491,11 +531,11 @@ table {
 }
 .home {
   width: 100vw;
-  height: 75vh;
+  height: auto;
 }
 .home .banner {
   width: 100%;
-  height: 60%;
+  height: 30em;
   background-image: url(/images/etageres_a_livres.jpg?b71a83b3cdf5904496253b5e6f0af612);
   background-size: cover;
   background-repeat: no-repeat;
@@ -509,25 +549,35 @@ table {
 .home .banner h1 {
   font-style: italic;
   font-size: 8em;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 .home .banner h2 {
   font-size: 1.5em;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+  padding-bottom: 0.5em;
 }
 .home .presentation {
   width: 100%;
-  height: 40%;
+  height: 15em;
   background-color: #EBE7E5;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  border-bottom: 1px dashed #402B1B;
 }
 .home .presentation .container-pres {
   width: 50%;
-  height: 70%;
+  height: 80%;
   border-radius: 10px;
   background-color: #AF8F7C;
   position: relative;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 .home .presentation .container-pres img {
   width: 10em;
@@ -545,6 +595,65 @@ table {
   font-size: 1em;
   padding: 1.5em;
   margin-top: 3.6em;
+}
+.home .contact-form {
+  width: 100vw;
+  height: 60vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #F5E5D7;
+}
+.home .contact-form h2 {
+  color: #402B1B;
+  font-size: 2em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+  margin-bottom: 0.2em;
+}
+.home .contact-form form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.home .contact-form form label {
+  color: #402B1B;
+  font-size: 1.2em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-bottom: 0.2em;
+  padding-top: 0.6em;
+}
+.home .contact-form form input {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.home .contact-form form textarea {
+  height: 9em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin-bottom: 2em;
+}
+.home .contact-form form button {
+  border: 0;
+  background-color: #AF8F7C;
+  width: 9em;
+  height: 2.2em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  color: #F5E5D7;
+  font-size: 1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
 }
 
 @media screen and (max-width: 1440px) {
@@ -598,7 +707,6 @@ table {
 .dashboard {
   width: 100vw;
   height: 100vh;
-  background-color: lightblue;
 }
 
 .forgot-password {
@@ -702,7 +810,7 @@ table {
   color: #F5E5D7;
   font-size: 3em;
   font-family: "Playfair Display", serif;
-  font-style: regular;
+  font-style: normal;
 }
 .reset-password .container form {
   height: 60%;
@@ -722,7 +830,7 @@ table {
   color: #F5E5D7;
   font-size: 1.6em;
   font-family: "Playfair Display", serif;
-  font-style: regular;
+  font-style: normal;
 }
 .reset-password .container form div #password {
   height: 3em;
@@ -771,7 +879,7 @@ table {
 }
 footer {
   width: 100vw;
-  height: 18vh;
+  height: 20vh;
   background-color: #402B1B;
   display: flex;
   justify-content: center;

@@ -23,10 +23,10 @@
             <h2>Contactez-nous</h2>
             <form @submit.prevent="submitForm">
                 <label for="name">Votre nom:</label>
-                <input id="name" v-model="contact.name" type="text" required>
+                <input id="name" v-model="contact.name" type="text" required />
 
                 <label for="email">Votre email:</label>
-                <input id="email" v-model="contact.email" type="email" required>
+                <input id="email" v-model="contact.email" type="email" required />
 
                 <label for="message">Votre message:</label>
                 <textarea id="message" v-model="contact.message" required></textarea>
