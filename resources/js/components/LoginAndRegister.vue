@@ -9,13 +9,13 @@
                 <form @submit.prevent="login">
                     <div>
                         <label for="login-email">Email :</label>
-                        <input type="email" id="login-email" v-model="loginForm.email" required>
+                        <input type="email" id="login-email" placeholder="Email" v-model="loginForm.email" required>
                         <!-- Display email errors if any -->
                         <small v-if="errors.email">{{ errors.email[0] }}</small>
                     </div>
                     <div>
                         <label for="login-password">Mot de passe :</label>
-                        <input type="password" id="login-password" v-model="loginForm.password" required>
+                        <input type="password" id="login-password" placeholder="Password" v-model="loginForm.password" required>
                         <!-- Display password errors if any -->
                         <small v-if="errors.password">{{ errors.password[0] }}</small>
                     </div>

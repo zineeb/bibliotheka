@@ -19,7 +19,7 @@
             h2 {
                 @include font-family($dark-brown, 3em, $nunito, italic);
             }
-
+            
             form {
                 width: 80%;
                 height: 80%;
@@ -40,6 +40,15 @@
                         border-radius: 5px;
                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
                         margin-top: .5em;
+
+                        &:hover{
+                            background-color: $body-bg;
+                        }
+
+                        &::placeholder{
+                            @include font-family($dark-brown, 1.1em, $nunito, normal);
+                            padding-left: .8em;
+                        }
                     }
                 }
 
@@ -58,6 +67,14 @@
                         margin-top: .5em;
                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
+                        &:hover{
+                            background-color: $body-bg;
+                        }
+
+                        &::placeholder{
+                            @include font-family($dark-brown, 1.1em, $nunito, normal);
+                            padding-left: .8em;
+                        }
                     }
                 }
 
@@ -82,8 +99,11 @@
                 }
 
                 > div:nth-child(4) {
-                    color: $body-bg;
-                    margin-bottom: 1em;
+                    margin-bottom: .8em;
+
+                    a{
+                        @include font-family($dark-brown, 1em, $nunito, normal);
+                    }
                 }
                 
                 > div:last-child {
@@ -144,6 +164,8 @@
                     margin-left: 1em;
                     > div:first-child {
                         width: 20%;
+                        @include flex-justify(center);
+                        margin-bottom: .2em;
                     }
 
                     > div:last-child {
@@ -160,6 +182,10 @@
                             border-radius: 5px;
                             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
+                            
+                            &:hover{
+                                background-color: $body-bg;
+                            }
                         }
                     }
                 }
@@ -180,10 +206,16 @@
                         border-radius: 5px;
                         margin-top: .5em;
                         margin-bottom: .2em;
-
                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                        
+                        &:hover{
+                            background-color: $body-bg;
+                        }
 
-
+                        &::placeholder{
+                            @include font-family($dark-brown, 1.1em, $nunito, normal);
+                            padding-left: .8em;
+                        }
                     }
                     small{
                         @include font-family($light-brown, .8em, $playfair, regular);
@@ -209,6 +241,14 @@
 
                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
+                        &:hover{
+                            background-color: $body-bg;
+                        }
+
+                        &::placeholder{
+                            @include font-family($dark-brown, 1.1em, $nunito, normal);
+                            padding-left: .8em;
+                        }
                     }
                     small{
                         @include font-family($light-brown, .8em, $playfair, regular);
@@ -233,6 +273,14 @@
                         margin-bottom: .2em;
                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
+                        &:hover{
+                            background-color: $body-bg;
+                        }
+
+                        &::placeholder{
+                            @include font-family($dark-brown, 1.1em, $nunito, normal);
+                            padding-left: .8em;
+                        }
                     }
                     small{
                         @include font-family($light-brown, .8em, $playfair, regular);

@@ -175,6 +175,23 @@ table {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   margin-top: 0.5em;
 }
+.login-and-register .container-login .login-section form > div:first-child #login-email:hover {
+  background-color: #EBE7E5;
+}
+.login-and-register .container-login .login-section form > div:first-child #login-email::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.login-and-register .container-login .login-section form > div:first-child #login-email::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
 .login-and-register .container-login .login-section form > div:nth-child(2) {
   height: 6em;
 }
@@ -191,6 +208,23 @@ table {
   border-radius: 5px;
   margin-top: 0.5em;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.login-and-register .container-login .login-section form > div:nth-child(2) #login-password:hover {
+  background-color: #EBE7E5;
+}
+.login-and-register .container-login .login-section form > div:nth-child(2) #login-password::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.login-and-register .container-login .login-section form > div:nth-child(2) #login-password::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
 }
 .login-and-register .container-login .login-section form > button:nth-child(3) {
   border: 0;
@@ -211,8 +245,13 @@ table {
   color: #402B1B;
 }
 .login-and-register .container-login .login-section form > div:nth-child(4) {
-  color: #EBE7E5;
-  margin-bottom: 1em;
+  margin-bottom: 0.8em;
+}
+.login-and-register .container-login .login-section form > div:nth-child(4) a {
+  color: #402B1B;
+  font-size: 1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
 }
 .login-and-register .container-login .login-section form > div:last-child button {
   border: 1px solid grey;
@@ -274,6 +313,9 @@ table {
 }
 .login-and-register .container-login .register-section form > div:first-child > div:first-child {
   width: 20%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.2em;
 }
 .login-and-register .container-login .register-section form > div:first-child > div:last-child {
   display: flex;
@@ -294,6 +336,9 @@ table {
   background-color: #F5E5D7;
   border-radius: 5px;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.login-and-register .container-login .register-section form > div:first-child > div:last-child input:hover {
+  background-color: #EBE7E5;
 }
 .login-and-register .container-login .register-section form > div:nth-child(2) {
   display: flex;
@@ -316,6 +361,23 @@ table {
   margin-top: 0.5em;
   margin-bottom: 0.2em;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.login-and-register .container-login .register-section form > div:nth-child(2) #username:hover {
+  background-color: #EBE7E5;
+}
+.login-and-register .container-login .register-section form > div:nth-child(2) #username::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(2) #username::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(2) small {
   color: #F5E5D7;
@@ -345,6 +407,23 @@ table {
   margin-bottom: 0.2em;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 }
+.login-and-register .container-login .register-section form > div:nth-child(3) #email:hover {
+  background-color: #EBE7E5;
+}
+.login-and-register .container-login .register-section form > div:nth-child(3) #email::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(3) #email::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
 .login-and-register .container-login .register-section form > div:nth-child(3) small {
   color: #F5E5D7;
   font-size: 0.8em;
@@ -372,6 +451,23 @@ table {
   margin-top: 0.5em;
   margin-bottom: 0.2em;
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.login-and-register .container-login .register-section form > div:nth-child(4) #password:hover {
+  background-color: #EBE7E5;
+}
+.login-and-register .container-login .register-section form > div:nth-child(4) #password::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(4) #password::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(4) small {
   color: #F5E5D7;
