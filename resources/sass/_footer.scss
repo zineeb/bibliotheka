@@ -30,7 +30,33 @@ footer {
             a {
                 color: $light-brown;
                 font-size: 2em;
+            }
+            
+            a:first-child {
+                i {
+                    transition: all .2s;
+                    &:hover {
+                        color: #3b5998;
+                    }
+                }
+            }
 
+            a:nth-child(2) {
+                i {
+                    transition: all .2s;
+                    &:hover {
+                        color: #00acee;
+                    }
+                }
+            }
+            
+            a:last-child {
+                i {
+                    transition: all .2s;
+                    &:hover {
+                        color: #C13584;
+                    }
+                }
             }
         }
     }
