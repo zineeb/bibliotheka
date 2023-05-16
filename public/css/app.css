@@ -199,6 +199,7 @@ table {
   height: 3em;
   border-radius: 5px;
   margin-bottom: 1em;
+  transition: ease-in-out 0.3s;
 }
 .login-and-register .container-login .login-section form > button:nth-child(3):hover {
   background-color: #402B1B;
@@ -219,6 +220,7 @@ table {
   width: 14em;
   height: 3em;
   border-radius: 5px;
+  transition: ease-in-out 0.3s;
 }
 .login-and-register .container-login .login-section form > div:last-child button:hover {
   border: 1px solid #fff;
@@ -386,6 +388,7 @@ table {
   height: 2.5em;
   border-radius: 5px;
   margin-bottom: 1em;
+  transition: ease-in-out 0.3s;
 }
 .login-and-register .container-login .register-section form > button:last-child:hover {
   background-color: #402B1B;
@@ -402,6 +405,7 @@ table {
   width: 13em;
   height: 2.5em;
   border-radius: 5px;
+  transition: ease-in-out 0.3s;
 }
 .login-and-register .container-login .register-section div:last-child button:hover {
   border: 1px solid #fff;
@@ -913,7 +917,7 @@ footer .footer-container .footer-socialmedia {
 }
 footer .footer-container .footer-socialmedia a {
   color: #F5E5D7;
-  font-size: 1.2em;
+  font-size: 2em;
 }
 
 @media screen and (max-width: 768px) {
