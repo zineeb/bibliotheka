@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class UserRegisterController extends Controller
 {
@@ -38,28 +39,37 @@ class UserRegisterController extends Controller
             // Check if the user with the given email already exists.
             $user = User::where('email', $request->input('email'))->first();
             if ($user) {
-                // If the user exists and the password matches, log in the user.
-                if (Hash::check($request->input('password'), $user->password)) {
-                    Auth::login($user);
-                    // Create an authentication token for the user.
-                    $token = $user->createToken('authToken')->plainTextToken;
-                    // Return a success response with the authentication token.
-                    return response()->json([
-                        'status' => 'success',
-                        'token' => $token
-                    ]);
-                } else {
-                    // Return an error response if the login information is incorrect.
-                    return response()->json([
-                        'email' => 'Les informations de connexion sont incorrectes'
-                    ], 422);
-                }
-            } else {
-                // Return an error response if the login information is incorrect.
+                // If the user already exists, return an error response.
                 return response()->json([
-                    'email' => 'Les informations de connexion sont incorrectes'
+                    'email' => 'Un utilisateur avec cet email existe déjà'
                 ], 422);
+            } else {
+                // Check if a profile picture was provided.
+                $profile_picture = 'images/utilisateur.png';
+                if ($request->hasFile('profil_picture')) {
+                    $file = $request->file('profil_picture');
+                    $filename = time() . '.' . $file->getClientOriginalExtension();
+                    $file->move(public_path('images/profil_pictures/'), $filename);
+                    $profile_picture = 'images/profil_pictures/' . $filename;
+                }
+
+                // Create a new user with the validated data.
+                $user = User::create([
+                    'name' => $request->input('username'),
+                    'email' => $request->input('email'),
+                    'password' => Hash::make($request->input('password')),
+                    'profile_image' => $profile_picture,
+                ]);
+
+                // Create an authentication token for the user.
+                $token = $user->createToken('authToken')->plainTextToken;
+                // Return a success response with the authentication token.
+                return response()->json([
+                    'status' => 'success',
+                    'token' => $token
+                ]);
             }
         }
     }
 }
+

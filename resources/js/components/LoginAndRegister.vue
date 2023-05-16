@@ -136,15 +136,27 @@ export default {
         // Method to register a new user
         async register() {
             try {
-                const response = await axios.post('api/register', this.registerForm);
+                let formData = new FormData();
+                formData.append('username', this.registerForm.username);
+                formData.append('email', this.registerForm.email);
+                formData.append('password', this.registerForm.password);
+                formData.append('profil_picture', this.selectedFile);
+
+                const response = await axios.post('api/register', formData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+
                 console.log(response.data);
                 if (response.data.status === 'success') {
                     localStorage.setItem('token', response.data.token);
                     this.$router.push('/dashboard');
+                    this.$emit('user-logged-in'); // Emit a custom event when the user is logged in successfully
                 }
             } catch (error) {
                 if (error.response && error.response.status === 422) {
-                    // Mettez à jour les erreurs dans l'objet `errors`
+                    // Update errors in the `errors` object
                     this.errors = error.response.data.errors;
                 }
             }
