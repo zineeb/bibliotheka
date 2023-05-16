@@ -2,7 +2,9 @@
     <header>
         <div class="header-container">
             <div class="logo">
-                <img src="/images/bibliotheka_icon.png" alt="Logo">
+                <a href="/home">
+                    <img src="/images/bibliotheka_icon.png" alt="Logo">
+                </a>
             </div>
             <nav>
                 <a href="/loginAndRegister" v-if="!isLoggedIn">Connexion / Inscription </a>

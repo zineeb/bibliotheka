@@ -53,7 +53,7 @@
                 box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
                 border-radius: 100%;
                 top: -85px;
-                left: 355px;
+                left: 380px;
 
             }
 
@@ -97,7 +97,18 @@
                 border-radius: 5px;
                 margin-top: .5em;
                 box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                transition: all .2s;
+
+                &:hover{
+                    background-color: $body-bg;
+                }
+
+                &::placeholder{
+                    @include font-family($dark-brown, 1.1em, $nunito, normal);
+                    padding-left: .8em;
+                }
             }
+
 
             textarea {
                 height: 9em;
@@ -107,6 +118,17 @@
                 margin-top: .5em;
                 box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
                 margin-bottom: 2em;
+                transition: all .2s;
+
+
+                &:hover{
+                    background-color: $body-bg;
+                }
+
+                &::placeholder{
+                    @include font-family($dark-brown, 1.1em, $nunito, normal);
+                    padding-left: .8em;
+                }
             }
 
             button {
@@ -117,6 +139,13 @@
                 border-radius: 5px;
                 margin-bottom: 1em;
                 @include font-family($light-brown, 1em, $nunito, normal);
+                transition: all .1s;
+                &:hover {
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
+                }
+                &:active {
+                    box-shadow: none;
+                }
             }
         }
     }

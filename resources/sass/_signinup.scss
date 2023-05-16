@@ -23,7 +23,7 @@
             form {
                 width: 80%;
                 height: 80%;
-                margin-top: 2em;
+                margin-top: 1.5em;
                 @include flex(column, center, center);
                 
                 > div:first-child {
@@ -40,6 +40,7 @@
                         border-radius: 5px;
                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
                         margin-top: .5em;
+                        transition: all .2s;
 
                         &:hover{
                             background-color: $body-bg;
@@ -66,6 +67,7 @@
                         border-radius: 5px;
                         margin-top: .5em;
                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+                        transition: all .2s;
 
                         &:hover{
                             background-color: $body-bg;
@@ -85,16 +87,13 @@
                     height: 3em;
                     border-radius: 5px;
                     margin-bottom: 1em;
-                    transition: ease-in-out 0.3s;
-
+                    transition: ease-in-out .1s;
+                    @include font-family($dark-brown, 1em, $nunito, normal);
                     &:hover {
-                        background-color: $dark-brown;
-                        color: $light-brown;
-                        cursor: pointer;
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
                     }
                     &:active {
-                        background-color: $light-brown;
-                        color: $dark-brown;
+                        box-shadow: none;
                     }
                 }
 
@@ -113,19 +112,13 @@
                         width: 14em;
                         height: 3em;
                         border-radius: 5px;
-                        transition: ease-in-out 0.3s;
-
+                        transition: all .1s;
+                        @include font-family($dark-brown, 1em, $nunito, normal);
                         &:hover {
-                            border: 1px solid #fff;
-                            background-color: grey;
-                            color: #fff;
-                            cursor: pointer;
+                            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
                         }
                         &:active {
-                            border: 1px solid grey;
-                            background-color: #fff;
-                            color: black;
-
+                            box-shadow: none;
                         }
                     }
                 }
@@ -298,16 +291,15 @@
                     height: 2.5em;
                     border-radius: 5px;
                     margin-bottom: .3em;
-                    transition: ease-in-out 0.3s;
+                    transition: all .1s;
+                    @include font-family($dark-brown, 1em, $nunito, normal);
 
                     &:hover {
-                        background-color: $dark-brown;
-                        color: $light-brown;
-                        cursor: pointer;
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
                     }
+                    
                     &:active {
-                        background-color: $light-brown;
-                        color: $dark-brown;
+                        box-shadow: none;
                     }
                 }
             }
@@ -319,19 +311,13 @@
                     width: 13em;
                     height: 2.5em;
                     border-radius: 5px;
-                    transition: ease-in-out 0.3s;
-
+                    transition: all .1s;
+                    @include font-family($dark-brown, 1em, $nunito, normal);
                     &:hover {
-                        border: 1px solid #fff;
-                        background-color: grey;
-                        color: #fff;
-                        cursor: pointer;
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
                     }
                     &:active {
-                        border: 1px solid grey;
-                        background-color: #fff;
-                        color: black;
-
+                        box-shadow: none;
                     }
                 }
             }

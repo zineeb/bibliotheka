@@ -20942,10 +20942,12 @@ var _hoisted_1 = {
 };
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "logo"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "/home"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "/images/bibliotheka_icon.png",
   alt: "Logo"
-})], -1 /* HOISTED */);
+})])], -1 /* HOISTED */);
 var _hoisted_3 = {
   key: 0,
   href: "/loginAndRegister"
