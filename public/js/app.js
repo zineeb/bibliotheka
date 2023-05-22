@@ -20635,34 +20635,44 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     register: function register() {
       var _this2 = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee2() {
-        var response;
+        var formData, response;
         return _regeneratorRuntime().wrap(function _callee2$(_context2) {
           while (1) switch (_context2.prev = _context2.next) {
             case 0:
               _context2.prev = 0;
-              _context2.next = 3;
-              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/register', _this2.registerForm);
-            case 3:
+              formData = new FormData();
+              formData.append('username', _this2.registerForm.username);
+              formData.append('email', _this2.registerForm.email);
+              formData.append('password', _this2.registerForm.password);
+              formData.append('profil_picture', _this2.selectedFile);
+              _context2.next = 8;
+              return axios__WEBPACK_IMPORTED_MODULE_1___default().post('api/register', formData, {
+                headers: {
+                  'Content-Type': 'multipart/form-data'
+                }
+              });
+            case 8:
               response = _context2.sent;
               console.log(response.data);
               if (response.data.status === 'success') {
                 localStorage.setItem('token', response.data.token);
                 _this2.$router.push('/dashboard');
+                _this2.$emit('user-logged-in'); // Emit a custom event when the user is logged in successfully
               }
-              _context2.next = 11;
+              _context2.next = 16;
               break;
-            case 8:
-              _context2.prev = 8;
+            case 13:
+              _context2.prev = 13;
               _context2.t0 = _context2["catch"](0);
               if (_context2.t0.response && _context2.t0.response.status === 422) {
-                // Mettez à jour les erreurs dans l'objet `errors`
+                // Update errors in the `errors` object
                 _this2.errors = _context2.t0.response.data.errors;
               }
-            case 11:
+            case 16:
             case "end":
               return _context2.stop();
           }
-        }, _callee2, null, [[0, 8]]);
+        }, _callee2, null, [[0, 13]]);
       }))();
     },
     // Method to log in or register with Google
