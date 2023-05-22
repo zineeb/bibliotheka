@@ -80,12 +80,14 @@
                     <!-- Google reCAPTCHA container -->
                     <div id="recaptcha" class="g-recaptcha" :data-sitekey="recaptchaSiteKey"></div>
                     <!-- Button to submit registration form -->
-                    <button type="submit">S'inscrire</button>
+                    <div>
+                        <button type="submit">S'inscrire</button>
+                        <div>
+                            <!-- Button to sign up with Google -->
+                            <button @click="loginWithGoogle">S'inscrire avec Google</button>
+                        </div>
+                    </div>
                 </form>
-                <div>
-                    <!-- Button to sign up with Google -->
-                    <button @click="loginWithGoogle">S'inscrire avec Google</button>
-                </div>
             </div>
         </div>
     </div>

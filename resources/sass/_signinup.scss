@@ -145,7 +145,7 @@
 
             form {
                 width: 80%;
-                height: 75%;
+                height: 100%;
                 
                 // margin-top: 2em;
                 @include flex(column, center, center);
@@ -284,43 +284,48 @@
                     margin-bottom: .4em;
                 }
 
-                > button:last-child {
-                    border: 0;
-                    background-color: $light-brown;
-                    width: 9em;
-                    height: 2.5em;
-                    border-radius: 5px;
-                    margin-bottom: .3em;
-                    transition: all .1s;
-                    @include font-family($dark-brown, 1em, $nunito, normal);
+                > div:last-child {
+                    @include flex(row, center, center);
+                    gap: 1em;
 
-                    &:hover {
-                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
+                    > button:first-child {
+                        border: 0;
+                        background-color: $light-brown;
+                        width: 9em;
+                        height: 2.5em;
+                        border-radius: 5px;
+                        transition: all .1s;
+                        @include font-family($dark-brown, 1em, $nunito, normal);
+    
+                        &:hover {
+                            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
+                        }
+                        
+                        &:active {
+                            box-shadow: none;
+                        }
                     }
-                    
-                    &:active {
-                        box-shadow: none;
+    
+                    div:last-child {
+                        button {
+                            border: 1px solid grey;
+                            background-color: #fff;
+                            width: 13em;
+                            height: 2.5em;
+                            border-radius: 5px;
+                            transition: all .1s;
+                            @include font-family($dark-brown, 1em, $nunito, normal);
+                            &:hover {
+                                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
+                            }
+                            &:active {
+                                box-shadow: none;
+                            }
+                        }
                     }
                 }
             }
 
-            div:last-child {
-                button {
-                    border: 1px solid grey;
-                    background-color: #fff;
-                    width: 13em;
-                    height: 2.5em;
-                    border-radius: 5px;
-                    transition: all .1s;
-                    @include font-family($dark-brown, 1em, $nunito, normal);
-                    &:hover {
-                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
-                    }
-                    &:active {
-                        box-shadow: none;
-                    }
-                }
-            }
         }
     }
 }

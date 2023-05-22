@@ -312,7 +312,7 @@ table {
 }
 .login-and-register .container-login .register-section form {
   width: 80%;
-  height: 75%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -494,26 +494,32 @@ table {
 .login-and-register .container-login .register-section form #recaptcha {
   margin-bottom: 0.4em;
 }
-.login-and-register .container-login .register-section form > button:last-child {
+.login-and-register .container-login .register-section form > div:last-child {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.login-and-register .container-login .register-section form > div:last-child > button:first-child {
   border: 0;
   background-color: #F5E5D7;
   width: 9em;
   height: 2.5em;
   border-radius: 5px;
-  margin-bottom: 0.3em;
   transition: all 0.1s;
   color: #402B1B;
   font-size: 1em;
   font-family: "Nunito", sans-serif;
   font-style: normal;
 }
-.login-and-register .container-login .register-section form > button:last-child:hover {
+.login-and-register .container-login .register-section form > div:last-child > button:first-child:hover {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-.login-and-register .container-login .register-section form > button:last-child:active {
+.login-and-register .container-login .register-section form > div:last-child > button:first-child:active {
   box-shadow: none;
 }
-.login-and-register .container-login .register-section div:last-child button {
+.login-and-register .container-login .register-section form > div:last-child div:last-child button {
   border: 1px solid grey;
   background-color: #fff;
   width: 13em;
@@ -525,10 +531,10 @@ table {
   font-family: "Nunito", sans-serif;
   font-style: normal;
 }
-.login-and-register .container-login .register-section div:last-child button:hover {
+.login-and-register .container-login .register-section form > div:last-child div:last-child button:hover {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
-.login-and-register .container-login .register-section div:last-child button:active {
+.login-and-register .container-login .register-section form > div:last-child div:last-child button:active {
   box-shadow: none;
 }
 
@@ -726,7 +732,7 @@ table {
   color: #402B1B;
   font-size: 2em;
   font-family: "Playfair Display", serif;
-  font-style: regular;
+  font-style: normal;
   margin-bottom: 0.2em;
 }
 .home .contact-form form {
