@@ -1,9 +1,9 @@
 .dashboard {
-    width: 92vw;
-    height: 100vh;
-
+    width: 94vw;
+    //height: 100vh;
     padding: 2em;
     @include flex(row, flex-start, flex-start);
+    flex-wrap: wrap;
 
     .user-info {
         background-color: $brown;
@@ -54,12 +54,26 @@
     }
 
     .open-modal-book {
-        background-color: lightblue;
         width: 50%;
+        height: 10.5em;
         margin-left: 4em;
+        @include flex(row, center, flex-end);
+        padding-left: 2em;
+        gap: 1em;
+
         > button {
             border: none; 
-            @include button($light-brown, 10em, 4em, 1em, 10px);
+            @include button($dark-brown, 13em, 3em, 1em, 10px);
+            @include font-family(#fff, 1.5em, $nunito, regular);
+            @include flex(row, center, center);
+
+            >i {
+                margin-left: .3em;
+            }
+
+            &:hover {
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            }
         }
     }
 }

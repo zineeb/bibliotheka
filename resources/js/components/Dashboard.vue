@@ -22,8 +22,12 @@
 
         <!-- Buttons to open modals for adding categories and books -->
         <div class="open-modal-book">
-            <button @click="showModalCategory = true">Ajouter Categorie</button>
-            <button @click="showModalBook = true">Ajouter Livre</button>
+            <button @click="showModalCategory = true">Ajouter une Categorie
+                <i class="fa-solid fa-chevron-right"/>
+            </button>
+            <button @click="showModalBook = true">Ajouter un Livre
+                <i class="fa-solid fa-chevron-right"/>
+            </button>
         </div>
 
         <!-- Books container -->

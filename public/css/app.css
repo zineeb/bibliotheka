@@ -871,13 +871,13 @@ table {
   }
 }
 .dashboard {
-  width: 92vw;
-  height: 100vh;
+  width: 94vw;
   padding: 2em;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 .dashboard .user-info {
   background-color: #AF8F7C;
@@ -936,17 +936,37 @@ table {
   text-decoration: underline;
 }
 .dashboard .open-modal-book {
-  background-color: lightblue;
   width: 50%;
+  height: 10.5em;
   margin-left: 4em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  padding-left: 2em;
+  gap: 1em;
 }
 .dashboard .open-modal-book > button {
   border: none;
-  background-color: #F5E5D7;
-  width: 10em;
-  height: 4em;
+  background-color: #402B1B;
+  width: 13em;
+  height: 3em;
   padding: 1em;
   border-radius: 10px;
+  color: #fff;
+  font-size: 1.5em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard .open-modal-book > button > i {
+  margin-left: 0.3em;
+}
+.dashboard .open-modal-book > button:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .forgot-password {
