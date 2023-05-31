@@ -33,15 +33,50 @@
         <!-- Books container -->
         <div class="books">
             <h2>Livres : </h2>
-            <!-- List of user's books -->
-            <template v-for="(books, status) in booksByStatus">
-                <h2>{{ status }}</h2>
-                <div class="book-list" v-for="book in books" :key="book.id">
-                    <img :src="book.cover_image" alt="Cover image" width="100" @click="openBookInfoModal(book)">
-                    <div>{{ book.title }}</div>
+            <div class="gallery-books">
+
+                <!-- List of user's books -->
+                <!--<template v-for="(books, status) in booksByStatus">
+                    <h2>{{ status }}</h2>
+                    <div class="book-list" v-for="book in books" :key="book.id">
+                        <img :src="book.cover_image" alt="Cover image" width="100" @click="openBookInfoModal(book)">
+                        <div>{{ book.title }}</div>
+                    </div> 
+                    <br>
+                </template>-->
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
                 </div>
-                <br>
-            </template>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+            </div>
         </div>
 
 

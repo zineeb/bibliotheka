@@ -57,6 +57,7 @@
         width: 50%;
         height: 10.5em;
         margin-left: 4em;
+        margin-bottom: 3em;
         @include flex(row, center, flex-end);
         padding-left: 2em;
         gap: 1em;
@@ -67,12 +68,50 @@
             @include font-family(#fff, 1.5em, $nunito, regular);
             @include flex(row, center, center);
 
-            >i {
+            > i {
                 margin-left: .3em;
             }
 
             &:hover {
                 box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+            }
+        }
+    }
+
+    .books {
+        width: 100%;
+        height: 30em;
+        background-color: $light-brown;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border-radius: 10px;
+        padding: 2em;
+        @include flex(column, center, center);
+        
+        >h2 {
+            @include font-family($dark-brown, 3em, $playfair, regular);
+        }
+
+        .gallery-books {
+            width: 80%;
+            height: 80%;
+            @include flex(row, center, center);
+            flex-wrap: nowrap;
+            overflow: hidden;
+            
+            .livre-test {
+                border-radius: 10px;
+                @include flex(column, center, center);
+                margin-right: 4em;
+                h2:first-child {
+                    @include font-family($dark-brown, 1.5em, $nunito, regular);
+                }
+                
+                img:last-child {
+                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    border-radius: 10px;
+                    width: 10em;
+                    height: 14em;
+                }
             }
         }
     }
