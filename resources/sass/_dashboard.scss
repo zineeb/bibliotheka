@@ -1,5 +1,54 @@
 .dashboard {
-    width: 100vw;
+    width: 92vw;
     height: 100vh;
-    // background-color: lightblue;
+
+    padding: 2em;
+    
+    .user-info {
+        background-color: $brown;
+        width: 40%;
+        padding: 1em;
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        padding-left: 2em;
+
+        @include flex(column, center, flex-start);
+
+        h2:first-child {
+            @include font-family($light-brown, 2em, $playfair, regular);
+
+            margin-bottom: .5em;
+        }
+
+        .info-container {
+            @include flex(row, center, center);
+            gap: 1em;
+
+            img:first-child {
+                border-radius: 50%;
+            }
+
+            .mini-info-container{
+                @include flex(column, center, center);
+                gap: 1em;
+                ul:first-child {
+                    @include font-family(#fff, 1em, $playfair, regular);
+                    
+                    li:first-child {
+                        font-size: 1.5em;
+                        margin-bottom: .5em;
+                    }
+                }
+
+                a:last-child {
+                    @include font-family($dark-brown, 1em, $nunito, italic);
+                    padding-left: 1.2em;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
 }

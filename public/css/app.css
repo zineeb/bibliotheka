@@ -871,8 +871,65 @@ table {
   }
 }
 .dashboard {
-  width: 100vw;
+  width: 92vw;
   height: 100vh;
+  padding: 2em;
+}
+.dashboard .user-info {
+  background-color: #AF8F7C;
+  width: 40%;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding-left: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.dashboard .user-info h2:first-child {
+  color: #F5E5D7;
+  font-size: 2em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+  margin-bottom: 0.5em;
+}
+.dashboard .user-info .info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.dashboard .user-info .info-container img:first-child {
+  border-radius: 50%;
+}
+.dashboard .user-info .info-container .mini-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.dashboard .user-info .info-container .mini-info-container ul:first-child {
+  color: #fff;
+  font-size: 1em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.dashboard .user-info .info-container .mini-info-container ul:first-child li:first-child {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+.dashboard .user-info .info-container .mini-info-container a:last-child {
+  color: #402B1B;
+  font-size: 1em;
+  font-family: "Nunito", sans-serif;
+  font-style: italic;
+  padding-left: 1.2em;
+}
+.dashboard .user-info .info-container .mini-info-container a:last-child:hover {
+  text-decoration: underline;
 }
 
 .forgot-password {

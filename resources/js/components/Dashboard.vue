@@ -5,14 +5,19 @@
         <div class="user-info">
             <!-- User's profile image -->
             <h2>Informations de l'utilisateur : </h2>
-            <img :src="infosUser[0].profile_image" alt="Image de profil">
-            <!-- List of user's details -->
-            <ul>
-                <li>Nom : {{ infosUser[0].name }}</li>
-                <li>Email : {{ infosUser[0].email }}</li>
-            </ul>
-            <!-- Link to view and edit user's information -->
-            <a :href="'/user-informations/' + infosUser[0].id">Voir et modifier mes informations</a>
+            <div class="info-container">
+                <img :src="infosUser[0].profile_image" alt="Image de profil">
+                <!-- List of user's details -->
+                <div class="mini-info-container">
+                    <ul>
+                        <li>Nom : {{ infosUser[0].name }}</li>
+                        <li>Email : {{ infosUser[0].email }}</li>
+                    </ul>
+                    <a :href="'/user-informations/' + infosUser[0].id">Voir et modifier mes informations</a>
+                    <!-- Link to view and edit user's information -->
+                </div>
+
+            </div>
         </div>
 
         <!-- Buttons to open modals for adding categories and books -->
