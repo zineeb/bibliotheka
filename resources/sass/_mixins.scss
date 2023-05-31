@@ -26,3 +26,11 @@
     font-family: $f-family;
     font-style: $f-style;
 }
+
+@mixin button($bgColor: $brown, $w: 5em, $h: 2em, $p: 1em, $bRadius: 10px) {
+    background-color: $bgColor;
+    width: $w;
+    height: $h;
+    padding: $p;
+    border-radius: $bRadius;
+}

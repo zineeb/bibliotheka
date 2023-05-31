@@ -3,7 +3,8 @@
     height: 100vh;
 
     padding: 2em;
-    
+    @include flex(row, flex-start, flex-start);
+
     .user-info {
         background-color: $brown;
         width: 40%;
@@ -49,6 +50,16 @@
                     }
                 }
             }
+        }
+    }
+
+    .open-modal-book {
+        background-color: lightblue;
+        width: 50%;
+        margin-left: 4em;
+        > button {
+            border: none; 
+            @include button($light-brown, 10em, 4em, 1em, 10px);
         }
     }
 }

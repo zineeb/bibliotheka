@@ -874,6 +874,10 @@ table {
   width: 92vw;
   height: 100vh;
   padding: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 .dashboard .user-info {
   background-color: #AF8F7C;
@@ -930,6 +934,19 @@ table {
 }
 .dashboard .user-info .info-container .mini-info-container a:last-child:hover {
   text-decoration: underline;
+}
+.dashboard .open-modal-book {
+  background-color: lightblue;
+  width: 50%;
+  margin-left: 4em;
+}
+.dashboard .open-modal-book > button {
+  border: none;
+  background-color: #F5E5D7;
+  width: 10em;
+  height: 4em;
+  padding: 1em;
+  border-radius: 10px;
 }
 
 .forgot-password {
