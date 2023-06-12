@@ -29,10 +29,16 @@
     }
 
     nav {
-        width: 30%;
+        width: 90%;
         height: 100%;
     
-        @include flex(row, center, center);
+        @include flex(row, flex-start, center);
+        padding-left: 20em;
+        ul {
+            @include flex(row, flex-start, center);
+            gap: 2em;
+            margin-right: 2em;
+        }
 
         a {
             background-color: $brown;
