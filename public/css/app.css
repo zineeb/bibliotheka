@@ -880,8 +880,151 @@ table {
   }
 }
 .dashboard {
-  width: 100vw;
-  height: 100vh;
+  width: 94vw;
+  padding: 2em;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.dashboard .user-info {
+  background-color: #AF8F7C;
+  width: 40%;
+  padding: 1em;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding-left: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+.dashboard .user-info h2:first-child {
+  color: #F5E5D7;
+  font-size: 2em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+  margin-bottom: 0.5em;
+}
+.dashboard .user-info .info-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.dashboard .user-info .info-container img:first-child {
+  border-radius: 50%;
+}
+.dashboard .user-info .info-container .mini-info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+.dashboard .user-info .info-container .mini-info-container ul:first-child {
+  color: #fff;
+  font-size: 1em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.dashboard .user-info .info-container .mini-info-container ul:first-child li:first-child {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+.dashboard .user-info .info-container .mini-info-container a:last-child {
+  color: #402B1B;
+  font-size: 1em;
+  font-family: "Nunito", sans-serif;
+  font-style: italic;
+  padding-left: 1.2em;
+}
+.dashboard .user-info .info-container .mini-info-container a:last-child:hover {
+  text-decoration: underline;
+}
+.dashboard .open-modal-book {
+  width: 50%;
+  height: 10.5em;
+  margin-left: 4em;
+  margin-bottom: 3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-end;
+  padding-left: 2em;
+  gap: 1em;
+}
+.dashboard .open-modal-book > button {
+  border: none;
+  background-color: #402B1B;
+  width: 13em;
+  height: 3em;
+  padding: 1em;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 1.5em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard .open-modal-book > button > i {
+  margin-left: 0.3em;
+}
+.dashboard .open-modal-book > button:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.dashboard .books {
+  width: 100%;
+  height: 30em;
+  background-color: #F5E5D7;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.dashboard .books > h2 {
+  color: #402B1B;
+  font-size: 3em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+}
+.dashboard .books .gallery-books {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow: hidden;
+}
+.dashboard .books .gallery-books .livre-test {
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 4em;
+}
+.dashboard .books .gallery-books .livre-test h2:first-child {
+  color: #402B1B;
+  font-size: 1.5em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+}
+.dashboard .books .gallery-books .livre-test img:last-child {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10px;
+  width: 10em;
+  height: 14em;
 }
 
 .forgot-password {

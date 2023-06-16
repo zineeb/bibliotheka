@@ -5,32 +5,78 @@
         <div class="user-info">
             <!-- User's profile image -->
             <h2>Informations de l'utilisateur : </h2>
-            <img :src="infosUser[0].profile_image" alt="Image de profil">
-            <!-- List of user's details -->
-            <ul>
-                <li>Nom : {{ infosUser[0].name }}</li>
-                <li>Email : {{ infosUser[0].email }}</li>
-            </ul>
-            <!-- Link to view and edit user's information -->
-            <a :href="'/user-informations/' + infosUser[0].id">Voir et modifier mes informations</a>
+            <div class="info-container">
+                <img :src="infosUser[0].profile_image" alt="Image de profil">
+                <!-- List of user's details -->
+                <div class="mini-info-container">
+                    <ul>
+                        <li>Nom : {{ infosUser[0].name }}</li>
+                        <li>Email : {{ infosUser[0].email }}</li>
+                    </ul>
+                    <a :href="'/user-informations/' + infosUser[0].id">Voir et modifier mes informations</a>
+                    <!-- Link to view and edit user's information -->
+                </div>
+
+            </div>
         </div>
 
         <!-- Buttons to open modals for adding categories and books -->
-        <button @click="showModalCategory = true">Ajouter Categorie</button>
-        <button @click="showModalBook = true">Ajouter Livre</button>
+        <div class="open-modal-book">
+            <button @click="showModalCategory = true">Ajouter une Categorie
+                <i class="fa-solid fa-chevron-right"/>
+            </button>
+            <button @click="showModalBook = true">Ajouter un Livre
+                <i class="fa-solid fa-chevron-right"/>
+            </button>
+        </div>
 
         <!-- Books container -->
         <div class="books">
             <h2>Livres : </h2>
-            <!-- List of user's books -->
-            <template v-for="(books, status) in booksByStatus">
-                <h2>{{ status }}</h2>
-                <div class="book-list" v-for="book in books" :key="book.id">
-                    <img :src="book.cover_image" alt="Cover image" width="100" @click="openBookInfoModal(book)">
-                    <div>{{ book.title }}</div>
+            <div class="gallery-books">
+
+                <!-- List of user's books -->
+                <!--<template v-for="(books, status) in booksByStatus">
+                    <h2>{{ status }}</h2>
+                    <div class="book-list" v-for="book in books" :key="book.id">
+                        <img :src="book.cover_image" alt="Cover image" width="100" @click="openBookInfoModal(book)">
+                        <div>{{ book.title }}</div>
+                    </div> 
+                    <br>
+                </template>-->
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
                 </div>
-                <br>
-            </template>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+                <div class="livre-test">
+                    <h2>Livre test</h2>
+                    <img src="../../../public/images/HP1.png" alt="hp" >
+                </div>
+            </div>
         </div>
 
 
