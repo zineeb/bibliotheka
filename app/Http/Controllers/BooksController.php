@@ -79,7 +79,7 @@ class BooksController extends Controller
             try {
                 // Create a new Guzzle client with the appropriate SSL settings.
                 $client = new Client([
-                    'verify' => storage_path('app/cacert.pem'),
+                    'verify' => base_path('certs/cacert.pem'),
                     'curl' => [
                         CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2,
                         CURLOPT_SSL_CIPHER_LIST => 'AES256-SHA256',
