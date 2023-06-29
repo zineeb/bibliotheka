@@ -130,6 +130,99 @@ table {
     width: 60%;
   }
 }
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal .modal-content {
+  background-color: #F5E5D7;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #AF8F7C;
+  width: 40%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal .modal-content .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.modal .modal-content .modal-header h3 {
+  color: #402B1B;
+  font-size: 2em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+  padding: 1em;
+}
+.modal .modal-content .modal-header button {
+  position: absolute;
+  top: -23px;
+  left: 515px;
+  font-size: 2.5em;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.modal .modal-content .modal-body {
+  padding: 10px 0;
+}
+.modal .modal-content .modal-body > p {
+  color: #402B1B;
+  font-size: 1.2em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+}
+.modal .modal-content .modal-body > input {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  transition: all 0.2s;
+}
+.modal .modal-content .modal-body > input::-moz-placeholder {
+  padding-left: 1em;
+}
+.modal .modal-content .modal-body > input::placeholder {
+  padding-left: 1em;
+}
+.modal .modal-content .modal-footer {
+  text-align: right;
+}
+.modal .modal-content .modal-footer > button {
+  border: 0;
+  background-color: #402B1B;
+  width: 10em;
+  height: 3em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  transition: ease-in-out 0.1s;
+  color: white;
+  font-size: 1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+.modal .modal-content .modal-footer > button:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.modal .modal-content .modal-footer > button:active {
+  box-shadow: none;
+}
+
 .login-and-register {
   width: 100vw;
   height: 80vh;
@@ -962,9 +1055,9 @@ table {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   padding-left: 2em;
-  gap: 1em;
+  gap: 6em;
 }
 .dashboard .open-modal-book > button {
   border: none;
