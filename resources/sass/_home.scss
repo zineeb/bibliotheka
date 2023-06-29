@@ -100,7 +100,7 @@
                 transition: all .2s;
 
                 &:hover{
-                    background-color: $body-bg;
+                    background-color: rgb(244, 244, 244);
                 }
 
                 &::placeholder{
@@ -119,10 +119,11 @@
                 box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
                 margin-bottom: 2em;
                 transition: all .2s;
+                resize: none;
 
 
                 &:hover{
-                    background-color: $body-bg;
+                    background-color: rgb(244, 244, 244);
                 }
 
                 &::placeholder{

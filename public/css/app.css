@@ -159,7 +159,7 @@ table {
 }
 .login-and-register .container-login .login-section h2 {
   color: #402B1B;
-  font-size: 3em;
+  font-size: 2.4em;
   font-family: "Nunito", sans-serif;
   font-style: italic;
 }
@@ -174,6 +174,10 @@ table {
 }
 .login-and-register .container-login .login-section form > div:first-child {
   height: 6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 .login-and-register .container-login .login-section form > div:first-child label:first-child {
   color: #402B1B;
@@ -209,10 +213,14 @@ table {
 }
 .login-and-register .container-login .login-section form > div:nth-child(2) {
   height: 6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 .login-and-register .container-login .login-section form > div:nth-child(2) label:first-child {
   color: #402B1B;
-  font-size: 1.63em;
+  font-size: 1.6em;
   font-family: "Nunito", sans-serif;
   font-style: normal;
 }
@@ -270,6 +278,9 @@ table {
   font-family: "Nunito", sans-serif;
   font-style: normal;
 }
+.login-and-register .container-login .login-section form > div:nth-child(4) a:hover {
+  text-decoration: underline;
+}
 .login-and-register .container-login .login-section form > div:last-child button {
   border: 1px solid grey;
   background-color: #fff;
@@ -305,10 +316,9 @@ table {
 }
 .login-and-register .container-login .register-section h2 {
   color: #402B1B;
-  font-size: 3em;
+  font-size: 2.4em;
   font-family: "Nunito", sans-serif;
   font-style: italic;
-  margin-bottom: 1em;
 }
 .login-and-register .container-login .register-section form {
   width: 80%;
@@ -316,16 +326,14 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .login-and-register .container-login .register-section form > div:first-child {
-  width: 100%;
   height: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 1em;
 }
 .login-and-register .container-login .register-section form > div:first-child > div:first-child {
   width: 20%;
@@ -335,14 +343,15 @@ table {
 }
 .login-and-register .container-login .register-section form > div:first-child > div:last-child {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0.2em;
+  width: 100%;
 }
 .login-and-register .container-login .register-section form > div:first-child > div:last-child label {
   color: #402B1B;
-  font-size: 1.6em;
+  font-size: 1em;
   font-family: "Nunito", sans-serif;
   font-style: normal;
 }
@@ -359,8 +368,8 @@ table {
 .login-and-register .container-login .register-section form > div:nth-child(2) {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   height: 6em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(2) label:first-child {
@@ -396,7 +405,7 @@ table {
   padding-left: 0.8em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(2) small {
-  color: #F5E5D7;
+  color: white;
   font-size: 0.8em;
   font-family: "Playfair Display", serif;
   font-style: regular;
@@ -404,8 +413,8 @@ table {
 .login-and-register .container-login .register-section form > div:nth-child(3) {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   height: 6em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(3) label:first-child {
@@ -441,7 +450,7 @@ table {
   padding-left: 0.8em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(3) small {
-  color: #F5E5D7;
+  color: white;
   font-size: 0.8em;
   font-family: "Playfair Display", serif;
   font-style: regular;
@@ -449,8 +458,8 @@ table {
 .login-and-register .container-login .register-section form > div:nth-child(4) {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   height: 10em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(4) label:first-child {
@@ -486,12 +495,20 @@ table {
   padding-left: 0.8em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(4) small {
-  color: #F5E5D7;
+  color: white;
   font-size: 0.8em;
   font-family: "Playfair Display", serif;
   font-style: regular;
+  text-align: center;
 }
-.login-and-register .container-login .register-section form #recaptcha {
+.login-and-register .container-login .register-section form .container-recaptcha {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.login-and-register .container-login .register-section form .container-recaptcha #recaptcha {
   margin-bottom: 0.4em;
 }
 .login-and-register .container-login .register-section form > div:last-child {
@@ -500,6 +517,7 @@ table {
   justify-content: center;
   align-items: center;
   gap: 1em;
+  width: 90%;
 }
 .login-and-register .container-login .register-section form > div:last-child > button:first-child {
   border: 0;
@@ -759,7 +777,7 @@ table {
   transition: all 0.2s;
 }
 .home .contact-form form input:hover {
-  background-color: #EBE7E5;
+  background-color: rgb(244, 244, 244);
 }
 .home .contact-form form input::-moz-placeholder {
   color: #402B1B;
@@ -784,9 +802,10 @@ table {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   margin-bottom: 2em;
   transition: all 0.2s;
+  resize: none;
 }
 .home .contact-form form textarea:hover {
-  background-color: #EBE7E5;
+  background-color: rgb(244, 244, 244);
 }
 .home .contact-form form textarea::-moz-placeholder {
   color: #402B1B;

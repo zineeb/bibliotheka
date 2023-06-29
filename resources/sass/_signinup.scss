@@ -17,7 +17,7 @@
             @include flex(column, flex-start, center);
 
             h2 {
-                @include font-family($dark-brown, 3em, $nunito, italic);
+                @include font-family($dark-brown, 2.4em, $nunito, italic);
             }
             
             form {
@@ -28,6 +28,7 @@
                 
                 > div:first-child {
                     height: 6em;
+                    @include flex(column, flex-start, center);
 
                     label:first-child {
                         @include font-family($dark-brown, 1.6em, $nunito, normal);                     
@@ -55,9 +56,10 @@
 
                 > div:nth-child(2) {
                     height: 6em;
+                    @include flex(column, flex-start, center);
 
                     label:first-child {
-                        @include font-family($dark-brown, 1.63em, $nunito, normal);                     
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);                     
                     }
                     
                     #login-password {
@@ -102,6 +104,10 @@
 
                     a{
                         @include font-family($dark-brown, 1em, $nunito, normal);
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
                 
@@ -139,22 +145,19 @@
 
             @include flex(column, flex-start, center);
             h2 {
-                @include font-family($dark-brown, 3em, $nunito, italic);  
-                margin-bottom: 1em;          
+                @include font-family($dark-brown, 2.4em, $nunito, italic);  
             }
 
             form {
                 width: 80%;
                 height: 100%;
                 
-                // margin-top: 2em;
-                @include flex(column, center, center);
+                @include flex(column, center, flex-start);
 
                 > div:first-child {
-                    width: 100%;
                     height: auto;
-                    @include flex(row, flex-start, center);
-                    margin-left: 1em;
+                    @include flex(column, flex-start, center);
+
                     > div:first-child {
                         width: 20%;
                         @include flex-justify(center);
@@ -162,10 +165,12 @@
                     }
 
                     > div:last-child {
-                        @include flex(column, center, center);
+                        @include flex(row, center, center);
                         gap: .2em;
+                        width: 100%;
+
                         label {
-                            @include font-family($dark-brown, 1.6em, $nunito, normal);                        
+                            @include font-family($dark-brown, 1em, $nunito, normal);                        
                         }
 
                         input {
@@ -184,7 +189,7 @@
                 }
 
                 > div:nth-child(2) {
-                    @include flex(column, center, flex-start);
+                    @include flex(column, flex-start, center);
 
                     height: 6em;
                     label:first-child {
@@ -211,12 +216,12 @@
                         }
                     }
                     small{
-                        @include font-family($light-brown, .8em, $playfair, regular);
+                        @include font-family(white, .8em, $playfair, regular);
                     }
                 }
 
                 > div:nth-child(3) {
-                    @include flex(column, center, flex-start);
+                    @include flex(column, flex-start, center);
 
                     height: 6em;
                     label:first-child {
@@ -244,12 +249,12 @@
                         }
                     }
                     small{
-                        @include font-family($light-brown, .8em, $playfair, regular);
+                        @include font-family(white, .8em, $playfair, regular);
                     }
                 }
 
                 > div:nth-child(4) {
-                    @include flex(column, center, flex-start);
+                    @include flex(column, flex-start, center);
 
                     height: 10em;
                     label:first-child {
@@ -265,28 +270,35 @@
                         margin-top: .5em;
                         margin-bottom: .2em;
                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-
                         &:hover{
                             background-color: $body-bg;
                         }
-
+                        
                         &::placeholder{
                             @include font-family($dark-brown, 1.1em, $nunito, normal);
                             padding-left: .8em;
                         }
                     }
                     small{
-                        @include font-family($light-brown, .8em, $playfair, regular);
+                        @include font-family(white, .8em, $playfair, regular);
+                        text-align: center;
                     }
                 }
 
-                #recaptcha {
-                    margin-bottom: .4em;
+                
+                .container-recaptcha {
+                    width: 90%;
+                    @include flex(row, center, center);      
+
+                    #recaptcha {
+                        margin-bottom: .4em;
+                    }
                 }
 
                 > div:last-child {
                     @include flex(row, center, center);
                     gap: 1em;
+                    width: 90%;
 
                     > button:first-child {
                         border: 0;
