@@ -1,0 +1,51 @@
+.carousel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  
+    button {
+      margin-bottom: 10px;
+    }
+  
+    .slide-container {
+      position: relative;
+      width: 400px; /* Modifier la largeur du carrousel selon vos besoins */
+      height: 300px; /* Modifier la hauteur du carrousel selon vos besoins */
+      overflow: hidden;
+      margin-bottom: 10px;
+  
+      .slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+  
+        img {
+          max-width: 100%;
+          max-height: 100%;
+        }
+  
+        p {
+          position: absolute;
+          bottom: 10px;
+          left: 10px;
+          color: white;
+        }
+  
+        &.slide-enter-active,
+        &.slide-leave-active {
+          transition: opacity 0.5s ease-in;
+        }
+  
+        &.slide-enter,
+        &.slide-leave-to {
+          opacity: 0;
+        }
+      }
+    }
+  }

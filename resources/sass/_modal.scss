@@ -45,6 +45,7 @@
             > p {
                 @include font-family($dark-brown, 1.2em, $nunito, regular);
             }
+            
             > input {
                 height: 3em;
                 width: 40em;

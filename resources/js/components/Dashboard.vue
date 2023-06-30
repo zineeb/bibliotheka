@@ -44,38 +44,8 @@
                     </div> 
                     <br>
                 </template>-->
-                <div class="livre-test">
-                    <h2>Livre test</h2>
-                    <img src="../../../public/images/HP1.png" alt="hp" >
-                </div>
-                <div class="livre-test">
-                    <h2>Livre test</h2>
-                    <img src="../../../public/images/HP1.png" alt="hp" >
-                </div>
-                <div class="livre-test">
-                    <h2>Livre test</h2>
-                    <img src="../../../public/images/HP1.png" alt="hp" >
-                </div>
-                <div class="livre-test">
-                    <h2>Livre test</h2>
-                    <img src="../../../public/images/HP1.png" alt="hp" >
-                </div>
-                <div class="livre-test">
-                    <h2>Livre test</h2>
-                    <img src="../../../public/images/HP1.png" alt="hp" >
-                </div>
-                <div class="livre-test">
-                    <h2>Livre test</h2>
-                    <img src="../../../public/images/HP1.png" alt="hp" >
-                </div>
-                <div class="livre-test">
-                    <h2>Livre test</h2>
-                    <img src="../../../public/images/HP1.png" alt="hp" >
-                </div>
-                <div class="livre-test">
-                    <h2>Livre test</h2>
-                    <img src="../../../public/images/HP1.png" alt="hp" >
-                </div>
+                <!-- Carousel des livres ajoutés -->
+                <Carousel />
             </div>
         </div>
 
@@ -83,7 +53,7 @@
         <!-- Modal for adding a category -->
         <modal v-if="showModalCategory" @close="showModalCategory = false">
             <template v-slot:header>
-                <h3>Ajout Catégorie :</h3>
+                <h3>Ajout d'une catégorie :</h3>
             </template>
             <template v-slot:body>
                 <input type="text" v-model="modalCategoryInput" placeholder="Catégorie ..."/>
@@ -96,7 +66,7 @@
         <!-- Modal for adding a book -->
         <modal v-if="showModalBook" @close="showModalBook = false">
             <template v-slot:header>
-                <h3>Ajout Livre</h3>
+                <h3>Ajout d'un livre</h3>
             </template>
             <template v-slot:body>
                 <!-- Inputs for entering book's title, author, and ISBN -->
@@ -231,6 +201,8 @@
 <script>
 import axios from "axios";
 import Modal from "./Modal.vue";
+import Carousel from "./Carousel.vue";
+
 
 export default {
     name: "Dashboard",
