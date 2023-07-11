@@ -139,6 +139,265 @@ table {
     width: 60%;
   }
 }
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal .modal-content {
+  background-color: #F5E5D7;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #AF8F7C;
+  width: 40%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.modal .modal-content .modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+.modal .modal-content .modal-header h3 {
+  color: #402B1B;
+  font-size: 2em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+  padding: 1em;
+}
+.modal .modal-content .modal-header button {
+  position: absolute;
+  top: -23px;
+  left: 515px;
+  font-size: 2.5em;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+.modal .modal-content .modal-body {
+  padding: 10px 0;
+}
+.modal .modal-content .modal-body > p {
+  color: #402B1B;
+  font-size: 1.2em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+}
+.modal .modal-content .modal-body > input {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  transition: all 0.2s;
+}
+.modal .modal-content .modal-body > input::-moz-placeholder {
+  padding-left: 1em;
+}
+.modal .modal-content .modal-body > input::placeholder {
+  padding-left: 1em;
+}
+.modal .modal-content .modal-footer {
+  text-align: right;
+}
+.modal .modal-content .modal-footer > button {
+  border: 0;
+  background-color: #402B1B;
+  width: 10em;
+  height: 3em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  transition: ease-in-out 0.1s;
+  color: white;
+  font-size: 1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+.modal .modal-content .modal-footer > button:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.modal .modal-content .modal-footer > button:active {
+  box-shadow: none;
+}
+
+.user-informations {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+.user-informations .user-info {
+  width: 50%;
+  background-color: #AF8F7C;
+  border-radius: 5px;
+  padding: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.user-informations .user-info h2 {
+  color: #F5E5D7;
+  font-size: 1.6em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+  padding-bottom: 1em;
+}
+.user-informations .user-info img {
+  width: 8em;
+  height: 8em;
+  border-radius: 100%;
+  background-color: #402B1B;
+}
+.user-informations .user-info ul {
+  color: #402B1B;
+  font-size: 1.2em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+  padding-top: 1em;
+}
+.user-informations .user-update {
+  width: 53%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+}
+.user-informations .user-update h2 {
+  color: #402B1B;
+  font-size: 1.6em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+  padding-bottom: 1em;
+}
+.user-informations .user-update form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.user-informations .user-update form label {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+}
+.user-informations .user-update form > input {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  transition: all 0.2s;
+}
+.user-informations .user-update form > input::-moz-placeholder {
+  padding-left: 1em;
+}
+.user-informations .user-update form > input::placeholder {
+  padding-left: 1em;
+}
+.user-informations .user-update form > button {
+  border: 0;
+  background-color: #402B1B;
+  width: 10em;
+  height: 3em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  transition: ease-in-out 0.1s;
+  color: white;
+  font-size: 1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+.user-informations .user-update form > button:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.user-informations .user-update form > button:active {
+  box-shadow: none;
+}
+.user-informations > button {
+  border: 0;
+  background-color: #740921;
+  width: 14em;
+  height: 3em;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  transition: ease-in-out 0.1s;
+  color: white;
+  font-size: 1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+.user-informations > button:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.user-informations > button:active {
+  box-shadow: none;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.carousel button {
+  margin-bottom: 10px;
+}
+.carousel .slide-container {
+  position: relative;
+  width: 400px; /* Modifier la largeur du carrousel selon vos besoins */
+  height: 300px; /* Modifier la hauteur du carrousel selon vos besoins */
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+.carousel .slide-container .slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in;
+}
+.carousel .slide-container .slide img {
+  max-width: 100%;
+  max-height: 100%;
+}
+.carousel .slide-container .slide p {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  color: white;
+}
+.carousel .slide-container .slide.slide-enter-active, .carousel .slide-container .slide.slide-leave-active {
+  transition: opacity 0.5s ease-in;
+}
+.carousel .slide-container .slide.slide-enter, .carousel .slide-container .slide.slide-leave-to {
+  opacity: 0;
+}
+
 .login-and-register {
   width: 100vw;
   height: 80vh;
@@ -168,7 +427,7 @@ table {
 }
 .login-and-register .container-login .login-section h2 {
   color: #402B1B;
-  font-size: 3em;
+  font-size: 2.4em;
   font-family: "Nunito", sans-serif;
   font-style: italic;
 }
@@ -183,6 +442,10 @@ table {
 }
 .login-and-register .container-login .login-section form > div:first-child {
   height: 6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 .login-and-register .container-login .login-section form > div:first-child label:first-child {
   color: #402B1B;
@@ -218,10 +481,14 @@ table {
 }
 .login-and-register .container-login .login-section form > div:nth-child(2) {
   height: 6em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 .login-and-register .container-login .login-section form > div:nth-child(2) label:first-child {
   color: #402B1B;
-  font-size: 1.63em;
+  font-size: 1.6em;
   font-family: "Nunito", sans-serif;
   font-style: normal;
 }
@@ -279,6 +546,9 @@ table {
   font-family: "Nunito", sans-serif;
   font-style: normal;
 }
+.login-and-register .container-login .login-section form > div:nth-child(4) a:hover {
+  text-decoration: underline;
+}
 .login-and-register .container-login .login-section form > div:last-child button {
   border: 1px solid grey;
   background-color: #fff;
@@ -314,10 +584,9 @@ table {
 }
 .login-and-register .container-login .register-section h2 {
   color: #402B1B;
-  font-size: 3em;
+  font-size: 2.4em;
   font-family: "Nunito", sans-serif;
   font-style: italic;
-  margin-bottom: 1em;
 }
 .login-and-register .container-login .register-section form {
   width: 80%;
@@ -325,16 +594,14 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .login-and-register .container-login .register-section form > div:first-child {
-  width: 100%;
   height: auto;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin-left: 1em;
 }
 .login-and-register .container-login .register-section form > div:first-child > div:first-child {
   width: 20%;
@@ -344,14 +611,15 @@ table {
 }
 .login-and-register .container-login .register-section form > div:first-child > div:last-child {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 0.2em;
+  width: 100%;
 }
 .login-and-register .container-login .register-section form > div:first-child > div:last-child label {
   color: #402B1B;
-  font-size: 1.6em;
+  font-size: 1em;
   font-family: "Nunito", sans-serif;
   font-style: normal;
 }
@@ -368,8 +636,8 @@ table {
 .login-and-register .container-login .register-section form > div:nth-child(2) {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   height: 6em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(2) label:first-child {
@@ -405,7 +673,7 @@ table {
   padding-left: 0.8em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(2) small {
-  color: #F5E5D7;
+  color: white;
   font-size: 0.8em;
   font-family: "Playfair Display", serif;
   font-style: regular;
@@ -413,8 +681,8 @@ table {
 .login-and-register .container-login .register-section form > div:nth-child(3) {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   height: 6em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(3) label:first-child {
@@ -450,7 +718,7 @@ table {
   padding-left: 0.8em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(3) small {
-  color: #F5E5D7;
+  color: white;
   font-size: 0.8em;
   font-family: "Playfair Display", serif;
   font-style: regular;
@@ -458,8 +726,8 @@ table {
 .login-and-register .container-login .register-section form > div:nth-child(4) {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
   height: 10em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(4) label:first-child {
@@ -495,12 +763,20 @@ table {
   padding-left: 0.8em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(4) small {
-  color: #F5E5D7;
+  color: white;
   font-size: 0.8em;
   font-family: "Playfair Display", serif;
   font-style: regular;
+  text-align: center;
 }
-.login-and-register .container-login .register-section form #recaptcha {
+.login-and-register .container-login .register-section form .container-recaptcha {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.login-and-register .container-login .register-section form .container-recaptcha #recaptcha {
   margin-bottom: 0.4em;
 }
 .login-and-register .container-login .register-section form > div:last-child {
@@ -509,6 +785,7 @@ table {
   justify-content: center;
   align-items: center;
   gap: 1em;
+  width: 90%;
 }
 .login-and-register .container-login .register-section form > div:last-child > button:first-child {
   border: 0;
@@ -768,7 +1045,7 @@ table {
   transition: all 0.2s;
 }
 .home .contact-form form input:hover {
-  background-color: #EBE7E5;
+  background-color: rgb(244, 244, 244);
 }
 .home .contact-form form input::-moz-placeholder {
   color: #402B1B;
@@ -793,9 +1070,10 @@ table {
   box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
   margin-bottom: 2em;
   transition: all 0.2s;
+  resize: none;
 }
 .home .contact-form form textarea:hover {
-  background-color: #EBE7E5;
+  background-color: rgb(244, 244, 244);
 }
 .home .contact-form form textarea::-moz-placeholder {
   color: #402B1B;
@@ -952,9 +1230,9 @@ table {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: flex-end;
+  align-items: center;
   padding-left: 2em;
-  gap: 1em;
+  gap: 6em;
 }
 .dashboard .open-modal-book > button {
   border: none;

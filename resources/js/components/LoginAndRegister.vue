@@ -41,8 +41,7 @@
                         <div>
                             <!-- Display user's selected profile image or default image -->
                             <img :src="imageSrc" alt="Image de profil par défaut" width="50">
-                        </div>
-                        <div>
+
                             <label for="profil_picture">Image de profil :</label>
                             <input type="file" id="profil_picture" @change="onFileChange">
                             <!-- Display profile picture errors if any -->
@@ -78,7 +77,9 @@
                         </small>
                     </div>
                     <!-- Google reCAPTCHA container -->
-                    <div id="recaptcha" class="g-recaptcha" :data-sitekey="recaptchaSiteKey"></div>
+                    <div class="container-recaptcha">
+                        <div id="recaptcha" class="g-recaptcha" :data-sitekey="recaptchaSiteKey"></div>
+                    </div>
                     <!-- Button to submit registration form -->
                     <div>
                         <button type="submit">S'inscrire</button>

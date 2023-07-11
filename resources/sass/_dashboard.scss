@@ -58,9 +58,9 @@
         height: 10.5em;
         margin-left: 4em;
         margin-bottom: 3em;
-        @include flex(row, center, flex-end);
+        @include flex(row, center, center);
         padding-left: 2em;
-        gap: 1em;
+        gap: 6em;
 
         > button {
             border: none; 

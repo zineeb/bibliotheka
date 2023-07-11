@@ -17,7 +17,7 @@
             @include flex(column, flex-start, center);
 
             h2 {
-                @include font-family($dark-brown, 3em, $nunito, italic);
+                @include font-family($dark-brown, 2.4em, $nunito, italic);
             }
             
             form {
@@ -28,6 +28,7 @@
                 
                 > div:first-child {
                     height: 6em;
+                    @include flex(column, flex-start, center);
 
                     label:first-child {
                         @include font-family($dark-brown, 1.6em, $nunito, normal);                     
@@ -55,9 +56,10 @@
 
                 > div:nth-child(2) {
                     height: 6em;
+                    @include flex(column, flex-start, center);
 
                     label:first-child {
-                        @include font-family($dark-brown, 1.63em, $nunito, normal);                     
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);                     
                     }
                     
                     #login-password {
@@ -102,6 +104,10 @@
 
                     a{
                         @include font-family($dark-brown, 1em, $nunito, normal);
+
+                        &:hover {
+                            text-decoration: underline;
+                        }
                     }
                 }
                 
@@ -114,9 +120,11 @@
                         border-radius: 5px;
                         transition: all .1s;
                         @include font-family($dark-brown, 1em, $nunito, normal);
+
                         &:hover {
                             box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
                         }
+                        
                         &:active {
                             box-shadow: none;
                         }
@@ -139,22 +147,19 @@
 
             @include flex(column, flex-start, center);
             h2 {
-                @include font-family($dark-brown, 3em, $nunito, italic);  
-                margin-bottom: 1em;          
+                @include font-family($dark-brown, 2.4em, $nunito, italic);  
             }
 
             form {
                 width: 80%;
                 height: 100%;
                 
-                // margin-top: 2em;
-                @include flex(column, center, center);
+                @include flex(column, center, flex-start);
 
                 > div:first-child {
-                    width: 100%;
                     height: auto;
-                    @include flex(row, flex-start, center);
-                    margin-left: 1em;
+                    @include flex(column, flex-start, center);
+
                     > div:first-child {
                         width: 20%;
                         @include flex-justify(center);
@@ -162,10 +167,12 @@
                     }
 
                     > div:last-child {
-                        @include flex(column, center, center);
+                        @include flex(row, center, center);
                         gap: .2em;
+                        width: 100%;
+
                         label {
-                            @include font-family($dark-brown, 1.6em, $nunito, normal);                        
+                            @include font-family($dark-brown, 1em, $nunito, normal);                        
                         }
 
                         input {
@@ -184,7 +191,7 @@
                 }
 
                 > div:nth-child(2) {
-                    @include flex(column, center, flex-start);
+                    @include flex(column, flex-start, center);
 
                     height: 6em;
                     label:first-child {
@@ -211,12 +218,12 @@
                         }
                     }
                     small{
-                        @include font-family($light-brown, .8em, $playfair, regular);
+                        @include font-family(white, .8em, $playfair, regular);
                     }
                 }
 
                 > div:nth-child(3) {
-                    @include flex(column, center, flex-start);
+                    @include flex(column, flex-start, center);
 
                     height: 6em;
                     label:first-child {
@@ -244,12 +251,12 @@
                         }
                     }
                     small{
-                        @include font-family($light-brown, .8em, $playfair, regular);
+                        @include font-family(white, .8em, $playfair, regular);
                     }
                 }
 
                 > div:nth-child(4) {
-                    @include flex(column, center, flex-start);
+                    @include flex(column, flex-start, center);
 
                     height: 10em;
                     label:first-child {
@@ -269,24 +276,32 @@
                         &:hover{
                             background-color: $body-bg;
                         }
-
+                        
                         &::placeholder{
                             @include font-family($dark-brown, 1.1em, $nunito, normal);
                             padding-left: .8em;
                         }
                     }
                     small{
-                        @include font-family($light-brown, .8em, $playfair, regular);
+                        @include font-family(white, .8em, $playfair, regular);
+                        text-align: center;
                     }
                 }
 
-                #recaptcha {
-                    margin-bottom: .4em;
+                
+                .container-recaptcha {
+                    width: 90%;
+                    @include flex(row, center, center);      
+
+                    #recaptcha {
+                        margin-bottom: .4em;
+                    }
                 }
 
                 > div:last-child {
                     @include flex(row, center, center);
                     gap: 1em;
+                    width: 90%;
 
                     > button:first-child {
                         border: 0;
