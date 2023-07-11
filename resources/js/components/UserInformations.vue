@@ -33,6 +33,7 @@
 import axios from 'axios';
 
 export default {
+    name: 'UserInformations',
     data() {
         return {
             user: {
@@ -88,9 +89,12 @@ export default {
         },
     },
     created() {
+        this.$root.$emit('user-logged-in');
+
         const userId = this.$route.params.id;
         console.log(userId);
         const token = localStorage.getItem('token');
+        console.log(token);
 
         axios
             .get(`/api/user/${userId}`, {

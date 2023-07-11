@@ -13,7 +13,7 @@
                         <li>Nom : {{ infosUser[0].name }}</li>
                         <li>Email : {{ infosUser[0].email }}</li>
                     </ul>
-                    <a :href="'/user-informations/' + infosUser[0].id">Voir et modifier mes informations</a>
+                    <button @click="navigateToUserInformation">Voir et modifier mes informations</button>
                     <!-- Link to view and edit user's information -->
                 </div>
 
@@ -233,6 +233,11 @@ export default {
         };
     },
     methods: {
+        navigateToUserInformation() {
+            const userId = this.infosUser[0].id;
+            this.$router.push(`/user-informations/${userId}`);
+            this.$root.$emit('user-logged-in');
+        },
         submitModalCategory() {
             // Prepare the data to be sent
             const data = {
