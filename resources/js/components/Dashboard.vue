@@ -41,7 +41,7 @@
                     <div class="book-list" v-for="book in books" :key="book.id">
                         <img :src="book.cover_image" alt="Cover image" width="100" @click="openBookInfoModal(book)">
                         <div>{{ book.title }}</div>
-                    </div> 
+                    </div>
                     <br>
                 </template>-->
                 <div class="livre-test">
@@ -300,9 +300,7 @@ export default {
                 isbn: this.modalISBNInput,
                 user_id: this.$route.params.id,
             };
-
             const token = localStorage.getItem("token");
-
             axios
                 .post("api/researchbook", data, {
                     headers: {

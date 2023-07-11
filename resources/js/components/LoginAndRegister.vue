@@ -119,7 +119,6 @@ export default {
     },
     methods: {
         // Method to log in the user
-        // Method to log in the user
         async login() {
             try {
                 const response = await axios.post('api/login', this.loginForm);
@@ -149,8 +148,6 @@ export default {
                         'Content-Type': 'multipart/form-data'
                     }
                 });
-
-                console.log(response.data);
                 if (response.data.status === 'success') {
                     localStorage.setItem('token', response.data.token);
                     this.$router.push('/dashboard');
@@ -161,6 +158,17 @@ export default {
                     // Update errors in the `errors` object
                     this.errors = error.response.data.errors;
                 }
+            }
+        },
+        initRecaptcha() {
+            if (window.grecaptcha) {
+                window.grecaptcha.render('recaptcha', {
+                    'sitekey': this.recaptchaSiteKey
+                });
+            } else {
+                setTimeout(() => {
+                    this.initRecaptcha();
+                }, 100);
             }
         },
         // Method to log in or register with Google
@@ -176,17 +184,7 @@ export default {
             this.imageSrc = URL.createObjectURL(this.selectedFile)
         },
         // Method to initialize Google reCAPTCHA
-        initRecaptcha() {
-            if (window.grecaptcha) {
-                window.grecaptcha.render('recaptcha', {
-                    'sitekey': this.recaptchaSiteKey
-                });
-            } else {
-                setTimeout(() => {
-                    this.initRecaptcha();
-                }, 100);
-            }
-        },
+
     },
     // Lifecycle hook to initialize reCAPTCHA when the component is mounted
     mounted() {

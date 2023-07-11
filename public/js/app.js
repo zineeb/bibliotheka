@@ -20612,7 +20612,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     // Method to log in the user
-    // Method to log in the user
     login: function login() {
       var _this = this;
       return _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee() {
@@ -20668,27 +20667,38 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               });
             case 8:
               response = _context2.sent;
-              console.log(response.data);
               if (response.data.status === 'success') {
                 localStorage.setItem('token', response.data.token);
                 _this2.$router.push('/dashboard');
                 _this2.$emit('user-logged-in'); // Emit a custom event when the user is logged in successfully
               }
-              _context2.next = 16;
+              _context2.next = 15;
               break;
-            case 13:
-              _context2.prev = 13;
+            case 12:
+              _context2.prev = 12;
               _context2.t0 = _context2["catch"](0);
               if (_context2.t0.response && _context2.t0.response.status === 422) {
                 // Update errors in the `errors` object
                 _this2.errors = _context2.t0.response.data.errors;
               }
-            case 16:
+            case 15:
             case "end":
               return _context2.stop();
           }
-        }, _callee2, null, [[0, 13]]);
+        }, _callee2, null, [[0, 12]]);
       }))();
+    },
+    initRecaptcha: function initRecaptcha() {
+      var _this3 = this;
+      if (window.grecaptcha) {
+        window.grecaptcha.render('recaptcha', {
+          'sitekey': this.recaptchaSiteKey
+        });
+      } else {
+        setTimeout(function () {
+          _this3.initRecaptcha();
+        }, 100);
+      }
     },
     // Method to log in or register with Google
     loginWithGoogle: function loginWithGoogle() {
@@ -20711,20 +20721,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     onFileChange: function onFileChange(event) {
       this.selectedFile = event.target.files[0];
       this.imageSrc = URL.createObjectURL(this.selectedFile);
-    },
-    // Method to initialize Google reCAPTCHA
-    initRecaptcha: function initRecaptcha() {
-      var _this3 = this;
-      if (window.grecaptcha) {
-        window.grecaptcha.render('recaptcha', {
-          'sitekey': this.recaptchaSiteKey
-        });
-      } else {
-        setTimeout(function () {
-          _this3.initRecaptcha();
-        }, 100);
-      }
-    }
+    } // Method to initialize Google reCAPTCHA
   },
   // Lifecycle hook to initialize reCAPTCHA when the component is mounted
   mounted: function mounted() {
@@ -21035,7 +21032,7 @@ var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa-solid fa-chevron-right"
 }, null, -1 /* HOISTED */);
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"books\"><h2>Livres : </h2><div class=\"gallery-books\"><!-- List of user&#39;s books --><!--&lt;template v-for=&quot;(books, status) in booksByStatus&quot;&gt;\r\n                    &lt;h2&gt;{{ status }}&lt;/h2&gt;\r\n                    &lt;div class=&quot;book-list&quot; v-for=&quot;book in books&quot; :key=&quot;book.id&quot;&gt;\r\n                        &lt;img :src=&quot;book.cover_image&quot; alt=&quot;Cover image&quot; width=&quot;100&quot; @click=&quot;openBookInfoModal(book)&quot;&gt;\r\n                        &lt;div&gt;{{ book.title }}&lt;/div&gt;\r\n                    &lt;/div&gt; \r\n                    &lt;br&gt;\r\n                &lt;/template&gt;--><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div></div></div>", 1);
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"books\"><h2>Livres : </h2><div class=\"gallery-books\"><!-- List of user&#39;s books --><!--&lt;template v-for=&quot;(books, status) in booksByStatus&quot;&gt;\n                    &lt;h2&gt;{{ status }}&lt;/h2&gt;\n                    &lt;div class=&quot;book-list&quot; v-for=&quot;book in books&quot; :key=&quot;book.id&quot;&gt;\n                        &lt;img :src=&quot;book.cover_image&quot; alt=&quot;Cover image&quot; width=&quot;100&quot; @click=&quot;openBookInfoModal(book)&quot;&gt;\n                        &lt;div&gt;{{ book.title }}&lt;/div&gt;\n                    &lt;/div&gt;\n                    &lt;br&gt;\n                &lt;/template&gt;--><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div><div class=\"livre-test\"><h2>Livre test</h2><img src=\"" + _public_images_HP1_png__WEBPACK_IMPORTED_MODULE_1__["default"] + "\" alt=\"hp\"></div></div></div>", 1);
 var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Ajout Catégorie :", -1 /* HOISTED */);
 var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h3", null, "Ajout Livre", -1 /* HOISTED */);
 var _hoisted_14 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", null, "Titre : *", -1 /* HOISTED */);
