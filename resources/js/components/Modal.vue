@@ -6,7 +6,7 @@
             <!-- Modal header, containing the slot for header content and close button -->
             <div class="modal-header">
                 <slot name="header"></slot>
-                <button @click="$emit('close')">&times;</button>
+                <!-- <button @click="$emit('close')">&times;</button> -->
             </div>
             <!-- Modal body, containing the slot for body content -->
             <div class="modal-body">

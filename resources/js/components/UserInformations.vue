@@ -11,7 +11,7 @@
         </div>
         <!-- Form for updating user information -->
         <div class="user-update">
-            <h2>Modifier données utilisateur : </h2>
+            <h2>Modifier vos données utilisateur : </h2>
             <form @submit.prevent="updateUser">
                 <label for="name">Nom :</label>
                 <input type="text" id="name" v-model="user.name">
