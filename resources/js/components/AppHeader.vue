@@ -9,8 +9,8 @@
             <nav>
                 <ul>
                     <li><a href="/home">Accueil</a></li>
-                    <li><a href="#">Statistiques</a></li>
-                    <li><a href="#">Mon Compte</a></li>
+                    <!-- <li><a href="#">Statistiques</a></li> (V2) -->
+                    <li><a href="/dashboard">Mon Compte</a></li>
                 </ul>
                 <a href="/loginAndRegister" v-if="!isLoggedIn">Connexion / Inscription </a>
                 <a href="/#" @click.prevent="logout" v-if="isLoggedIn">Déconnexion </a>

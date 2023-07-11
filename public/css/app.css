@@ -88,7 +88,7 @@ table {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  padding-left: 20em;
+  padding-left: 26em;
 }
 .header-container nav ul {
   display: flex;
