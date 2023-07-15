@@ -9,11 +9,11 @@
         background-image: url("../../public/images/etageres_a_livres.jpg");
         background-size: cover;
         background-repeat: no-repeat;
-        
+
         @include flex(column, center, center);
         color: $light-brown;
         font-family: $playfair;
-        
+
         h1 {
             font-style: italic;
             font-size: 8em;
@@ -83,13 +83,13 @@
 
         form {
             @include flex(column, center, center);
-            
+
             label {
                 @include font-family($dark-brown, 1.2em, $nunito, normal);
                 padding-bottom: .2em;
                 padding-top: .6em;
             }
-            
+
             input {
                 height: 3em;
                 width: 40em;
@@ -142,7 +142,7 @@
                 @include font-family($light-brown, 1em, $nunito, normal);
                 transition: all .1s;
                 &:hover {
-                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
+                    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
                 }
                 &:active {
                     box-shadow: none;
