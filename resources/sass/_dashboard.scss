@@ -1,9 +1,11 @@
 .dashboard {
-    width: 94vw;
+    width: 96vw;
     //height: 100vh;
     padding: 2em;
     @include flex(row, flex-start, flex-start);
     flex-wrap: wrap;
+    background-image: url('/images/biblio2.jpg');
+    background-size: cover;
 
     .user-info {
         background-color: $brown;

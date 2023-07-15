@@ -19,7 +19,7 @@
             </div>
         </div>
 
-        <div class="contact-form">
+        <div class="contact-form" ref="contact-hook">
             <h2>Contactez-nous</h2>
             <form @submit.prevent="submitForm">
                 <label for="name">Votre nom:</label>
@@ -62,7 +62,14 @@ export default {
                 console.error(error);
                 alert('Une erreur est survenue lors de l\'envoi de votre message.');
             }
+        },
+        scrollIntoView() {
+            const anchorElement = document.querySelector('#ancreContact');
+            anchorElement.scrollIntoView({ behavior: 'smooth' });
         }
-    }
+    },
+    mounted() {
+        this.$root.$on('scroll-to-anchor', this.scrollIntoView);
+    },
 };
 </script>

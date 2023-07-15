@@ -31,7 +31,7 @@
         height: 100%;
     
         @include flex(row, flex-start, center);
-        padding-left: 26em;
+        padding-left: 20em;
         ul {
             @include flex(row, flex-start, center);
             gap: 2em;
