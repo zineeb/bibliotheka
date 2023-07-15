@@ -35,10 +35,11 @@ Route::middleware('api')->group(function () {
         Route::get('/dashboard_data', [DashboardController::class, 'dashboardData']);
         Route::get('user/{id}', [UserController::class, 'show']);
         Route::put('user/{id}', [UserController::class, 'update']);
+        Route::post('/update-profile-image/{id}', [UserController::class, 'updateProfileImage']);
         Route::delete('user/{id}', [UserController::class, 'destroy']);
         Route::post('/addcategory', [BooksController::class, 'addCategory'])->name('book.addCategory');
-//        Route::post('/researchbook', [BooksController::class, 'retrieveBook'])->name('book.addCategory');
-//        Route::post('/addBook', [BooksController::class, 'addBook'])->name('book.addBook');
+        Route::post('/researchbook', [BooksController::class, 'retrieveBook'])->name('book.addCategory');
+        Route::post('/addBook', [BooksController::class, 'addBook'])->name('book.addBook');
         Route::post('/updateBook', [BooksController::class, 'updateStatusBook'])->name('book.updateStatusBook');
         Route::post('/deletebook', [BooksController::class, 'deleteBook'])->name('book.deleteBook');
 

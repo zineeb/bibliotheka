@@ -735,7 +735,7 @@ table {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  height: 10em;
+  height: 6em;
 }
 .login-and-register .container-login .register-section form > div:nth-child(4) label:first-child {
   color: #402B1B;
@@ -769,7 +769,46 @@ table {
   font-style: normal;
   padding-left: 0.8em;
 }
-.login-and-register .container-login .register-section form > div:nth-child(4) small {
+.login-and-register .container-login .register-section form > div:nth-child(5) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 10em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(5) label:first-child {
+  color: #402B1B;
+  font-size: 1.6em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+.login-and-register .container-login .register-section form > div:nth-child(5) #password_verification {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  margin-bottom: 0.2em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+}
+.login-and-register .container-login .register-section form > div:nth-child(5) #password_verification:hover {
+  background-color: #EBE7E5;
+}
+.login-and-register .container-login .register-section form > div:nth-child(5) #password_verification::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(5) #password_verification::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.login-and-register .container-login .register-section form > div:nth-child(5) small {
   color: white;
   font-size: 0.8em;
   font-family: "Playfair Display", serif;

@@ -177,7 +177,7 @@
 
                 <div v-if="bookInfo.status === 'reading'">
                     <label for="current_page">Page actuelle :</label>
-                    <input type="number" v-model="bookInfo.current_page" id="current_page" min="1" :max="bookInfo.page_count"
+                    <input type="number" v-model="bookInfo.page" id="current_page" min="1" :max="bookInfo.page_count"
                            placeholder="Page actuelle"/>
                 </div>
 
@@ -389,6 +389,7 @@ export default {
             }, {});
         },
         openBookInfoModal(book) {
+            console.log(book);
             this.bookInfo = book;
             this.showBookInfoModal = true;
         },

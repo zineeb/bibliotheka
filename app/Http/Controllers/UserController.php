@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class UserController extends Controller
 {
@@ -48,6 +49,24 @@ class UserController extends Controller
         $user->update($validatedData);
         // Return the updated user data.
         return response()->json($user);
+    }
+
+    public function updateProfileImage(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+
+        Log::info('request : ' . print_r($request->file('profile_image'),true));
+
+        if ($request->hasFile('profile_image')) {
+            $file = $request->file('profile_image');
+            $filename = time() . '.' . $file->getClientOriginalExtension();
+            $file->move(public_path('images/profil_pictures/'), $filename);
+            $profilePicture = 'images/profil_pictures/' . $filename;
+            $user->profile_image = $profilePicture;
+            $user->save();
+        }
+
+        return response()->json(['status' => 'success']);
     }
 
     /**

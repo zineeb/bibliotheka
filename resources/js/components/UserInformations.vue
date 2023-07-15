@@ -3,7 +3,10 @@
         <!-- Display user information -->
         <div class="user-info">
             <h2>Vos informations : </h2>
-            <img :src="`/${user[0].profile_image}`" alt="Image de profil">
+            <label for="profile-image" class="profile-image-label">
+                <img :src="`/${user[0].profile_image}`" alt="Image de profil" class="profile-image">
+                <input type="file" id="profile-image" @change="handleProfileImageChange" style="display: none;">
+            </label>
             <ul>
                 <li>Nom : {{ user[0].name }}</li>
                 <li>Email : {{ user[0].email }}</li>
@@ -45,6 +48,24 @@ export default {
         };
     },
     methods: {
+        fetchUser() {
+            const userId = this.$route.params.id;
+            const token = localStorage.getItem("token");
+            if (token) {
+                axios
+                    .get(`/api/user/${userId}`, {
+                        headers: {
+                            Authorization: `Bearer ${token}`,
+                        },
+                    })
+                    .then(response => {
+                        this.user = response.data;
+                    })
+                    .catch(error => {
+                        console.error("Erreur lors de la récupération des données de l'utilisateur :", error);
+                    });
+            }
+        },
         // Update user information
         updateUser() {
             const userId = this.$route.params.id;
@@ -68,6 +89,27 @@ export default {
                     console.error("Erreur lors de la mise à jour des informations de l'utilisateur :", error);
                 });
         },
+        handleProfileImageChange(event) {
+            const userId = this.$route.params.id;
+            const token = localStorage.getItem("token");
+            const file = event.target.files[0];
+
+            const formData = new FormData();
+            formData.append('profile_image', file);
+
+            axios.post(`/api/update-profile-image/${userId}`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                    'Authorization': `Bearer ${token}`
+                }
+            })
+                .then(response => {
+                    this.fetchUser();
+                })
+                .catch(error => {
+                    console.error('Erreur lors de la mise à jour de l\'image de profil :', error);
+                });
+        },
         // Delete user account
         deleteUser() {
             const userId = this.$route.params.id;
@@ -89,45 +131,8 @@ export default {
         },
     },
     created() {
-        const token = localStorage.getItem("token");
-        // Vérifier si le token est défini avant de faire une requête avec l'en-tête Authorization
-        if (token) {
-            axios
-                .get(`/api/user/${this.$route.params.id}`, {
-                    headers: {
-                        Authorization: `Bearer ${token}`,
-                    },
-                })
-                .then(response => {
-                    console.log(response.data);
-                    this.user = response.data;
-                })
-                .catch(error => {
-                    console.error("Erreur lors de la récupération des données de l'utilisateur :", error);
-                });
-        }
+        this.fetchUser();
     },
-
-    // created() {
-    //     // this.$root.$emit('user-logged-in');
-    //
-    //     const userId = this.$route.params.id;
-    //     const token = localStorage.getItem('token');
-    //
-    //     axios
-    //         .get(`/api/user/${userId}`, {
-    //             headers: {
-    //                 Authorization: `Bearer ${token}`,
-    //             },
-    //         })
-    //         .then(response => {
-    //             console.log(response.data);
-    //             this.user = response.data;
-    //         })
-    //         .catch(error => {
-    //             console.error("Erreur lors de la récupération des données de l'utilisateur :", error);
-    //         });
-    // }
 };
 </script>
 

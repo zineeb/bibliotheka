@@ -32,7 +32,7 @@ class Book extends Model
     public static function allBooks($userId)
     {
         return DB::table('books')
-            ->select('books.google_books_id','books.title', 'books.author', 'books.publication_date', 'books.cover_image', 'status.status', 'status.page', 'categories.name as category', 'reviews.review', 'reviews.rating')
+            ->select('books.*', 'status.status', 'status.page', 'categories.name as category', 'reviews.review', 'reviews.rating')
             ->join('status', function ($join) use ($userId) {
                 $join->on('books.google_books_id', '=', 'status.google_books_id')
                     ->where('status.user_id', '=', $userId);

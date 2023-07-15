@@ -60,13 +60,19 @@
                         <input type="email" id="email" v-model="registerForm.email" required placeholder="Email">
                         <!-- Display email errors if any -->
                         <small v-if="errors.email">{{ errors.email[0] }}</small>
-                        <small>  L’adresse email doit être valide.</small>
+                        <small>L’adresse email doit être valide.</small>
                     </div>
                     <div>
                         <label for="password">Mot de passe :</label>
                         <input type="password" id="password" v-model="registerForm.password" required :pattern="passwordPattern" placeholder="Mot de passe">
                         <!-- Display password errors if any -->
                         <small v-if="errors.password">{{ errors.password[0] }}</small>
+                    </div>
+                    <div>
+                        <label for="password_verification">Vérification du mot de passe :</label>
+                        <input type="password" id="password_verification" v-model="registerForm.password_verification" required placeholder="Confirmer le mot de passe">
+                        <!-- Display password verification errors if any -->
+                        <small v-if="errors.password_verification">{{ errors.password_verification[0] }}</small>
                         <small>  Le mot de passe doit comporter :
                             <ul>
                                 <li>Au minimum 8 caractères.</li>
@@ -111,6 +117,7 @@ export default {
                 username: '',
                 email: '',
                 password: '',
+                password_verification: '',
                 profil_picture: '',
                 recaptcha: ''
             },
@@ -142,6 +149,7 @@ export default {
                 formData.append('username', this.registerForm.username);
                 formData.append('email', this.registerForm.email);
                 formData.append('password', this.registerForm.password);
+                formData.append('password_verification', this.registerForm.password_verification);
                 formData.append('profil_picture', this.selectedFile);
 
                 const response = await axios.post('api/register', formData, {

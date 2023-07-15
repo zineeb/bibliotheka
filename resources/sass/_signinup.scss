@@ -4,7 +4,7 @@
     @include flex(row, center, center);
     background-image: url('/images/etageres_a_livres.jpg');
     background-size: contain;
-    
+
     .container-login {
         width: 80%;
         height: 92%;
@@ -21,19 +21,19 @@
             h2 {
                 @include font-family($dark-brown, 2.4em, $nunito, italic);
             }
-            
+
             form {
                 width: 80%;
                 height: 80%;
                 margin-top: 1.5em;
                 @include flex(column, center, center);
-                
+
                 > div:first-child {
                     height: 6em;
                     @include flex(column, flex-start, center);
 
                     label:first-child {
-                        @include font-family($dark-brown, 1.6em, $nunito, normal);                     
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);
                     }
 
                     #login-email {
@@ -61,9 +61,9 @@
                     @include flex(column, flex-start, center);
 
                     label:first-child {
-                        @include font-family($dark-brown, 1.6em, $nunito, normal);                     
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);
                     }
-                    
+
                     #login-password {
                         height: 3em;
                         width: 40em;
@@ -94,7 +94,7 @@
                     transition: ease-in-out .1s;
                     @include font-family($dark-brown, 1em, $nunito, normal);
                     &:hover {
-                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
+                        box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
                     }
                     &:active {
                         box-shadow: none;
@@ -112,7 +112,7 @@
                         }
                     }
                 }
-                
+
                 > div:last-child {
                     button {
                         border: 1px solid grey;
@@ -124,9 +124,9 @@
                         @include font-family($dark-brown, 1em, $nunito, normal);
 
                         &:hover {
-                            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
+                            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
                         }
-                        
+
                         &:active {
                             box-shadow: none;
                         }
@@ -149,13 +149,13 @@
 
             @include flex(column, flex-start, center);
             h2 {
-                @include font-family($dark-brown, 2.4em, $nunito, italic);  
+                @include font-family($dark-brown, 2.4em, $nunito, italic);
             }
 
             form {
                 width: 80%;
                 height: 100%;
-                
+
                 @include flex(column, center, flex-start);
 
                 > div:first-child {
@@ -174,7 +174,7 @@
                         width: 100%;
 
                         label {
-                            @include font-family($dark-brown, 1em, $nunito, normal);                        
+                            @include font-family($dark-brown, 1em, $nunito, normal);
                         }
 
                         input {
@@ -184,7 +184,7 @@
                             border-radius: 5px;
                             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
-                            
+
                             &:hover{
                                 background-color: $body-bg;
                             }
@@ -197,9 +197,9 @@
 
                     height: 6em;
                     label:first-child {
-                        @include font-family($dark-brown, 1.6em, $nunito, normal);  
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);
 
-                        
+
                     }
                     #username {
                         height: 3em;
@@ -209,7 +209,7 @@
                         margin-top: .5em;
                         margin-bottom: .2em;
                         box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
-                        
+
                         &:hover{
                             background-color: $body-bg;
                         }
@@ -229,9 +229,9 @@
 
                     height: 6em;
                     label:first-child {
-                        @include font-family($dark-brown, 1.6em, $nunito, normal);   
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);
 
-                        
+
                     }
                     #email {
                         height: 3em;
@@ -260,11 +260,11 @@
                 > div:nth-child(4) {
                     @include flex(column, flex-start, center);
 
-                    height: 10em;
+                    height: 6em;
                     label:first-child {
-                        @include font-family($dark-brown, 1.6em, $nunito, normal);   
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);
 
-                        
+
                     }
                     #password {
                         height: 3em;
@@ -278,7 +278,35 @@
                         &:hover{
                             background-color: $body-bg;
                         }
-                        
+
+                        &::placeholder{
+                            @include font-family($dark-brown, 1.1em, $nunito, normal);
+                            padding-left: .8em;
+                        }
+                    }
+                }
+                > div:nth-child(5) {
+                    @include flex(column, flex-start, center);
+
+                    height: 10em;
+                    label:first-child {
+                        @include font-family($dark-brown, 1.6em, $nunito, normal);
+
+
+                    }
+                    #password_verification {
+                        height: 3em;
+                        width: 40em;
+                        border: none;
+                        border-radius: 5px;
+                        margin-top: .5em;
+                        margin-bottom: .2em;
+                        box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+
+                        &:hover{
+                            background-color: $body-bg;
+                        }
+
                         &::placeholder{
                             @include font-family($dark-brown, 1.1em, $nunito, normal);
                             padding-left: .8em;
@@ -290,10 +318,10 @@
                     }
                 }
 
-                
+
                 .container-recaptcha {
                     width: 90%;
-                    @include flex(row, center, center);      
+                    @include flex(row, center, center);
 
                     #recaptcha {
                         margin-bottom: .4em;
@@ -313,16 +341,16 @@
                         border-radius: 5px;
                         transition: all .1s;
                         @include font-family($dark-brown, 1em, $nunito, normal);
-    
+
                         &:hover {
-                            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
+                            box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
                         }
-                        
+
                         &:active {
                             box-shadow: none;
                         }
                     }
-    
+
                     div:last-child {
                         button {
                             border: 1px solid grey;
@@ -333,7 +361,7 @@
                             transition: all .1s;
                             @include font-family($dark-brown, 1em, $nunito, normal);
                             &:hover {
-                                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
+                                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
                             }
                             &:active {
                                 box-shadow: none;

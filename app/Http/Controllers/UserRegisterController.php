@@ -27,6 +27,7 @@ class UserRegisterController extends Controller
             'username' => 'required|string|min:3|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
+            'password_verification' => 'required|same:password',
             'profil_picture' => 'sometimes|file|image|max:2048',
         ]);
 
