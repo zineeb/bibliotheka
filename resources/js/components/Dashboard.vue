@@ -13,7 +13,7 @@
                         <li>Nom : {{ infosUser[0].name }}</li>
                         <li>Email : {{ infosUser[0].email }}</li>
                     </ul>
-                    <button @click="navigateToUserInformation">Voir et modifier mes informations</button>
+                    <a :href="'/user-informations/' + infosUser[0].id">Voir et modifier mes informations</a>
                     <!-- Link to view and edit user's information -->
                 </div>
 
@@ -32,20 +32,21 @@
 
         <!-- Books container -->
         <div class="books">
-            <h2>Livres : </h2>
+            <h2 class="books-title">Livres :</h2>
             <div class="gallery-books">
-
-                <!-- List of user's books -->
-                <!--<template v-for="(books, status) in booksByStatus">
-                    <h2>{{ status }}</h2>
-                    <div class="book-list" v-for="book in books" :key="book.id">
-                        <img :src="book.cover_image" alt="Cover image" width="100" @click="openBookInfoModal(book)">
-                        <div>{{ book.title }}</div>
+                <template v-for="(books, status) in booksByStatus">
+                    <div class="status-container">
+                        <h2 class="status-title">{{ status }}</h2>
+                        <div class="book-list">
+                            <div v-for="book in books" :key="book.id" class="book-item">
+                                <div class="book-item-content">
+                                    <img :src="book.cover_image" alt="Cover image" @click="openBookInfoModal(book)">
+                                    <div class="book-title">{{ book.title }}</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <br>
-                </template>-->
-                <!-- Carousel des livres ajoutés -->
-                <Carousel />
+                </template>
             </div>
         </div>
 
@@ -234,9 +235,9 @@ export default {
     },
     methods: {
         navigateToUserInformation() {
-            const userId = this.infosUser[0].id;
-            this.$router.push(`/user-informations/${userId}`);
-            this.$root.$emit('user-logged-in');
+            localStorage.setItem('token', localStorage.getItem("token"));
+            this.$router.push('/user-informations/' + this.infosUser[0].id);
+            this.$emit('user-logged-in'); // Emit a custom event when the user is logged in successfully
         },
         submitModalCategory() {
             // Prepare the data to be sent

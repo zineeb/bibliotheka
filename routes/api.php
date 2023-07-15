@@ -26,6 +26,8 @@ Route::middleware('api')->group(function () {
     Route::post('/reset_password', [UserConnectionController::class, 'resetPassword'])->name('api.reset_password');
     Route::post('/contact', [UserConnectionController::class, 'sendEmail'])->name('api.send_email');
 
+    Route::post('/researchbook', [BooksController::class, 'retrieveBook'])->name('book.addCategory');
+    Route::post('/addBook', [BooksController::class, 'addBook'])->name('book.addBook');
 
     Route::middleware(['auth:sanctum'])->group(function () {
         Route::get('/check-auth', [UserConnectionController::class, 'checkAuth'])->name('user.checkAuth');
@@ -35,8 +37,8 @@ Route::middleware('api')->group(function () {
         Route::put('user/{id}', [UserController::class, 'update']);
         Route::delete('user/{id}', [UserController::class, 'destroy']);
         Route::post('/addcategory', [BooksController::class, 'addCategory'])->name('book.addCategory');
-        Route::post('/researchbook', [BooksController::class, 'retrieveBook'])->name('book.addCategory');
-        Route::post('/addBook', [BooksController::class, 'addBook'])->name('book.addBook');
+//        Route::post('/researchbook', [BooksController::class, 'retrieveBook'])->name('book.addCategory');
+//        Route::post('/addBook', [BooksController::class, 'addBook'])->name('book.addBook');
         Route::post('/updateBook', [BooksController::class, 'updateStatusBook'])->name('book.updateStatusBook');
         Route::post('/deletebook', [BooksController::class, 'deleteBook'])->name('book.deleteBook');
 

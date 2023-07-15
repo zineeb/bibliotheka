@@ -60,6 +60,8 @@ class BooksController extends Controller
      */
     public function retrieveBook(Request $request)
     {
+        Log::info('title : ' . print_r($request['title'],true));
+        Log::info('author : ' . print_r($request['author'],true));
         // Validate the request data.
         $validateData = Validator::make($request->all(), [
             'title' => 'required|string',

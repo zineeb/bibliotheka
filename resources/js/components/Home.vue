@@ -8,13 +8,16 @@
             <div class="container-pres">
                 <img src="/images/bibliotheka_icon.png" alt="Logo">
                 <p>
-                    Porem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu turpis molestie, dictum est a, mattis
-                    tellus. Sed dignissim, metus nec fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus
-                    elit sed risus. Maecenas eget condimentum velit, sit amet feugiat lectus. Class aptent taciti sociosqu
-                    ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent auctor purus luctus enim
-                    egestas, ac scelerisque ante pulvinar. Donec ut rhoncus ex. Suspendisse ac rhoncus nisl, eu tempor urna.
-                    Curabitur vel bibendum lorem. Morbi convallis convallis diam sit amet lacinia. Aliquam in elementum
-                    tellus.
+                    Bibliothéka est un projet de fin d'année de licence en développement d'applications web, réalisé par
+                    une équipe de deux personnes passionnées. Notre application web s'adresse à tous les amateurs de
+                    lecture qui se retrouvent parfois perdus dans leurs multiples ouvrages. On a tous connu ce moment où
+                    on ne sait plus exactement où on en est dans notre lecture ou comment ranger notre bibliothèque
+                    personnelle. C'est là que Bibliothéka intervient. Elle offre une solution pratique pour garder une
+                    trace claire de notre progression dans nos livres. Avec Bibliothéka, on peut facilement marquer nos
+                    livres comme "en cours de lecture", "terminé" ou "à lire", et ainsi avoir une vision claire de notre
+                    parcours littéraire. Fini les lectures inachevées et les livres oubliés sur les étagères. Grâce à
+                    Bibliothéka, on peut organiser notre bibliothèque avec facilité et suivre notre progression pas à
+                    pas.
                 </p>
             </div>
         </div>

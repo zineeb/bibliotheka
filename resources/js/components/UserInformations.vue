@@ -89,27 +89,45 @@ export default {
         },
     },
     created() {
-        this.$root.$emit('user-logged-in');
+        const token = localStorage.getItem("token");
+        // Vérifier si le token est défini avant de faire une requête avec l'en-tête Authorization
+        if (token) {
+            axios
+                .get(`/api/user/${this.$route.params.id}`, {
+                    headers: {
+                        Authorization: `Bearer ${token}`,
+                    },
+                })
+                .then(response => {
+                    console.log(response.data);
+                    this.user = response.data;
+                })
+                .catch(error => {
+                    console.error("Erreur lors de la récupération des données de l'utilisateur :", error);
+                });
+        }
+    },
 
-        const userId = this.$route.params.id;
-        console.log(userId);
-        const token = localStorage.getItem('token');
-        console.log(token);
-
-        axios
-            .get(`/api/user/${userId}`, {
-                headers: {
-                    Authorization: `Bearer ${token}`,
-                },
-            })
-            .then(response => {
-                console.log(response.data);
-                this.user = response.data;
-            })
-            .catch(error => {
-                console.error("Erreur lors de la récupération des données de l'utilisateur :", error);
-            });
-    }
+    // created() {
+    //     // this.$root.$emit('user-logged-in');
+    //
+    //     const userId = this.$route.params.id;
+    //     const token = localStorage.getItem('token');
+    //
+    //     axios
+    //         .get(`/api/user/${userId}`, {
+    //             headers: {
+    //                 Authorization: `Bearer ${token}`,
+    //             },
+    //         })
+    //         .then(response => {
+    //             console.log(response.data);
+    //             this.user = response.data;
+    //         })
+    //         .catch(error => {
+    //             console.error("Erreur lors de la récupération des données de l'utilisateur :", error);
+    //         });
+    // }
 };
 </script>
 

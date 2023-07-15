@@ -2,7 +2,7 @@
     <footer>
         <div className="footer-container">
             <div class="text-footer">
-                <p>Rorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis.</p>
+                <p>Bibliothéka : L'art de cataloguer vos aventures littéraires, chapitre par chapitre !</p>
             </div>
             <div class="footer-socialmedia">
                 <a href="https://facebook.com" target="_blank">
