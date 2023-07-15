@@ -35,7 +35,8 @@
         height: 15em;
         background-color: #EBE7E5;
         @include flex(row, center, center);
-        border-bottom: 1px dashed $dark-brown;
+        margin-top: 1em;
+        margin-bottom: 1em;
 
         .container-pres {
             width: 50%;
@@ -76,6 +77,7 @@
         height: 60vh;
         @include flex(column, center, center);
         background-color: $light-brown;
+        border-top: 1px dashed $dark-brown;
 
         h2 {
             @include font-family($dark-brown, 2em, $playfair, normal);
