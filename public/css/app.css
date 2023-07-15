@@ -232,6 +232,286 @@ table {
   box-shadow: none;
 }
 
+.container-infobook {
+  width: 100%;
+}
+.container-infobook h4:first-child {
+  color: #402B1B;
+  font-size: 2em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+  margin-bottom: 0.8em;
+  text-align: center;
+}
+.container-infobook img:nth-child(2) {
+  border-radius: 5px;
+  margin-bottom: 0.8em;
+}
+.container-infobook .mini-container-info {
+  height: auto;
+  background-color: rgb(206, 175, 157);
+  border-radius: 5px;
+  padding: 0.4em;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom: 0.8em;
+}
+.container-infobook .mini-container-info .sub {
+  color: black;
+  font-size: 2em;
+  font-family: "Playfair Display", serif;
+  font-style: regular;
+  margin-bottom: 0.4em;
+}
+.container-infobook .mini-container-info .info {
+  color: #402B1B;
+  font-size: 1.2em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+  margin-bottom: 0.8em;
+}
+.container-infobook .mini-container-info #desc {
+  text-align: justify;
+}
+.container-infobook .select-infobook {
+  color: #402B1B;
+  font-size: 1.2em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+.container-infobook .select-infobook select:nth-child(2) {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  transition: all 0.2s;
+}
+.container-infobook .select-infobook select:nth-child(2):hover {
+  background-color: rgb(244, 244, 244);
+}
+.container-infobook .select-infobook select:nth-child(2)::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.container-infobook .select-infobook select:nth-child(2)::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.container-infobook .select-infobook select:nth-child(2) option {
+  height: 3em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  transition: all 0.2s;
+}
+.container-infobook .select-infobook select:nth-child(2) option:hover {
+  background-color: rgb(244, 244, 244);
+}
+.container-infobook .select-infobook select:nth-child(2) option::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.container-infobook .select-infobook select:nth-child(2) option::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.container-infobook .select-infobook label:nth-child(3) {
+  margin-top: 0.4em;
+}
+.container-infobook .select-infobook input:nth-child(4) {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  transition: all 0.2s;
+}
+.container-infobook .select-infobook input:nth-child(4):hover {
+  background-color: rgb(244, 244, 244);
+}
+.container-infobook .select-infobook input:nth-child(4)::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.container-infobook .select-infobook input:nth-child(4)::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.container-infobook .mini-container-btninfo {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.container-infobook .mini-container-btninfo > button {
+  border: 0;
+  background-color: #402B1B;
+  width: 9em;
+  height: 2.5em;
+  border-radius: 5px;
+  transition: all 0.1s;
+  color: white;
+  font-size: 1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+}
+.container-infobook .mini-container-btninfo > button:hover {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+}
+.container-infobook .mini-container-btninfo > button:active {
+  box-shadow: none;
+}
+
+.page-actuel {
+  color: #402B1B;
+  font-size: 1.2em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+}
+.page-actuel label:first-child {
+  margin-top: 0.4em;
+}
+.page-actuel input:nth-child(3) {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  transition: all 0.2s;
+  margin-bottom: 1em;
+}
+.page-actuel input:nth-child(3):hover {
+  background-color: rgb(244, 244, 244);
+}
+.page-actuel input:nth-child(3)::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.page-actuel input:nth-child(3)::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+
+.note {
+  color: #402B1B;
+  font-size: 1.2em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+}
+.note select:nth-child(3) {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  transition: all 0.2s;
+  margin-bottom: 1em;
+}
+.note select:nth-child(3):hover {
+  background-color: rgb(244, 244, 244);
+}
+.note select:nth-child(3)::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.note select:nth-child(3)::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.note select:nth-child(3) option {
+  height: 3em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  transition: all 0.2s;
+}
+.note select:nth-child(3) option:hover {
+  background-color: rgb(244, 244, 244);
+}
+.note select:nth-child(3) option::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.note select:nth-child(3) option::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.note input:last-child {
+  height: 3em;
+  width: 40em;
+  border: none;
+  border-radius: 5px;
+  margin-top: 0.5em;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  transition: all 0.2s;
+  margin-bottom: 1em;
+}
+.note input:last-child:hover {
+  background-color: rgb(244, 244, 244);
+}
+.note input:last-child::-moz-placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+.note input:last-child::placeholder {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: normal;
+  padding-left: 0.8em;
+}
+
 .user-informations {
   width: 100vw;
   display: flex;
@@ -1023,7 +1303,8 @@ table {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-bottom: 1px dashed #402B1B;
+  margin-top: 1em;
+  margin-bottom: 1em;
 }
 .home .presentation .container-pres {
   width: 50%;
@@ -1060,6 +1341,7 @@ table {
   justify-content: center;
   align-items: center;
   background-color: #F5E5D7;
+  border-top: 1px dashed #402B1B;
 }
 .home .contact-form h2 {
   color: #402B1B;

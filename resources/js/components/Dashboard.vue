@@ -88,16 +88,30 @@
             </template>
             <template v-slot:body>
                 <!-- Container to display book information and options -->
-                <div v-if="bookInfo">
+                <div class="container-infobook" v-if="bookInfo">
                     <!-- Display book details -->
-                    <img :src="bookInfo.coverimage" alt="Couverture du livre"/>
                     <h4>{{ bookInfo.title }}</h4>
-                    <p>Auteur : {{ bookInfo.author }}</p>
-                    <p>Date de publication : {{ bookInfo.publication_date }}</p>
-                    <p>Description : {{ bookInfo.description }}</p>
-                    <p>Maison d'édition : {{ bookInfo.publisher }}</p>
-                    <p>Nombre de page : {{ bookInfo.page_count }}</p>
-                    <p>Genre : {{ bookInfo.genre }}</p>
+                    <img :src="bookInfo.coverimage" alt="Couverture du livre"/>
+
+                    <div class="mini-container-info">
+                        <p class="sub">Auteur : </p>
+                        <p class="info">{{ bookInfo.author }}</p>
+
+                        <p class="sub">Date de publication : </p>
+                        <p class="info">{{ bookInfo.publication_date }}</p>
+
+                        <p class="sub">Description : </p>
+                        <p class="info" id="desc">{{ bookInfo.description }}</p>
+
+                        <p class="sub">Maison d'édition : </p>
+                        <p class="info">{{ bookInfo.publisher }}</p>
+
+                        <p class="sub">Nombre de page : </p>
+                        <p class="info">{{ bookInfo.page_count }}</p>
+
+                        <p class="sub">Genre : </p>
+                        <p class="info">{{ bookInfo.genre }}</p>
+                    </div>
 
                     <!-- Hidden inputs to store ISBN and Google Books ID -->
                     <input type="hidden" v-model="bookInfo.isbn"/>
@@ -113,38 +127,43 @@
                         </ul>
                     </div>
 
-                    <!-- Dropdown to select reading status -->
-                    <label for="reading-status">État de lecture :</label>
-                    <select v-model="readingStatus" @change="handleReadingStatusChange" id="reading-status">
-                        <option value="to_read">À lire</option>
-                        <option value="reading">En cours de lecture</option>
-                        <option value="read">Lu</option>
-                    </select>
-
-                    <!-- Input for entering a category -->
-                    <label for="category">Catégorie :</label>
-                    <input type="text" v-model="category" id="category" placeholder="Catégorie"/>
-
-                    <!-- Container for rating and review when reading status is 'read' -->
-                    <div v-if="readingStatus === 'read'">
-                        <label for="rating">Note (1-5) :</label>
-                        <select v-model="rating" id="rating">
-                            <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
+                    <div class="select-infobook">
+                        <!-- Dropdown to select reading status -->
+                        <label for="reading-status">État de lecture :</label>
+                        <select v-model="readingStatus" @change="handleReadingStatusChange" id="reading-status">
+                            <option value="to_read">À lire</option>
+                            <option value="reading">En cours de lecture</option>
+                            <option value="read">Lu</option>
                         </select>
 
-                        <label for="review">Avis :</label>
+                        <!-- Input for entering a category -->
+                        <label for="category">Catégorie :</label>
+                        <input type="text" v-model="category" id="category" placeholder="Catégorie"/>
+                    </div>
+
+
+                    <!-- Container for rating and review when reading status is 'read' -->
+                    <div class="note" v-if="readingStatus === 'read'">
+                        <label for="rating">Note (1-5) :</label><br/>
+                        <select v-model="rating" id="rating">
+                            <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
+                        </select><br/>
+
+                        <label for="review">Avis :</label><br/>
                         <input type="text" v-model="review" id="review" placeholder="Votre avis sur le livre"/>
                     </div>
 
                     <!-- Input for entering current page when reading status is 'reading' -->
-                    <div v-if="readingStatus === 'reading'">
-                        <label for="current_page">Page actuelle :</label>
+                    <div class="page-actuel" v-if="readingStatus === 'reading'">
+                        <label for="current_page">Page actuelle :</label><br/>
                         <input type="number" v-model="current_page" id="current_page" min="1" :max="bookInfo.page_count"
                                placeholder="Page actuelle"/>
                     </div>
 
                     <!-- Button to add the book -->
-                    <button @click="addBooks">Ajouter</button>
+                    <div class="mini-container-btninfo">
+                        <button @click="addBooks">Ajouter</button>
+                    </div>
                 </div>
             </template>
             <template v-slot:footer>
@@ -157,42 +176,62 @@
                 <h3>Informations du livre</h3>
             </template>
             <template v-slot:body>
-                <img :src="bookInfo.cover_image" alt="Couverture du livre"/>
-                <h4>{{ bookInfo.title }}</h4>
-                <p>Auteur : {{ bookInfo.author }}</p>
-                <p>Date de publication : {{ bookInfo.publication_date }}</p>
-                <p>Description : {{ bookInfo.description }}</p>
-                <p>Maison d'édition : {{ bookInfo.publisher }}</p>
-                <p>Nombre de pages : {{ bookInfo.page }}</p>
-                <p>Catégorie : {{ bookInfo.category }}</p>
+                <div class="container-infobook">
+                    <h4>{{ bookInfo.title }}</h4>
+                    <img :src="bookInfo.cover_image" alt="Couverture du livre"/>
+                    <div class="mini-container-info">
+                        <p class="sub">Auteur : </p>
+                        <p class="info">{{ bookInfo.author }}</p>
 
-                <input type="hidden" v-model="bookInfo.google_books_id"/>
+                        <p class="sub">Date de publication : </p>
+                        <p class="info">{{ bookInfo.publication_date }}</p>
 
-                <label for="status">État de lecture :</label>
-                <select v-model="bookInfo.status" id="status">
-                    <option value="to_read">À lire</option>
-                    <option value="reading">En cours de lecture</option>
-                    <option value="read">Lu</option>
-                </select>
+                        <p class="sub">Description : </p>
+                        <p class="info" id="desc">{{ bookInfo.description }}</p>
 
-                <div v-if="bookInfo.status === 'reading'">
-                    <label for="current_page">Page actuelle :</label>
-                    <input type="number" v-model="bookInfo.page" id="current_page" min="1" :max="bookInfo.page_count"
+                        <p class="sub">Maison d'édition : </p>
+                        <p class="info">{{ bookInfo.publisher }}</p>
+
+                        <p class="sub">Nombre de page : </p>
+                        <p class="info">{{ bookInfo.page_count }}</p>
+
+                        <p class="sub">Genre : </p>
+                        <p class="info">{{ bookInfo.genre }}</p>
+                    </div>
+
+
+                    <input type="hidden" v-model="bookInfo.google_books_id"/>
+                    <div class="select-infobook">
+
+                        <label for="status">État de lecture :</label>
+                        <select v-model="bookInfo.status" id="status">
+                            <option value="to_read">À lire</option>
+                            <option value="reading">En cours de lecture</option>
+                            <option value="read">Lu</option>
+                        </select>
+                    </div>
+                </div>
+
+
+                <div class="page-actuel" v-if="bookInfo.status === 'reading'">
+                    <label for="current_page">Page actuelle :</label><br/>
+                    <input type="number" v-model="bookInfo.current_page" id="current_page" min="1" :max="bookInfo.page_count"
                            placeholder="Page actuelle"/>
                 </div>
 
-                <div v-if="bookInfo.status === 'read'">
-                    <label for="rating">Note (1-5) :</label>
+                <div class="note" v-if="bookInfo.status === 'read'">
+                    <label for="rating">Note (1-5) :</label><br/>
                     <select v-model="bookInfo.rating" id="rating">
                         <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
-                    </select>
+                    </select><br/>
 
-                    <label for="review">Avis :</label>
+                    <label for="review">Avis :</label><br/>
                     <input type="text" v-model="bookInfo.review" id="review" placeholder="Votre avis sur le livre"/>
                 </div>
+
             </template>
             <template v-slot:footer>
-                <button @click="updateBookInfo">Enregistrer</button>
+                <button @click="updateBookInfo">Enregistrer</button><br/>
                 <button @click="showBookInfoModal = false">Fermer</button>
             </template>
         </modal>
@@ -389,7 +428,6 @@ export default {
             }, {});
         },
         openBookInfoModal(book) {
-            console.log(book);
             this.bookInfo = book;
             this.showBookInfoModal = true;
         },
