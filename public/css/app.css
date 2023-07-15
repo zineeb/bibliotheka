@@ -988,7 +988,7 @@ table {
 }
 .home .presentation .container-pres {
   width: 50%;
-  height: 80%;
+  height: auto;
   border-radius: 10px;
   background-color: #AF8F7C;
   position: relative;
@@ -1011,6 +1011,7 @@ table {
   font-size: 1em;
   padding: 1.5em;
   margin-top: 3.6em;
+  text-align: justify;
 }
 .home .contact-form {
   width: 100vw;
