@@ -9,9 +9,11 @@
             <nav>
                 <ul>
                     <li><a href="/home">Accueil</a></li>
+                    <li><a href="#">Nous Contacter</a></li>
+                    <li><a href="/dashboard">Mon Compte</a></li>
                 </ul>
-                <a href="/loginAndRegister" v-if="!isLoggedIn">Connexion / Inscription</a>
-                <a href="/#" @click.prevent="logout" v-if="isLoggedIn">Déconnexion</a>
+                <a href="/loginAndRegister" v-if="!isLoggedIn">Connexion / Inscription </a>
+                <a href="/#" @click.prevent="logout" v-if="isLoggedIn">Déconnexion </a>
             </nav>
         </div>
     </header>

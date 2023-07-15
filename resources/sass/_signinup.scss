@@ -2,6 +2,8 @@
     width: 100vw;
     height: 80vh;
     @include flex(row, center, center);
+    background-image: url('/images/etageres_a_livres.jpg');
+    background-size: contain;
     
     .container-login {
         width: 80%;
