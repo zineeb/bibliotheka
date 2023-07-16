@@ -2,7 +2,7 @@
     <footer>
         <div className="footer-container">
             <div class="text-footer">
-                <p>Bibliothéka : L'art de cataloguer vos aventures littéraires, chapitre par chapitre !</p>
+                <p>" Bibliothéka l'art de cataloguer vos aventures littéraires, chapitre par chapitre ! "</p>
             </div>
             <div class="footer-socialmedia">
                 <a href="https://facebook.com" target="_blank">

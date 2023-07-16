@@ -251,9 +251,10 @@ table {
   height: auto;
   background-color: rgb(206, 175, 157);
   border-radius: 5px;
-  padding: 0.4em;
+  padding: 0.8em;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-bottom: 0.8em;
+  border: 1px solid #AF8F7C;
 }
 .container-infobook .mini-container-info .sub {
   color: black;
@@ -536,8 +537,8 @@ table {
 }
 .user-informations .user-info h2 {
   color: #F5E5D7;
-  font-size: 1.6em;
-  font-family: "Nunito", sans-serif;
+  font-size: 2.2em;
+  font-family: "Playfair Display", serif;
   font-style: regular;
   padding-bottom: 1em;
 }
@@ -547,9 +548,12 @@ table {
   border-radius: 100%;
   background-color: #402B1B;
 }
+.user-informations .user-info img:hover {
+  opacity: 0.8;
+}
 .user-informations .user-info ul {
   color: #402B1B;
-  font-size: 1.2em;
+  font-size: 1.6em;
   font-family: "Nunito", sans-serif;
   font-style: regular;
   padding-top: 1em;
@@ -563,11 +567,12 @@ table {
   padding: 2em;
   background-color: #F5E5D7;
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px;
 }
 .user-informations .user-update h2 {
   color: #402B1B;
-  font-size: 1.6em;
-  font-family: "Nunito", sans-serif;
+  font-size: 2em;
+  font-family: "Playfair Display", serif;
   font-style: regular;
   padding-bottom: 1em;
 }
@@ -1287,12 +1292,13 @@ table {
 }
 .home .presentation .container-pres p {
   color: #F5E5D7;
-  font-family: "Playfair Display", serif;
-  font-style: italic;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
   font-size: 1em;
   padding: 1.5em;
   margin-top: 3.6em;
   text-align: justify;
+  line-height: 1.1em;
 }
 .home .contact-form {
   width: 100vw;
@@ -1309,7 +1315,16 @@ table {
   font-size: 2em;
   font-family: "Playfair Display", serif;
   font-style: normal;
-  margin-bottom: 0.2em;
+  margin-bottom: 1em;
+}
+.home .contact-form p {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+  width: 30%;
+  text-align: center;
+  margin-bottom: 0.8em;
 }
 .home .contact-form form {
   display: flex;
@@ -1465,6 +1480,7 @@ table {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding-left: 2em;
+  border: 1px solid #F5E5D7;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1491,7 +1507,7 @@ table {
 }
 .dashboard .user-info .info-container .mini-info-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 1em;
@@ -1499,7 +1515,7 @@ table {
 .dashboard .user-info .info-container .mini-info-container ul:first-child {
   color: #fff;
   font-size: 1em;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
   font-style: regular;
 }
 .dashboard .user-info .info-container .mini-info-container ul:first-child li:first-child {
@@ -1512,6 +1528,9 @@ table {
   font-family: "Nunito", sans-serif;
   font-style: italic;
   padding-left: 1.2em;
+}
+.dashboard .user-info .info-container .mini-info-container a:last-child i {
+  font-size: 2em;
 }
 .dashboard .user-info .info-container .mini-info-container a:last-child:hover {
   text-decoration: underline;
@@ -1560,7 +1579,7 @@ table {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 17px;
+  border: 1px solid #AF8F7C;
 }
 .dashboard .books .books-title {
   margin-bottom: 1em;
@@ -1581,19 +1600,26 @@ table {
 }
 .dashboard .books .gallery-books .status-container .status-title {
   color: #402B1B;
-  font-size: 1.5em;
+  font-size: 2.2em;
   font-family: "Playfair Display", serif;
   font-style: regular;
   margin-bottom: 0.5em;
 }
 .dashboard .books .gallery-books .status-container .book-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .dashboard .books .gallery-books .status-container .book-list .book-item {
-  margin-right: 2em;
-  margin-bottom: 1em;
+  height: 14em;
+  width: 14em;
+  padding: 1em;
+  cursor: pointer;
+}
+.dashboard .books .gallery-books .status-container .book-list .book-item:hover {
+  opacity: 0.8;
 }
 .dashboard .books .gallery-books .status-container .book-list .book-item .book-item-content {
   display: flex;
@@ -1611,7 +1637,7 @@ table {
 .dashboard .books .gallery-books .status-container .book-list .book-item .book-item-content .book-title {
   color: #402B1B;
   font-size: 1.2em;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
   font-style: regular;
   text-align: center;
 }
@@ -1786,7 +1812,7 @@ table {
 }
 footer {
   width: 100vw;
-  height: 20vh;
+  height: 14vh;
   background-color: #402B1B;
   display: flex;
   justify-content: center;
@@ -1859,4 +1885,8 @@ footer .footer-container .footer-socialmedia a:last-child i:hover {
 }
 body {
   background-color: #EBE7E5;
+}
+
+button {
+  cursor: pointer;
 }

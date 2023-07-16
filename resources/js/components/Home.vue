@@ -24,6 +24,7 @@
 
         <div class="contact-form" ref="contact-hook">
             <h2>Contactez-nous</h2>
+            <p>" Posez vos questions ou partagez vos suggestions ici pour que notre bibliothèque en ligne continue de grandir et de répondre à vos besoins littéraires ! "</p>
             <form @submit.prevent="submitForm">
                 <label for="name">Votre nom:</label>
                 <input id="name" v-model="contact.name" type="text" required />

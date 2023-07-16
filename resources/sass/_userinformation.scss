@@ -15,19 +15,23 @@
         box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px;
 
         h2 {
-            @include font-family($light-brown, 1.6em, $nunito, regular);
+            @include font-family($light-brown, 2.2em, $playfair, regular);
             padding-bottom: 1em;
         }
-        
+
         img {
             width: 8em;
             height: 8em;
             border-radius: 100%;
             background-color: $dark-brown;
+
+            &:hover {
+                opacity: .8;
+            }
         }
         
         ul {
-            @include font-family($dark-brown, 1.2em, $nunito, regular);
+            @include font-family($dark-brown, 1.6em, $nunito, regular);
             padding-top: 1em;
         }
     }
@@ -38,9 +42,10 @@
         padding: 2em;
         background-color: $light-brown;
         border-radius: 5px;
+        box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px;
 
         h2 {
-            @include font-family($dark-brown, 1.6em, $nunito, regular);
+            @include font-family($dark-brown, 2em, $playfair, regular);
             padding-bottom: 1em;
         }
         

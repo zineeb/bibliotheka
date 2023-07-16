@@ -16,9 +16,10 @@
         height: auto;
         background-color: rgb(206, 175, 157);
         border-radius: 5px;
-        padding: .4em;
+        padding: .8em;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         margin-bottom: .8em;
+        border: 1px solid $brown ;
 
         .sub {
             @include font-family(black, 2em, $playfair, regular);
