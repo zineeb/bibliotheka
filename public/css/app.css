@@ -118,25 +118,49 @@ table {
   box-shadow: none;
 }
 
+@media screen and (max-width: 1440px) {
+  .header-container nav {
+    padding-left: 6em;
+  }
+}
 @media screen and (max-width: 1024px) {
-  .header-container .logo > img {
-    margin-left: 2em;
+  .header-container .logo {
+    width: 20%;
+  }
+  .header-container .logo a > img {
+    width: 5.5em;
+    height: 5.5em;
+  }
+  .header-container nav {
+    padding-left: 0;
   }
 }
 @media screen and (max-width: 768px) {
+  .header-container {
+    justify-content: flex-start;
+  }
   .header-container .logo > img {
     margin-left: 4em;
   }
   .header-container nav {
     width: 40%;
   }
+  .header-container nav ul li a {
+    width: 8em;
+  }
 }
 @media screen and (max-width: 425px) {
+  .header-container {
+    width: 100vw;
+  }
+  .header-container .logo {
+    width: 25%;
+  }
   .header-container .logo > img {
     margin-left: 5em;
   }
   .header-container nav {
-    width: 60%;
+    display: none;
   }
 }
 .modal {
@@ -232,6 +256,27 @@ table {
   box-shadow: none;
 }
 
+@media screen and (max-width: 768px) {
+  .modal .modal-content {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .modal .modal-content {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .modal .modal-content {
+    width: 80%;
+  }
+  .modal .modal-content .modal-body {
+    width: 100%;
+  }
+  .modal .modal-content .modal-body input {
+    width: 27em;
+  }
+}
 .container-infobook {
   width: 100%;
 }
@@ -513,6 +558,14 @@ table {
   padding-left: 0.8em;
 }
 
+@media screen and (max-width: 425px) {
+  .container-infobook .select-infobook .select:nth-child(2) {
+    width: 27em;
+  }
+  .container-infobook .select-infobook input:nth-child(4) {
+    width: 27em;
+  }
+}
 .user-informations {
   width: 100vw;
   display: flex;
@@ -645,6 +698,31 @@ table {
   box-shadow: none;
 }
 
+@media screen and (max-width: 768px) {
+  .user-informations .user-update {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .user-informations .user-update {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .user-informations {
+    padding: 0;
+  }
+  .user-informations .user-info {
+    margin-top: 1em;
+    width: 75%;
+  }
+  .user-informations .user-update {
+    width: 75%;
+  }
+  .user-informations .user-update form input {
+    width: 26em;
+  }
+}
 .carousel {
   display: flex;
   justify-content: center;
@@ -1159,6 +1237,11 @@ table {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    height: auto;
+    padding: 1.5em;
+  }
+  .login-and-register .container-login .login-section {
+    padding-bottom: 2em;
   }
   .login-and-register .container-login .login-section h2 {
     margin-top: 1em;
@@ -1176,6 +1259,9 @@ table {
     width: 80%;
     height: 0.2em;
     margin-bottom: 2em;
+  }
+  .login-and-register .container-login .register-section {
+    width: 60%;
   }
   .login-and-register .container-login .register-section h2 {
     margin-bottom: 1em;
@@ -1416,29 +1502,41 @@ table {
 
 @media screen and (max-width: 1440px) {
   .home .presentation .container-pres {
-    height: 80%;
+    height: 90%;
     width: 90%;
   }
   .home .presentation .container-pres > img {
     left: 560px;
   }
+  .home .contact-form {
+    height: 70vh;
+  }
 }
 @media screen and (max-width: 1024px) {
   .home .presentation .container-pres {
-    height: 85%;
+    height: 100%;
     width: 90%;
   }
   .home .presentation .container-pres > img {
     left: 385px;
   }
+  .home .contact-form {
+    height: 75vh;
+  }
 }
 @media screen and (max-width: 768px) {
+  .home .presentation .container-pres {
+    height: 15em;
+  }
   .home .presentation .container-pres > img {
     left: 275px;
   }
   .home .presentation .container-pres > p {
     font-size: 0.9em;
-    padding: 2.5em;
+    padding: 1.5em;
+  }
+  .home .contact-form p {
+    width: 60%;
   }
 }
 @media screen and (max-width: 425px) {
@@ -1455,11 +1553,20 @@ table {
     height: 90%;
   }
   .home .presentation .container-pres > img {
-    left: 115px;
+    left: 138px;
+    top: -34px;
+    width: 7em;
+    height: 7em;
   }
   .home .presentation .container-pres > p {
     font-size: 0.9em;
     padding: 2.5em;
+  }
+  .home .contact-form form input {
+    width: 29em;
+  }
+  .home .contact-form form textarea {
+    width: 29em;
   }
 }
 .dashboard {
@@ -1642,6 +1749,64 @@ table {
   text-align: center;
 }
 
+@media screen and (max-width: 1440px) {
+  .dashboard .user-info {
+    width: 35%;
+  }
+  .dashboard .open-modal-book button {
+    font-size: 1.4em;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .dashboard .user-info {
+    width: 35%;
+  }
+  .dashboard .open-modal-book {
+    padding-left: 0;
+    gap: 2em;
+  }
+  .dashboard .open-modal-book button {
+    font-size: 1.1em;
+    width: 14em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .dashboard {
+    width: 92vw;
+    justify-content: center;
+  }
+  .dashboard .open-modal-book {
+    margin-left: 0;
+    margin-bottom: 0;
+    width: 100%;
+    gap: 2em;
+    padding-left: 0;
+  }
+  .dashboard .open-modal-book button {
+    font-size: 20px;
+    width: 14em;
+    height: 3em;
+  }
+  .dashboard .user-info {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .dashboard .user-info {
+    width: 100%;
+  }
+  .dashboard .open-modal-book {
+    gap: 1em;
+  }
+  .dashboard .open-modal-book button {
+    font-size: 18px;
+    width: 14em;
+    height: 3em;
+  }
+  .dashboard .books .gallery-books .status-container .book-list {
+    justify-content: center;
+  }
+}
 .forgot-password {
   width: 100vw;
   height: 66vh;
@@ -1873,14 +2038,22 @@ footer .footer-container .footer-socialmedia a:last-child i:hover {
   }
 }
 @media screen and (max-width: 425px) {
+  footer {
+    width: 100vw;
+  }
+  footer .footer-container {
+    width: 100%;
+  }
   footer .footer-container .text-footer {
     font-size: 1em;
+    width: 60%;
+    padding-left: 0.4em;
   }
   footer .footer-container .footer-socialmedia {
     width: 55%;
   }
   footer .footer-container .footer-socialmedia a {
-    font-size: 1em;
+    font-size: 1.6em;
   }
 }
 body {

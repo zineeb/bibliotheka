@@ -216,3 +216,17 @@
         }
     }
 }
+
+@media screen and (max-width: 425px) {
+    .container-infobook {
+        .select-infobook {
+            .select:nth-child(2) {
+                width: 27em;
+            }
+
+            input:nth-child(4) {
+                width: 27em;
+            }
+        }
+    }
+}

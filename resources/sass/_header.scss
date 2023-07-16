@@ -64,18 +64,34 @@
     }
 }
 
+@media screen and (max-width: 1440px) {
+    .header-container {
+        nav{
+            padding-left: 6em; 
+        }
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .header-container {
         .logo {
-            >img {
-                margin-left: 2em;
+            width: 20%;
+            a {
+                >img {
+                    width: 5.5em;
+                    height: 5.5em;
+                }
             }
+        }
+        nav {
+            padding-left: 0;
         }
     }
 }
 
 @media screen and (max-width: 768px) {
     .header-container {
+        justify-content: flex-start;
         .logo {
             >img {
                 margin-left: 4em;
@@ -83,19 +99,29 @@
         }
         nav {
             width: 40%;
+            ul {
+                li{
+                    a{
+                        width: 8em;
+                    }
+                }
+            }
         }
     }
 }
 
 @media screen and (max-width: 425px) {
     .header-container {
+        width: 100vw;
         .logo {
+            width: 25%;
+
             >img {
                 margin-left: 5em;
             }
         }
         nav {
-            width: 60%;
+            display: none;
         }
     }
 }

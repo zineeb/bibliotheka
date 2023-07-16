@@ -111,3 +111,38 @@
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    .user-informations {
+        .user-update {
+            width: 75%;
+        }
+    }
+}
+@media screen and (max-width: 1024px) {
+    .user-informations {
+        .user-update {
+            width: 60%;
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .user-informations {
+        padding: 0;
+
+        .user-info {
+            margin-top: 1em;
+            width: 75%;
+        }
+        .user-update {
+            width: 75%;
+
+            form {
+                input {
+                    width: 26em;
+                }
+            }
+        }
+    }
+}

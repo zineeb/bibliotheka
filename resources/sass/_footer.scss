@@ -74,14 +74,18 @@ footer {
 
 @media screen and (max-width: 425px) {
     footer {
+        width: 100vw;
         .footer-container {
+            width: 100%;
             .text-footer {
                 font-size: 1em;
+                width: 60%;
+                padding-left: .4em;
             }
             .footer-socialmedia {
                 width: 55%;
                 a {
-                    font-size: 1em;
+                    font-size: 1.6em;
                 }
             }
         }

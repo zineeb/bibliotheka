@@ -168,12 +168,16 @@
     .home {
         .presentation {
             .container-pres{
-                height: 80%;
+                height: 90%;
                 width: 90%;
                 >img {
                     left: 560px;
                 }
             }
+        }
+
+        .contact-form {
+            height: 70vh;
         }
     }
 }
@@ -182,12 +186,15 @@
     .home {
         .presentation {
             .container-pres{
-                height: 85%;
+                height: 100%;
                 width: 90%;
                 >img {
                     left: 385px;
                 }
             }
+        }
+        .contact-form {
+            height: 75vh;
         }
     }
 }
@@ -196,13 +203,20 @@
     .home {
         .presentation {
             .container-pres{
+                height: 15em;
                 >img {
                     left: 275px;
                 }
                 >p{
                     font-size: .9em;
-                    padding: 2.5em;
+                    padding: 1.5em;
                 }
+            }
+        }
+
+        .contact-form {
+            p{
+                width: 60%;
             }
         }
     }
@@ -221,11 +235,25 @@
             .container-pres{
                 height: 90%;
                 >img {
-                    left: 115px;
+                    left: 138px;
+                    top: -34px;
+                    width: 7em;
+                    height: 7em;
                 }
                 >p{
                     font-size: .9em;
                     padding: 2.5em;
+                }
+            }
+        }
+        .contact-form {
+            form {
+                input {
+                    width: 29em;
+                }
+                textarea {
+                    width: 29em;
+
                 }
             }
         }
