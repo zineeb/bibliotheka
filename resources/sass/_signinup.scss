@@ -1,6 +1,6 @@
 .login-and-register {
     width: 100vw;
-    height: 80vh;
+    height: 86vh;
     @include flex(row, center, center);
     background-image: url('/images/etageres_a_livres.jpg');
     background-size: contain;
@@ -519,7 +519,7 @@
                             width: 32em;
                         }
                     }
-                    
+
                     > div:nth-child(4) {
                         #password {
                             width: 32em;

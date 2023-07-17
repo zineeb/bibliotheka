@@ -477,6 +477,10 @@ table {
   font-size: 1.2em;
   font-family: "Nunito", sans-serif;
   font-style: regular;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .note select:nth-child(3) {
   height: 3em;
@@ -768,7 +772,7 @@ table {
 
 .login-and-register {
   width: 100vw;
-  height: 80vh;
+  height: 86vh;
   display: flex;
   flex-direction: row;
   justify-content: center;

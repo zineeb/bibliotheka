@@ -6,12 +6,12 @@
         margin-bottom: .8em;
         text-align: center;
     }
-    
+
     img:nth-child(2) {
         border-radius: 5px;
         margin-bottom: .8em;
     }
-    
+
     .mini-container-info {
         height: auto;
         background-color: rgb(206, 175, 157);
@@ -25,7 +25,7 @@
             @include font-family(black, 2em, $playfair, regular);
             margin-bottom: .4em;
         }
-        
+
         .info {
             @include font-family($dark-brown, 1.2em, $nunito, regular);
             margin-bottom: .8em;
@@ -48,16 +48,16 @@
             margin-top: .5em;
             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
             transition: all .2s;
-            
+
             &:hover{
                 background-color: rgb(244, 244, 244);
             }
-            
+
             &::placeholder{
                 @include font-family($dark-brown, 1.1em, $nunito, normal);
                 padding-left: .8em;
             }
-            
+
             option {
                 height: 3em;
                 // width: 40em;
@@ -66,22 +66,22 @@
                 margin-top: .5em;
                 box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
                 transition: all .2s;
-                
+
                 &:hover{
                     background-color: rgb(244, 244, 244);
                 }
-                
+
                 &::placeholder{
                     @include font-family($dark-brown, 1.1em, $nunito, normal);
                     padding-left: .8em;
                 }
             }
         }
-        
+
         label:nth-child(3) {
             margin-top: .4em;
         }
-        
+
         input:nth-child(4) {
             height: 3em;
             width: 40em;
@@ -90,22 +90,22 @@
             margin-top: .5em;
             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
             transition: all .2s;
-            
+
             &:hover{
                 background-color: rgb(244, 244, 244);
             }
-            
+
             &::placeholder{
                 @include font-family($dark-brown, 1.1em, $nunito, normal);
                 padding-left: .8em;
             }
         }
     }
-    
+
     .mini-container-btninfo {
         width: 100%;
         @include flex(row, center, center);
-        
+
         > button{
             border: 0;
             background-color: $dark-brown;
@@ -114,22 +114,22 @@
             border-radius: 5px;
             transition: all .1s;
             @include font-family(white, 1em, $nunito, normal);
-            
+
             &:hover {
-                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;         
+                box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
             }
-            
+
             &:active {
                 box-shadow: none;
             }
         }
     }
-    
+
 }
 
 .page-actuel {
     @include font-family($dark-brown, 1.2em, $nunito, regular);
-   
+
     label:first-child {
         margin-top: .4em;
     }
@@ -157,8 +157,8 @@
 
 .note {
     @include font-family($dark-brown, 1.2em, $nunito, regular);
-    
-    
+    @include flex(column,center,center);
+
     select:nth-child(3) {
         height: 3em;
         width: 40em;
@@ -171,12 +171,12 @@
         &:hover{
             background-color: rgb(244, 244, 244);
         }
-        
+
         &::placeholder{
             @include font-family($dark-brown, 1.1em, $nunito, normal);
             padding-left: .8em;
         }
-        
+
         option {
             height: 3em;
             // width: 40em;
@@ -185,18 +185,18 @@
             margin-top: .5em;
             box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
             transition: all .2s;
-            
+
             &:hover{
                 background-color: rgb(244, 244, 244);
             }
-            
+
             &::placeholder{
                 @include font-family($dark-brown, 1.1em, $nunito, normal);
                 padding-left: .8em;
             }
         }
     }
-    
+
     input:last-child {
         height: 3em;
         width: 40em;
@@ -209,7 +209,7 @@
         &:hover{
             background-color: rgb(244, 244, 244);
         }
-        
+
         &::placeholder{
             @include font-family($dark-brown, 1.1em, $nunito, normal);
             padding-left: .8em;
