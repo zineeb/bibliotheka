@@ -16,9 +16,10 @@
         height: auto;
         background-color: rgb(206, 175, 157);
         border-radius: 5px;
-        padding: .4em;
+        padding: .8em;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         margin-bottom: .8em;
+        border: 1px solid $brown ;
 
         .sub {
             @include font-family(black, 2em, $playfair, regular);
@@ -212,6 +213,20 @@
         &::placeholder{
             @include font-family($dark-brown, 1.1em, $nunito, normal);
             padding-left: .8em;
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .container-infobook {
+        .select-infobook {
+            .select:nth-child(2) {
+                width: 27em;
+            }
+
+            input:nth-child(4) {
+                width: 27em;
+            }
         }
     }
 }

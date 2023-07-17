@@ -60,12 +60,13 @@
 
             p{
                 color: $light-brown;
-                font-family: $playfair;
-                font-style: italic;
+                font-family: $nunito;
+                font-style: regular;
                 font-size: 1em;
                 padding: 1.5em;
                 margin-top: 3.6em;
                 text-align: justify;
+                line-height: 1.1em;
             }
 
         }
@@ -81,7 +82,14 @@
 
         h2 {
             @include font-family($dark-brown, 2em, $playfair, normal);
-            margin-bottom: .2em;
+            margin-bottom: 1em;
+        }
+        
+        p {
+            @include font-family($dark-brown, 1.1em, $nunito, regular);
+            width: 30%;
+            text-align: center;
+            margin-bottom: .8em;
         }
 
         form {
@@ -160,12 +168,16 @@
     .home {
         .presentation {
             .container-pres{
-                height: 80%;
+                height: 90%;
                 width: 90%;
                 >img {
                     left: 560px;
                 }
             }
+        }
+
+        .contact-form {
+            height: 70vh;
         }
     }
 }
@@ -174,12 +186,15 @@
     .home {
         .presentation {
             .container-pres{
-                height: 85%;
+                height: 100%;
                 width: 90%;
                 >img {
                     left: 385px;
                 }
             }
+        }
+        .contact-form {
+            height: 75vh;
         }
     }
 }
@@ -188,13 +203,20 @@
     .home {
         .presentation {
             .container-pres{
+                height: 15em;
                 >img {
                     left: 275px;
                 }
                 >p{
                     font-size: .9em;
-                    padding: 2.5em;
+                    padding: 1.5em;
                 }
+            }
+        }
+
+        .contact-form {
+            p{
+                width: 60%;
             }
         }
     }
@@ -213,11 +235,25 @@
             .container-pres{
                 height: 90%;
                 >img {
-                    left: 115px;
+                    left: 138px;
+                    top: -34px;
+                    width: 7em;
+                    height: 7em;
                 }
                 >p{
                     font-size: .9em;
                     padding: 2.5em;
+                }
+            }
+        }
+        .contact-form {
+            form {
+                input {
+                    width: 29em;
+                }
+                textarea {
+                    width: 29em;
+
                 }
             }
         }

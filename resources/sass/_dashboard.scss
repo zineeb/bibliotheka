@@ -14,7 +14,7 @@
         border-radius: 10px;
         box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
         padding-left: 2em;
-
+        border: 1px solid $light-brown ;
         @include flex(column, center, flex-start);
 
         h2:first-child {
@@ -34,10 +34,11 @@
             }
 
             .mini-info-container{
-                @include flex(column, center, center);
+                @include flex(row, center, center);
                 gap: 1em;
+
                 ul:first-child {
-                    @include font-family(#fff, 1em, $playfair, regular);
+                    @include font-family(#fff, 1em, $nunito, regular);
 
                     li:first-child {
                         font-size: 1.5em;
@@ -48,6 +49,11 @@
                 a:last-child {
                     @include font-family($dark-brown, 1em, $nunito, italic);
                     padding-left: 1.2em;
+
+                    i {
+                        font-size: 2em;
+                        
+                    }
 
                     &:hover {
                         text-decoration: underline;
@@ -89,7 +95,7 @@
         border-radius: 10px;
         padding: 2em;
         @include flex(column, flex-start, flex-start);
-        margin-top: 17px;
+        border: 1px solid $brown ;
 
         .books-title {
             margin-bottom: 1em;
@@ -102,20 +108,25 @@
 
             .status-container {
                 margin-bottom: 2em;
-
+                
                 .status-title {
-                    @include font-family($dark-brown, 1.5em, $playfair, regular);
+                    @include font-family($dark-brown, 2.2em, $playfair, regular);
                     margin-bottom: 0.5em;
                 }
-
+                
                 .book-list {
-                    display: flex;
+                    @include flex(row, flex-start, center);
                     flex-wrap: wrap;
-                    justify-content: flex-start;
 
                     .book-item {
-                        margin-right: 2em;
-                        margin-bottom: 1em;
+                        height: 14em;
+                        width: 14em;
+                        padding: 1em;
+                        cursor: pointer;
+
+                        &:hover {
+                            opacity: .8;
+                        }
 
                         .book-item-content {
                             @include flex(column, center, center);
@@ -129,10 +140,89 @@
                             }
 
                             .book-title {
-                                @include font-family($dark-brown, 1.2em, $playfair, regular);
+                                @include font-family($dark-brown, 1.2em, $nunito, regular);
                                 text-align: center;
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .dashboard {
+        .user-info {
+            width: 35%;
+        }
+        .open-modal-book {
+            button {
+                font-size: 1.4em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    .dashboard {
+        .user-info {
+            width: 35%;
+        }
+        .open-modal-book {
+            padding-left: 0;
+            gap: 2em;
+            button {
+                font-size: 1.1em;
+                width: 14em;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .dashboard {
+        width: 92vw;
+        justify-content: center;
+
+        .open-modal-book {
+            margin-left: 0;
+            margin-bottom: 0;
+            width: 100%;
+            gap: 2em;
+            padding-left: 0;
+
+            button {
+                font-size: 20px;
+                width: 14em;
+                height: 3em;
+            }
+        }
+
+        .user-info {
+            width: 75%;
+        }
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .dashboard {
+        .user-info {
+            width: 100%;
+        }
+        .open-modal-book{
+            gap: 1em;
+            button {
+                font-size: 18px;
+                width: 14em;
+                height: 3em;
+            }
+        }
+        .books {
+            .gallery-books {
+                .status-container {
+                    .book-list {
+                        justify-content: center;
                     }
                 }
             }

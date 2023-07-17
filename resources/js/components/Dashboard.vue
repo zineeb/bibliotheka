@@ -13,7 +13,7 @@
                         <li>Nom : {{ infosUser[0].name }}</li>
                         <li>Email : {{ infosUser[0].email }}</li>
                     </ul>
-                    <a :href="'/user-informations/' + infosUser[0].id">Voir et modifier mes informations</a>
+                    <a :href="'/user-informations/' + infosUser[0].id"><i class="fa-solid fa-pen-to-square"></i></a>
                     <!-- Link to view and edit user's information -->
                 </div>
 
@@ -32,7 +32,7 @@
 
         <!-- Books container -->
         <div class="books">
-            <h2 class="books-title">Livres :</h2>
+            <h2 class="books-title">Votre bibliothèque :</h2>
             <div class="gallery-books">
                 <template v-for="(books, status) in booksByStatus">
                     <div class="status-container">

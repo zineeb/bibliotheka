@@ -118,25 +118,49 @@ table {
   box-shadow: none;
 }
 
+@media screen and (max-width: 1440px) {
+  .header-container nav {
+    padding-left: 6em;
+  }
+}
 @media screen and (max-width: 1024px) {
-  .header-container .logo > img {
-    margin-left: 2em;
+  .header-container .logo {
+    width: 20%;
+  }
+  .header-container .logo a > img {
+    width: 5.5em;
+    height: 5.5em;
+  }
+  .header-container nav {
+    padding-left: 0;
   }
 }
 @media screen and (max-width: 768px) {
+  .header-container {
+    justify-content: flex-start;
+  }
   .header-container .logo > img {
     margin-left: 4em;
   }
   .header-container nav {
     width: 40%;
   }
+  .header-container nav ul li a {
+    width: 8em;
+  }
 }
 @media screen and (max-width: 425px) {
+  .header-container {
+    width: 100vw;
+  }
+  .header-container .logo {
+    width: 25%;
+  }
   .header-container .logo > img {
     margin-left: 5em;
   }
   .header-container nav {
-    width: 60%;
+    display: none;
   }
 }
 .modal {
@@ -232,6 +256,27 @@ table {
   box-shadow: none;
 }
 
+@media screen and (max-width: 768px) {
+  .modal .modal-content {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .modal .modal-content {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .modal .modal-content {
+    width: 80%;
+  }
+  .modal .modal-content .modal-body {
+    width: 100%;
+  }
+  .modal .modal-content .modal-body input {
+    width: 27em;
+  }
+}
 .container-infobook {
   width: 100%;
 }
@@ -251,9 +296,10 @@ table {
   height: auto;
   background-color: rgb(206, 175, 157);
   border-radius: 5px;
-  padding: 0.4em;
+  padding: 0.8em;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-bottom: 0.8em;
+  border: 1px solid #AF8F7C;
 }
 .container-infobook .mini-container-info .sub {
   color: black;
@@ -512,6 +558,14 @@ table {
   padding-left: 0.8em;
 }
 
+@media screen and (max-width: 425px) {
+  .container-infobook .select-infobook .select:nth-child(2) {
+    width: 27em;
+  }
+  .container-infobook .select-infobook input:nth-child(4) {
+    width: 27em;
+  }
+}
 .user-informations {
   width: 100vw;
   display: flex;
@@ -536,8 +590,8 @@ table {
 }
 .user-informations .user-info h2 {
   color: #F5E5D7;
-  font-size: 1.6em;
-  font-family: "Nunito", sans-serif;
+  font-size: 2.2em;
+  font-family: "Playfair Display", serif;
   font-style: regular;
   padding-bottom: 1em;
 }
@@ -547,9 +601,12 @@ table {
   border-radius: 100%;
   background-color: #402B1B;
 }
+.user-informations .user-info img:hover {
+  opacity: 0.8;
+}
 .user-informations .user-info ul {
   color: #402B1B;
-  font-size: 1.2em;
+  font-size: 1.6em;
   font-family: "Nunito", sans-serif;
   font-style: regular;
   padding-top: 1em;
@@ -563,11 +620,12 @@ table {
   padding: 2em;
   background-color: #F5E5D7;
   border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 5px 15px;
 }
 .user-informations .user-update h2 {
   color: #402B1B;
-  font-size: 1.6em;
-  font-family: "Nunito", sans-serif;
+  font-size: 2em;
+  font-family: "Playfair Display", serif;
   font-style: regular;
   padding-bottom: 1em;
 }
@@ -640,6 +698,31 @@ table {
   box-shadow: none;
 }
 
+@media screen and (max-width: 768px) {
+  .user-informations .user-update {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .user-informations .user-update {
+    width: 60%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .user-informations {
+    padding: 0;
+  }
+  .user-informations .user-info {
+    margin-top: 1em;
+    width: 75%;
+  }
+  .user-informations .user-update {
+    width: 75%;
+  }
+  .user-informations .user-update form input {
+    width: 26em;
+  }
+}
 .carousel {
   display: flex;
   justify-content: center;
@@ -1193,6 +1276,11 @@ table {
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    height: auto;
+    padding: 1.5em;
+  }
+  .login-and-register .container-login .login-section {
+    padding-bottom: 2em;
   }
   .login-and-register .container-login .login-section h2 {
     margin-top: 1em;
@@ -1210,6 +1298,9 @@ table {
     width: 80%;
     height: 0.2em;
     margin-bottom: 2em;
+  }
+  .login-and-register .container-login .register-section {
+    width: 60%;
   }
   .login-and-register .container-login .register-section h2 {
     margin-bottom: 1em;
@@ -1326,12 +1417,13 @@ table {
 }
 .home .presentation .container-pres p {
   color: #F5E5D7;
-  font-family: "Playfair Display", serif;
-  font-style: italic;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
   font-size: 1em;
   padding: 1.5em;
   margin-top: 3.6em;
   text-align: justify;
+  line-height: 1.1em;
 }
 .home .contact-form {
   width: 100vw;
@@ -1348,7 +1440,16 @@ table {
   font-size: 2em;
   font-family: "Playfair Display", serif;
   font-style: normal;
-  margin-bottom: 0.2em;
+  margin-bottom: 1em;
+}
+.home .contact-form p {
+  color: #402B1B;
+  font-size: 1.1em;
+  font-family: "Nunito", sans-serif;
+  font-style: regular;
+  width: 30%;
+  text-align: center;
+  margin-bottom: 0.8em;
 }
 .home .contact-form form {
   display: flex;
@@ -1440,29 +1541,41 @@ table {
 
 @media screen and (max-width: 1440px) {
   .home .presentation .container-pres {
-    height: 80%;
+    height: 90%;
     width: 90%;
   }
   .home .presentation .container-pres > img {
     left: 560px;
   }
+  .home .contact-form {
+    height: 70vh;
+  }
 }
 @media screen and (max-width: 1024px) {
   .home .presentation .container-pres {
-    height: 85%;
+    height: 100%;
     width: 90%;
   }
   .home .presentation .container-pres > img {
     left: 385px;
   }
+  .home .contact-form {
+    height: 75vh;
+  }
 }
 @media screen and (max-width: 768px) {
+  .home .presentation .container-pres {
+    height: 15em;
+  }
   .home .presentation .container-pres > img {
     left: 275px;
   }
   .home .presentation .container-pres > p {
     font-size: 0.9em;
-    padding: 2.5em;
+    padding: 1.5em;
+  }
+  .home .contact-form p {
+    width: 60%;
   }
 }
 @media screen and (max-width: 425px) {
@@ -1479,11 +1592,20 @@ table {
     height: 90%;
   }
   .home .presentation .container-pres > img {
-    left: 115px;
+    left: 138px;
+    top: -34px;
+    width: 7em;
+    height: 7em;
   }
   .home .presentation .container-pres > p {
     font-size: 0.9em;
     padding: 2.5em;
+  }
+  .home .contact-form form input {
+    width: 29em;
+  }
+  .home .contact-form form textarea {
+    width: 29em;
   }
 }
 .dashboard {
@@ -1504,6 +1626,7 @@ table {
   border-radius: 10px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   padding-left: 2em;
+  border: 1px solid #F5E5D7;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -1530,7 +1653,7 @@ table {
 }
 .dashboard .user-info .info-container .mini-info-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   gap: 1em;
@@ -1538,7 +1661,7 @@ table {
 .dashboard .user-info .info-container .mini-info-container ul:first-child {
   color: #fff;
   font-size: 1em;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
   font-style: regular;
 }
 .dashboard .user-info .info-container .mini-info-container ul:first-child li:first-child {
@@ -1551,6 +1674,9 @@ table {
   font-family: "Nunito", sans-serif;
   font-style: italic;
   padding-left: 1.2em;
+}
+.dashboard .user-info .info-container .mini-info-container a:last-child i {
+  font-size: 2em;
 }
 .dashboard .user-info .info-container .mini-info-container a:last-child:hover {
   text-decoration: underline;
@@ -1599,7 +1725,7 @@ table {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  margin-top: 17px;
+  border: 1px solid #AF8F7C;
 }
 .dashboard .books .books-title {
   margin-bottom: 1em;
@@ -1620,19 +1746,26 @@ table {
 }
 .dashboard .books .gallery-books .status-container .status-title {
   color: #402B1B;
-  font-size: 1.5em;
+  font-size: 2.2em;
   font-family: "Playfair Display", serif;
   font-style: regular;
   margin-bottom: 0.5em;
 }
 .dashboard .books .gallery-books .status-container .book-list {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: row;
   justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
 }
 .dashboard .books .gallery-books .status-container .book-list .book-item {
-  margin-right: 2em;
-  margin-bottom: 1em;
+  height: 14em;
+  width: 14em;
+  padding: 1em;
+  cursor: pointer;
+}
+.dashboard .books .gallery-books .status-container .book-list .book-item:hover {
+  opacity: 0.8;
 }
 .dashboard .books .gallery-books .status-container .book-list .book-item .book-item-content {
   display: flex;
@@ -1650,11 +1783,69 @@ table {
 .dashboard .books .gallery-books .status-container .book-list .book-item .book-item-content .book-title {
   color: #402B1B;
   font-size: 1.2em;
-  font-family: "Playfair Display", serif;
+  font-family: "Nunito", sans-serif;
   font-style: regular;
   text-align: center;
 }
 
+@media screen and (max-width: 1440px) {
+  .dashboard .user-info {
+    width: 35%;
+  }
+  .dashboard .open-modal-book button {
+    font-size: 1.4em;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .dashboard .user-info {
+    width: 35%;
+  }
+  .dashboard .open-modal-book {
+    padding-left: 0;
+    gap: 2em;
+  }
+  .dashboard .open-modal-book button {
+    font-size: 1.1em;
+    width: 14em;
+  }
+}
+@media screen and (max-width: 768px) {
+  .dashboard {
+    width: 92vw;
+    justify-content: center;
+  }
+  .dashboard .open-modal-book {
+    margin-left: 0;
+    margin-bottom: 0;
+    width: 100%;
+    gap: 2em;
+    padding-left: 0;
+  }
+  .dashboard .open-modal-book button {
+    font-size: 20px;
+    width: 14em;
+    height: 3em;
+  }
+  .dashboard .user-info {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 425px) {
+  .dashboard .user-info {
+    width: 100%;
+  }
+  .dashboard .open-modal-book {
+    gap: 1em;
+  }
+  .dashboard .open-modal-book button {
+    font-size: 18px;
+    width: 14em;
+    height: 3em;
+  }
+  .dashboard .books .gallery-books .status-container .book-list {
+    justify-content: center;
+  }
+}
 .forgot-password {
   width: 100vw;
   height: 66vh;
@@ -1825,7 +2016,7 @@ table {
 }
 footer {
   width: 100vw;
-  height: 20vh;
+  height: 14vh;
   background-color: #402B1B;
   display: flex;
   justify-content: center;
@@ -1886,16 +2077,28 @@ footer .footer-container .footer-socialmedia a:last-child i:hover {
   }
 }
 @media screen and (max-width: 425px) {
+  footer {
+    width: 100vw;
+  }
+  footer .footer-container {
+    width: 100%;
+  }
   footer .footer-container .text-footer {
     font-size: 1em;
+    width: 60%;
+    padding-left: 0.4em;
   }
   footer .footer-container .footer-socialmedia {
     width: 55%;
   }
   footer .footer-container .footer-socialmedia a {
-    font-size: 1em;
+    font-size: 1.6em;
   }
 }
 body {
   background-color: #EBE7E5;
+}
+
+button {
+  cursor: pointer;
 }

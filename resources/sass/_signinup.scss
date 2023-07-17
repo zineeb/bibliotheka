@@ -460,12 +460,19 @@
 @media screen and (max-width: 768px) {
     .login-and-register {
         height: 140vh;
+
         .container-login {
             @include flex(column, flex-start, center);
+            height: auto;
+            padding: 1.5em;
+
             .login-section {
+                padding-bottom: 2em;
+
                 h2 {
                     margin-top: 1em;
                 }
+
                 form {
                     > div:first-child {
                         #login-email {
@@ -484,27 +491,35 @@
                     }
                 }
             }
+
             #line-vertical {
                 width: 80%;
                 height: 0.2em;
                 margin-bottom: 2em;
             }
+
             .register-section {
+                width: 60%;
+
                 h2 {
                     margin-bottom: 1em;
                 }
+
                 form {
                     width: 120%;
+
                     > div:nth-child(2) {
                         #username {
                             width: 32em;
                         }
                     }
+
                     > div:nth-child(3) {
                         #email {
                             width: 32em;
                         }
                     }
+                    
                     > div:nth-child(4) {
                         #password {
                             width: 32em;

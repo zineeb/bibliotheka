@@ -44,7 +44,7 @@ export default {
                 name: '',
                 email: '',
                 password: '',
-            }
+            },
         };
     },
     methods: {
