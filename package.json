@@ -9,6 +9,9 @@
         "prod": "npm run production",
         "production": "mix --production"
     },
+    "engines": {
+        "node": "14.x"
+    },
     "devDependencies": {
         "@babel/preset-env": "^7.21.4",
         "@vue/compiler-sfc": "^3.2.47",

@@ -138,12 +138,21 @@ class BooksController extends Controller
                     $review = $reviews->keys();
                     $rating = $reviews->values();
 
+                    $user = Auth::user();
+                    $user_id = auth()->user()->id;
+
+                    $categories = DB::table('categories')
+                        ->select('name')
+                        ->where('user_id',$user_id)
+                        ->get();
+
                     // Return a JSON response with the book and review information.
                     return response()->json([
                         'status' => 'success',
                         'book' => $book,
                         'review' => $review,
                         'rating' => $rating,
+                        'categories' => $categories
                     ]);
                 }
             } catch (GuzzleException $e) {

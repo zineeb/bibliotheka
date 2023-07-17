@@ -56,6 +56,9 @@ export default {
         }
     },
     methods: {
+        scrollToContactForm() {
+            this.$refs['contact-hook'].scrollIntoView({ behavior: 'smooth' });
+        },
         async submitForm() {
             try {
                 await axios.post('api/contact', this.contact);
@@ -68,13 +71,12 @@ export default {
                 alert('Une erreur est survenue lors de l\'envoi de votre message.');
             }
         },
-        scrollIntoView() {
-            const anchorElement = document.querySelector('#ancreContact');
-            anchorElement.scrollIntoView({ behavior: 'smooth' });
-        }
     },
     mounted() {
-        this.$root.$on('scroll-to-anchor', this.scrollIntoView);
+        if (this.$route.query.showContactForm === 'true') {
+            this.scrollToContactForm();
+        }
     },
 };
 </script>
+

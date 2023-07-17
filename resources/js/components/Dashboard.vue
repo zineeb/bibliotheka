@@ -135,10 +135,14 @@
                             <option value="reading">En cours de lecture</option>
                             <option value="read">Lu</option>
                         </select>
+                    </div>
 
+                    <div class="select-infobook">
                         <!-- Input for entering a category -->
                         <label for="category">Catégorie :</label>
-                        <input type="text" v-model="category" id="category" placeholder="Catégorie"/>
+                        <select v-model="selectedCategory" id="category">
+                            <option v-for="category in categories" :value="category.name">{{ category.name }}</option>
+                        </select>
                     </div>
 
 
@@ -202,9 +206,8 @@
 
                     <input type="hidden" v-model="bookInfo.google_books_id"/>
                     <div class="select-infobook">
-
                         <label for="status">État de lecture :</label>
-                        <select v-model="bookInfo.status" id="status">
+                        <select v-model="readingStatus" id="status">
                             <option value="to_read">À lire</option>
                             <option value="reading">En cours de lecture</option>
                             <option value="read">Lu</option>
@@ -213,20 +216,20 @@
                 </div>
 
 
-                <div class="page-actuel" v-if="bookInfo.status === 'reading'">
+                <div class="page-actuel" v-if="readingStatus === 'reading'">
                     <label for="current_page">Page actuelle :</label><br/>
-                    <input type="number" v-model="bookInfo.current_page" id="current_page" min="1" :max="bookInfo.page_count"
+                    <input type="number" v-model="currentPage" id="current_page" min="1" :max="bookInfo.page_count"
                            placeholder="Page actuelle"/>
                 </div>
 
-                <div class="note" v-if="bookInfo.status === 'read'">
+                <div class="note" v-if="readingStatus === 'read'">
                     <label for="rating">Note (1-5) :</label><br/>
-                    <select v-model="bookInfo.rating" id="rating">
+                    <select v-model="rating" id="rating">
                         <option v-for="n in 5" :key="n" :value="n">{{ n }}</option>
                     </select><br/>
 
                     <label for="review">Avis :</label><br/>
-                    <input type="text" v-model="bookInfo.review" id="review" placeholder="Votre avis sur le livre"/>
+                    <input type="text" v-model="review" id="review" placeholder="Votre avis sur le livre"/>
                 </div>
 
             </template>
@@ -262,7 +265,7 @@ export default {
             modalAuthorInput: "",
             modalISBNInput: "",
             bookInfo: null,
-            readingStatus: "to_read",
+            readingStatus: 'to_read',
             category: "",
             rating: 1,
             review: "",
@@ -270,6 +273,8 @@ export default {
             ratings: [],
             id: null,
             current_page: 1,
+            selectedCategory: '',
+            categories: [],
         };
     },
     methods: {
@@ -329,6 +334,7 @@ export default {
                         this.bookInfo = response.data.book;
                         this.reviews = response.data.review;
                         this.ratings = response.data.rating;
+                        this.categories = response.data.categories;
                         this.showModalBookInfo = true;
                     } else if (response.data.errors) {
                         console.log(response.data.errors);
@@ -429,6 +435,10 @@ export default {
         },
         openBookInfoModal(book) {
             this.bookInfo = book;
+            this.readingStatus = book.status;
+            this.currentPage = book.current_page || 1;
+            this.rating = book.rating || 1;
+            this.review = book.review || '';
             this.showBookInfoModal = true;
         },
         async updateBookInfo() {

@@ -9,7 +9,7 @@
             <nav>
                 <ul>
                     <li><a href="/home">Accueil</a></li>
-                    <li><a href="#">Nous Contacter</a></li>
+                    <li><a href="/home?showContactForm=true">Nous Contacter</a></li>
                     <li><a href="/dashboard">Mon Compte</a></li>
                 </ul>
                 <a href="/loginAndRegister" v-if="!isLoggedIn">Connexion / Inscription </a>
