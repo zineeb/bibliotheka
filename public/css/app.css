@@ -1,3 +1,4 @@
+@import url(https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400;1,600&display=swap);
 /*
 ! tailwindcss v3.4.1 | MIT License | https://tailwindcss.com
 *//*
@@ -911,22 +912,6 @@ html {
 .select[multiple] {
   height: auto;
 }
-.textarea {
-  min-height: 3rem;
-  flex-shrink: 1;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  line-height: 2;
-  border-radius: var(--rounded-btn, 0.5rem);
-  border-width: 1px;
-  border-color: transparent;
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-bg-opacity)));
-}
 .btm-nav > * .label {
   font-size: 1rem;
   line-height: 1.5rem;
@@ -1192,34 +1177,6 @@ html {
     background-position: -50%;
   }
 }
-.textarea:focus {
-  box-shadow: none;
-  border-color: var(--fallback-bc,oklch(var(--bc)/0.2));
-  outline-style: solid;
-  outline-width: 2px;
-  outline-offset: 2px;
-  outline-color: var(--fallback-bc,oklch(var(--bc)/0.2));
-}
-.textarea-disabled,
-  .textarea:disabled,
-  .textarea[disabled] {
-  cursor: not-allowed;
-  --tw-border-opacity: 1;
-  border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity)));
-  --tw-bg-opacity: 1;
-  background-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-bg-opacity)));
-  --tw-text-opacity: 0.2;
-}
-.textarea-disabled::-moz-placeholder, .textarea:disabled::-moz-placeholder, .textarea[disabled]::-moz-placeholder {
-  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity)));
-  --tw-placeholder-opacity: 0.2;
-}
-.textarea-disabled::placeholder,
-  .textarea:disabled::placeholder,
-  .textarea[disabled]::placeholder {
-  color: var(--fallback-bc,oklch(var(--bc)/var(--tw-placeholder-opacity)));
-  --tw-placeholder-opacity: 0.2;
-}
 @keyframes toast-pop {
 
   0% {
@@ -1232,14 +1189,59 @@ html {
     opacity: 1;
   }
 }
+.fixed {
+  position: fixed;
+}
+.top-0 {
+  top: 0px;
+}
+.z-10 {
+  z-index: 10;
+}
+.mx-0 {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+.mx-4 {
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+.my-0 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.mb-2 {
+  margin-bottom: 0.5rem;
+}
+.mt-24 {
+  margin-top: 6rem;
+}
+.mt-auto {
+  margin-top: auto;
+}
 .flex {
   display: flex;
 }
 .hidden {
   display: none;
 }
-.cursor-pointer {
-  cursor: pointer;
+.min-h-screen {
+  min-height: 100vh;
+}
+.w-2\/5 {
+  width: 40%;
+}
+.w-3\/5 {
+  width: 60%;
+}
+.w-full {
+  width: 100%;
+}
+.max-w-sm {
+  max-width: 24rem;
+}
+.flex-col {
+  flex-direction: column;
 }
 .items-center {
   align-items: center;
@@ -1252,18 +1254,106 @@ html {
   margin-right: calc(2rem * var(--tw-space-x-reverse));
   margin-left: calc(2rem * calc(1 - var(--tw-space-x-reverse)));
 }
+.overflow-hidden {
+  overflow: hidden;
+}
 .bg-transparent {
   background-color: transparent;
 }
-.p-5 {
-  padding: 1.25rem;
+.bg-cover {
+  background-size: cover;
+}
+.bg-center {
+  background-position: center;
+}
+.bg-no-repeat {
+  background-repeat: no-repeat;
+}
+.p-12 {
+  padding: 3rem;
+}
+.px-5 {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+.py-3 {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-9xl {
+  font-size: 8rem;
+  line-height: 1;
 }
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
 }
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+.font-bold {
+  font-weight: 700;
+}
+.leading-loose {
+  line-height: 2;
+}
 .text-black {
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity));
+}
+
+.header-font {
+    font-family: 'Rufina', serif;
+}
+
+.text-adamina {
+    font-family: 'Adamina', serif;
+}
+
+.font-rufina {
+    font-family: 'Rufina', serif;
+}
+
+.text-plex-serif {
+    font-family: 'IBM Plex Serif', serif;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: #FFD234;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+.nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.bg-custom-red {
+    background-color: #8C171C;
+}
+
+/* Couleur de texte personnalisée */
+.text-custom-yellow {
+    color: #FFD234;
 }
 

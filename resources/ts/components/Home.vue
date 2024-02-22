@@ -1,80 +1,33 @@
 <script setup lang="ts">
-import {ref, reactive, onMounted} from "vue";
-import axios from "axios";
-import {useRouter} from "vue-router";
 
-const contactHook = ref<HTMLElement | null>(null)
-const contact = reactive({
-    name: '',
-    email: '',
-    message: ''
-});
-const router = useRouter();
-
-const scrollToContactForm = () => {
-    contactHook.value?.scrollIntoView({behavior: 'smooth'});
-}
-
-const submitForm = async () => {
-    try {
-        await axios.post('api/contact', contact);
-        alert('Votre message a été envoyé');
-        contact.name = '';
-        contact.email = '';
-        contact.message = '';
-    } catch (error) {
-        console.error(error);
-        alert('Une erreur est survenue lors de l\'envoi de votre message.');
-    }
-};
-
-onMounted(() => {
-    if (router.currentRoute.value.query.showContactForm === 'true') {
-        scrollToContactForm();
-    }
-});
 </script>
 
 <template>
-    <div class="home">
-        <div class="banner">
-            <h1>Bibliothéka</h1>
-            <h2>"Your bookshelf, curated"</h2>
+    <div class="min-h-screen flex overflow-hidden">
+        <!-- PREMIERE PARTIE : Image (45%) -->
+        <div class="w-2/5 bg-no-repeat bg-cover bg-center">
+
         </div>
-        <div class="presentation">
-            <div class="container-pres">
-                <img src="/images/bibliotheka_icon.png" alt="Logo">
-                <p>
-                    Bibliothéka est un projet de fin d'année de licence en développement d'applications web, réalisé par
-                    une équipe de deux personnes passionnées. Notre application web s'adresse à tous les amateurs de
-                    lecture qui se retrouvent parfois perdus dans leurs multiples ouvrages. On a tous connu ce moment où
-                    on ne sait plus exactement où on en est dans notre lecture ou comment ranger notre bibliothèque
-                    personnelle. C'est là que Bibliothéka intervient. Elle offre une solution pratique pour garder une
-                    trace claire de notre progression dans nos livres. Avec Bibliothéka, on peut facilement marquer nos
-                    livres comme "en cours de lecture", "terminé" ou "à lire", et ainsi avoir une vision claire de notre
-                    parcours littéraire. Fini les lectures inachevées et les livres oubliés sur les étagères. Grâce à
-                    Bibliothéka, on peut organiser notre bibliothèque avec facilité et suivre notre progression pas à
-                    pas.
+
+        <!-- DEUXIEME PARTIE : Contenu (55%) -->
+        <div class="w-3/5 bg-custom-red flex flex-col p-12">
+            <div class="text-custom-yellow max-w-sm mx-0 my-0 mt-24 leading-loose text-plex-serif text-lg">
+                <p class="text-justify text-adamina text-sm">
+                    Bibliotheka est conçue pour les passionnés de littérature en quête d'ordre au sein de leur
+                    collection personnelle. Face à la profusion de titres et à la complexité de gérer ses lectures en
+                    cours, notre plateforme se révèle être un outil précieux. Bibliotheka permet de cataloguer
+                    méthodiquement vos livres selon leur statut : en cours de lecture, lus ou à lire. Cette gestion
+                    claire et intuitive vous aide à suivre votre évolution littéraire et à redécouvrir des œuvres
+                    négligées, en transformant la gestion de votre bibliothèque en une expérience fluide et
+                    enrichissante.
                 </p>
             </div>
-        </div>
 
-        <div class="contact-form" ref="contactHook">
-            <h2>Contactez-nous</h2>
-            <p>"Posez vos questions ou partagez vos suggestions ici pour que notre bibliothèque en ligne continue de
-                grandir et de répondre à vos besoins littéraires !"</p>
-            <form @submit.prevent="submitForm">
-                <label for="name">Votre nom:</label>
-                <input id="name" v-model="contact.name" type="text" required/>
-
-                <label for="email">Votre email:</label>
-                <input id="email" v-model="contact.email" type="email" required/>
-
-                <label for="message">Votre message:</label>
-                <textarea id="message" v-model="contact.message" required></textarea>
-
-                <button type="submit">Envoyer</button>
-            </form>
+            <div class="text-custom-yellow text-right mt-auto">
+                <h1 class="text-9xl font-bold mb-2 font-rufina">Bibliotheka</h1>
+            </div>
         </div>
     </div>
 </template>
+
+
