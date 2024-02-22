@@ -5,13 +5,9 @@ import { createPinia } from 'pinia';
 import {useAuthStore} from "@/store";
 
 // Composants
-import AppHeader from './components/AppHeader.vue';
+import AppHeader from '@/components/AppHeader.vue';
 
-
-// Création de l'application Vue
-const app = createApp({
-    template: '<div></div>'
-});
+const app = createApp({});
 
 const pinia = createPinia();
 app.use(pinia);

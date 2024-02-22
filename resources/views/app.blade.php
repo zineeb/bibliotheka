@@ -12,8 +12,7 @@
 <div id="app">
     <app-header></app-header>
     <router-view></router-view>
-    <app-footer></app-footer>
 </div>
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ mix('js/app.js') }}"></script>
 </body>
 </html>

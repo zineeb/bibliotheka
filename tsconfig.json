@@ -12,6 +12,9 @@
         "paths": {
             "@/*": [
                 "resources/ts/*"
+            ],
+            "@components/*": [
+                "resources/ts/components/*"
             ]
         },
         "lib": [
@@ -25,7 +28,8 @@
         "outDir": "./public/js"
     },
     "include": [
-        "resources/ts/**/*"
+        "resources/ts/**/*",
+        "resources/ts/vue-shims.d.ts"
     ],
     "exclude": [
         "node_modules",

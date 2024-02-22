@@ -139,7 +139,6 @@ onMounted(() => {
                         <input type="file" id="profil_picture" @change="onFileChange">
                         <small v-if="errors.profil_picture">{{ errors.profil_picture[0] }}</small>
                     </div>
-                    <!-- Autres champs d'inscription -->
                     <div class="container-recaptcha">
                         <div id="recaptcha" class="g-recaptcha"></div>
                     </div>

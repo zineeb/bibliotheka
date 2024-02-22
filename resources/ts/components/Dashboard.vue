@@ -358,8 +358,8 @@ onMounted(() => {
                         <p class="info">{{ bookInfo.genre }}</p>
                     </div>
 
-                    <input type="hidden" v-model="bookInfo.isbn"/>
-                    <input type="hidden" v-model="bookInfo.google_books_id"/>
+<!--                    <input type="hidden" v-model="bookInfo.isbn"/>-->
+<!--                    <input type="hidden" v-model="bookInfo.google_books_id"/>-->
 
                     <div v-if="reviews.length > 0">
                         <h4>Avis récents :</h4>
@@ -442,7 +442,7 @@ onMounted(() => {
                     </div>
 
 
-                    <input type="hidden" v-model="bookInfo?.google_books_id"/>
+<!--                    <input type="hidden" v-model="bookInfo?.google_books_id"/>-->
                     <div class="select-infobook">
                         <label for="status">État de lecture :</label>
                         <select v-model="readingStatus" id="status">
