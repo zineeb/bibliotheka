@@ -22582,7 +22582,7 @@ var _hoisted_1 = {
   "class": "bg-transparent text-black flex justify-between items-center p-5"
 };
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-lg font-bold"
+  "class": "text-lg"
 }, " Bibliotheka ", -1 /* HOISTED */);
 var _hoisted_3 = {
   "class": "flex space-x-8"
