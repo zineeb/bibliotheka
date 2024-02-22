@@ -1,10 +1,14 @@
 const mix = require('laravel-mix');
 const path = require('path');
+const tailwindcss = require('tailwindcss');
 
 mix.ts('resources/ts/app.ts', 'public/js')
     .vue({version: 3})
-    .sass('resources/sass/app.scss', 'public/css')
-    .copy('node_modules/@fortawesome/fontawesome-free/webfonts','public/fonts');
+    .postCss('resources/css/app.css', 'public/css', [
+        tailwindcss('./tailwind.config.js'),
+    ])
+    // .sass('resources/sass/app.scss', 'public/css')
+    // .copy('node_modules/@fortawesome/fontawesome-free/webfonts','public/fonts');
 
 mix.webpackConfig({
     resolve: {
@@ -16,3 +20,7 @@ mix.webpackConfig({
         }
     }
 });
+
+if (mix.inProduction()) {
+    mix.version();
+}

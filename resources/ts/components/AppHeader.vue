@@ -37,23 +37,25 @@ onMounted(() => {
 </script>
 
 <template>
-    <header>
-        <div class="header-container">
-            <div class="logo">
-                <a href="/home">
-                    <img src="/images/bibliotheka_icon.png" alt="Logo">
-                </a>
-            </div>
-            <nav>
-                <ul>
-                    <li><router-link to="{ name: 'home' }">Accueil</router-link></li>
-                    <li><router-link to="{ name: 'contact' }">Nous contacter</router-link></li>
-                    <li><router-link to="{ name: 'dashboard' }">Mon compte</router-link></li>
-                </ul>
-                <li><router-link to="{ name: 'login' }" v-if="!isLoggedIn">Connexion / Inscription</router-link></li>
-                <a href="/#" @click.prevent="logout" v-if="isLoggedIn">Déconnexion</a>
-            </nav>
+    <!-- COMPOSITION DU HEADER :  header transparent -->
+    <header class="bg-transparent text-black flex justify-between items-center p-5">
+        <!-- PREMIERE PARTIE : nom du site -->
+        <div class="text-lg">
+                Bibliotheka
         </div>
+
+        <!-- DEUXIEME PARTIE : navigation -->
+        <nav>
+            <ul class="flex space-x-8">
+                <li v-if="$route.name !== 'Home' && $route.name !== 'HomeAlias'"><router-link to="{name : 'Home'}">Home</router-link></li>
+                <li><router-link to="{name : 'Contact'}">Contact</router-link></li>
+                <li v-if="isLoggedIn"><router-link to="{name : 'Dashboard'}">Dashboard</router-link></li>
+                <li v-if="isLoggedIn"><router-link to="{name : 'UserProfile'}">Profile</router-link></li>
+                <li v-if="!isLoggedIn"><router-link to="{name : 'LoginAndRegister'}">Login / Sign-in</router-link></li>
+                <li v-if="isLoggedIn" @click.prevent="logout" class="cursor-pointer">Logout</li>
+            </ul>
+        </nav>
     </header>
 </template>
+
 

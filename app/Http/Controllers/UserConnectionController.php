@@ -170,7 +170,6 @@ class UserConnectionController extends Controller
     }
 
     public function checkAuth(Request $request) {
-        Log::info('authentification : ' . print_r(Auth::check(),true));
         return response()->json(['authenticated' => Auth::check()]);
     }
 

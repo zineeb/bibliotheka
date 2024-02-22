@@ -6,7 +6,7 @@ import LoginAndRegister from '@/components/LoginAndRegister.vue';
 import ForgotPassword from '@/components/ForgotPassword.vue';
 import ResetPassword from '@/components/ResetPassword.vue';
 import Dashboard from '@/components/Dashboard.vue';
-import UserInformations from '@/components/UserInformations.vue';
+import UserProfile from '@/components/UserInformations.vue';
 
 const routes: Array<RouteRecordRaw> = [
     { path: '/', name: 'Home', component: Home },
@@ -15,7 +15,7 @@ const routes: Array<RouteRecordRaw> = [
     { path: '/forgot-password', name: 'ForgotPassword', component: ForgotPassword },
     { path: '/reset_password', name: 'ResetPassword', component: ResetPassword },
     { path: '/dashboard', name: 'Dashboard', component: Dashboard, meta: { requiresAuth: true } },
-    { path: '/user-informations/:id', name: 'UserInformations', component: UserInformations, props: true }
+    { path: '/user-profile/:id', name: 'UserProfile', component: UserProfile, props: true }
 ];
 
 const router = createRouter({
