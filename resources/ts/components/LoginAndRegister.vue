@@ -18,6 +18,7 @@ interface FormErrors {
     password_verification?: string[];
 }
 
+const showLogin = ref(true);
 const recaptchaSiteKey = ref('6LcpBBokAAAAADc_7Wcm_XPCNLGGu3EUpyBJqj4J');
 const authStore = useAuthStore();
 const router = useRouter();
@@ -42,7 +43,8 @@ const login = async () => {
         const response = await axios.post('api/login', loginForm);
         if (response.data.status === 'success') {
             authStore.setToken(response.data.token);
-            router.push('/dashboard').catch(err => {});
+            router.push('/dashboard').catch(err => {
+            });
         }
     } catch (error) {
         if (axios.isAxiosError(error) && error.response?.status === 422) {
@@ -70,7 +72,8 @@ const register = async () => {
         });
         if (response.data.status === 'success') {
             authStore.setToken(response.data.token);
-            router.push('/dashboard').catch(err => {});
+            router.push('/dashboard').catch(err => {
+            });
         }
     } catch (error) {
         if (axios.isAxiosError(error) && error.response?.status === 422) {
@@ -79,15 +82,17 @@ const register = async () => {
     }
 };
 
-const initRecaptcha = () => {
-    if (window.grecaptcha) {
-        window.grecaptcha.render('recaptcha', {
-            sitekey: recaptchaSiteKey
-        });
-    } else {
-        setTimeout(initRecaptcha, 100);
-    }
-};
+// const initRecaptcha = () => {
+//     if(grecaptcha) {
+//         grecaptcha.ready(() => {
+//             grecaptcha.render('recaptcha', {
+//                 'sitekey' : recaptchaSiteKey
+//             });
+//         })
+//     } else {
+//         setTimeout(initRecaptcha, 100);
+//     }
+// };
 
 const loginWithGoogle = () => window.location.href = 'http://localhost:8000/auth/google';
 
@@ -99,52 +104,124 @@ const onFileChange = (event: Event) => {
     }
 }
 
-onMounted(() => {
-    initRecaptcha();
-})
+// onMounted(() => {
+//     initRecaptcha();
+// })
 </script>
 
 <template>
-    <div class="login-and-register">
-        <div class="container-login">
-            <div class="login-section">
-                <h2>Connexion</h2>
-                <form @submit.prevent="login">
+    <div class="min-h-screen flex items-center justify-center bg-[#475569]">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden max-w-md mx-4 md:mx-0">
+
+            <!-- PARTIE CONNEXION PAR DÉFAUT -->
+            <div class="px-8 py-10" v-show="showLogin">
+                <h3 class="text-left text-2xl font-bold text-gray-500 mb-8">Connexion</h3>
+                <form @submit.prevent="login" class="space-y-6">
+                    <!-- ADRESSE EMAIL -->
                     <div>
-                        <label for="login-email">Email :</label>
-                        <input type="email" id="login-email" placeholder="Email" v-model="loginForm.email" required>
-                        <small v-if="errors.email">{{ errors.email[0] }}</small>
+                        <input type="email" id="login-email" v-model="loginForm.email" required
+                               class="w-full p-3 bg-transparent border-b-2 border-gray-300 placeholder-gray-500 text-gray-600 focus:outline-none focus:border-blue-500"
+                               placeholder="Email">
                     </div>
+                    <!-- MOT DE PASSE -->
                     <div>
-                        <label for="login-password">Mot de passe :</label>
-                        <input type="password" id="login-password" placeholder="Password" v-model="loginForm.password" required>
-                        <small v-if="errors.password">{{ errors.password[0] }}</small>
+                        <input type="password" id="login-password" v-model="loginForm.password" required
+                               class="w-full p-3 bg-transparent border-b-2 border-gray-300 placeholder-gray-500 text-gray-600 focus:outline-none focus:border-blue-500"
+                               placeholder="Mot de Passe">
                     </div>
-                    <button type="submit">Se connecter</button>
+                    <!-- BOUTON CONNEXION -->
                     <div>
-                        <router-link to="/forgot-password">Mot de passe oublié ?</router-link>
+                        <button type="submit"
+                                class="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                            Se connecter
+                        </button>
                     </div>
-                    <div>
-                        <button type="button" @click="loginWithGoogle">Se connecter avec Google</button>
+                </form>
+
+                <!-- PARTIE MOT DE PASSE OUBLIE -->
+                <div class="text-center">
+                    <a href="#" class="text-blue-600 hover:underline">Mot de passe oublié ?</a>
+                </div>
+
+            </div>
+
+            <!-- PARTIE INSCRIPTION -->
+            <div class="px-8 pt-8 pb-8" v-show="!showLogin">
+                <h3 class="text-left text-2xl font-bold text-gray-500 mb-4">Inscription</h3>
+                <form @submit.prevent="register" enctype="multipart/form-data" class="space-y-4">
+                    <!-- IMAGE DE PROFIL -->
+                    <div class="flex items-center space-x-4">
+                        <img :src="imageSrc" alt="Image de profil par défaut" class="w-12 h-12 rounded-full">
+                        <div class="flex-1">
+                            <input type="file" id="profil_picture" @change="onFileChange"
+                                   class="w-full p-3 bg-transparent cursor-pointer">
+                        </div>
+                        <small v-if="errors.profil_picture" class="block text-red-500">{{errors.profil_picture[0] }}</small>
+                    </div>
+                    <div class="flex flex-wrap -mx-3 mb-6">
+                        <div class="w-full md:w-1/2 px-3 mb-6">
+                            <input type="text" id="username" v-model="registerForm.username" required
+                                   class="w-full bg-transparent border-b-2 border-gray-300 text-gray-700 focus:outline-none focus:border-blue-500"
+                                   placeholder="Nom d'utilisateur">
+                            <small v-if="errors.username" class="block text-red-500">{{errors.username[0] }}</small>
+                        </div>
+                        <div class="w-full md:w-1/2 px-3 mb-6">
+                            <input type="email" id="email" v-model="registerForm.email" required
+                                   class="w-full bg-transparent border-b-2 border-gray-300 text-gray-700 focus:outline-none focus:border-blue-500"
+                                   placeholder="Email">
+                            <small v-if="errors.email" class="block text-red-500">{{errors.email[0] }}</small>
+                        </div>
+                        <div class="w-full md:w-1/2 px-3 mb-6">
+                            <input type="password" id="password" v-model="registerForm.password" required
+                                   class="w-full bg-transparent border-b-2 border-gray-300 text-gray-700 focus:outline-none focus:border-blue-500"
+                                   placeholder="Mot de Passe">
+                            <small v-if="errors.password" class="block text-red-500">{{errors.password[0] }}</small>
+                        </div>
+                        <div class="w-full md:w-1/2 px-3 mb-6">
+                            <input type="password" id="password_verification"
+                                   v-model="registerForm.password_verification" required
+                                   class="w-full bg-transparent border-b-2 border-gray-300 text-gray-700 focus:outline-none focus:border-blue-500"
+                                   placeholder="Vérification Mot de Passe">
+                            <small v-if="errors.password_verification" class="block text-red-500">{{errors.password_verification[0] }}</small>
+
+                        </div>
+                    </div>
+                    <div class="flex justify-center mt-4">
+                        <button type="submit"
+                                class="w-full md:w-auto px-10 py-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                            S'inscrire
+                        </button>
                     </div>
                 </form>
             </div>
-            <div id="line-vertical"></div>
-            <div class="register-section">
-                <h2>Inscription</h2>
-                <form @submit.prevent="register" enctype="multipart/form-data">
-                    <div>
-                        <img :src="imageSrc" alt="Image de profil par défaut" width="50">
-                        <label for="profil_picture">Image de profil :</label>
-                        <input type="file" id="profil_picture" @change="onFileChange">
-                        <small v-if="errors.profil_picture">{{ errors.profil_picture[0] }}</small>
-                    </div>
-                    <div class="container-recaptcha">
-                        <div id="recaptcha" class="g-recaptcha"></div>
-                    </div>
-                    <button type="submit">S'inscrire</button>
-                </form>
+
+            <!-- CAPTCHA -->
+            <!--                    <div class="mb-5 container-recaptcha">-->
+            <!--                        <div id="recaptcha" class="g-recaptcha"></div>-->
+            <!--                    </div>-->
+
+
+            <!-- Bouton Connexion/Inscription avec Google -->
+            <div class="px-8 py-4">
+                <button @click="loginWithGoogle"
+                        class="flex items-center justify-center w-full p-2 border border-blue-500 text-blue-500 rounded hover:bg-blue-50">
+                    Connexion/Inscription avec Google
+                </button>
             </div>
+
+            <!-- Toggle Buttons pour afficher soit Connexion soit Inscription -->
+            <div class="flex justify-center mt-4 bg-white rounded-b-2xl">
+                <button class="w-1/2 p-4 focus:outline-none"
+                        :class="{'bg-blue-100': showLogin, 'rounded-tl-2xl': showLogin}" @click="showLogin = true">
+                    Connexion
+                </button>
+                <button class="w-1/2 p-4 focus:outline-none"
+                        :class="{'bg-blue-100': !showLogin, 'rounded-tl-2xl': !showLogin}" @click="showLogin = false">
+                    Inscription
+                </button>
+            </div>
+
         </div>
     </div>
 </template>
+

@@ -21,7 +21,7 @@ class GoogleAuthController extends Controller
             ->redirect();
     }
 
-    public function handleGoogleCallback()
+    public function handleGoogleCallback(Request $request)
     {
         try {
             $googleUser = Socialite::driver('google')
@@ -31,7 +31,6 @@ class GoogleAuthController extends Controller
             $user = User::where('email', $googleUser->getEmail())->first();
 
             if (!$user) {
-                // Create a new user
                 $user = User::create([
                     'name' => $googleUser->getName(),
                     'email' => $googleUser->getEmail(),
@@ -40,12 +39,11 @@ class GoogleAuthController extends Controller
                 ]);
             }
 
-            // Log in the user
             Auth::login($user);
             $token = $user->createToken('authToken')->plainTextToken;
 
-            // Redirect the user to the Vue.js app with the token and redirectTo parameter in the URL
-            return redirect()->away(env('VUE_APP_URL') . '?token=' . $token . '&redirectTo=dashboard');
+            $cookie = cookie('auth_token', $token, 60, null, null, true, true);
+            return redirect('/dashboard')->withCookie($cookie);
 
         } catch (\Exception $e) {
             Log::error('Exception levée lors de handleGoogleCallback: ' . $e->getMessage());
@@ -58,3 +56,6 @@ class GoogleAuthController extends Controller
     }
 
 }
+//$cookie = cookie('auth_token', $token, 60, null, null, null, true);
+//
+//            return redirect()->away(env('VUE_APP_URL') . '/dashboard')->withCookie($cookie);
