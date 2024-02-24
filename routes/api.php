@@ -20,6 +20,8 @@ use App\Http\Controllers\BooksController;
 */
 
 Route::middleware('api')->group(function () {
+    Route::get('/check-auth', [UserConnectionController::class, 'checkAuth'])->name('user.checkAuth');
+
     Route::post('/register', [UserRegisterController::class, 'userRegister'])->name('user.register');
     Route::post('/login', [UserConnectionController::class, 'connectRegister'])->name('user.connection');
     Route::post('/forgot_password', [UserConnectionController::class, 'forgotPassword'])->name('user.forget_password');
@@ -29,8 +31,7 @@ Route::middleware('api')->group(function () {
     Route::post('/researchbook', [BooksController::class, 'retrieveBook'])->name('book.addCategory');
     Route::post('/addBook', [BooksController::class, 'addBook'])->name('book.addBook');
 
-    Route::middleware(['auth:sanctum'])->group(function () {
-        Route::get('/check-auth', [UserConnectionController::class, 'checkAuth'])->name('user.checkAuth');
+    Route::middleware(['check.auth.token'])->group(function () {
         Route::post('/logout',[UserConnectionController::class, 'logout'])->name('user.logout');
         Route::get('/dashboard_data', [DashboardController::class, 'dashboardData']);
         Route::get('user/{id}', [UserController::class, 'show']);

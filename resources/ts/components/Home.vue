@@ -1,80 +1,27 @@
 <script setup lang="ts">
-import {ref, reactive, onMounted} from "vue";
-import axios from "axios";
-import {useRouter} from "vue-router";
-
-const contactHook = ref<HTMLElement | null>(null)
-const contact = reactive({
-    name: '',
-    email: '',
-    message: ''
-});
-const router = useRouter();
-
-const scrollToContactForm = () => {
-    contactHook.value?.scrollIntoView({behavior: 'smooth'});
-}
-
-const submitForm = async () => {
-    try {
-        await axios.post('api/contact', contact);
-        alert('Votre message a été envoyé');
-        contact.name = '';
-        contact.email = '';
-        contact.message = '';
-    } catch (error) {
-        console.error(error);
-        alert('Une erreur est survenue lors de l\'envoi de votre message.');
-    }
-};
-
-onMounted(() => {
-    if (router.currentRoute.value.query.showContactForm === 'true') {
-        scrollToContactForm();
-    }
-});
 </script>
 
 <template>
-    <div class="home">
-        <div class="banner">
-            <h1>Bibliothéka</h1>
-            <h2>"Your bookshelf, curated"</h2>
+    <div class="flex h-screen overflow-hidden">
+        <!-- PREMIERE PARTIE (45%) : Fond blanc avec affichage de plusieurs couverture de livre -->
+        <div class="w-2/5 bg-white p-10 flex justify-center items-center">
+            <img src="#"/>
         </div>
-        <div class="presentation">
-            <div class="container-pres">
-                <img src="/images/bibliotheka_icon.png" alt="Logo">
+
+        <!-- DEUXIEME PARTIE (55%) : Contenu -->
+        <div class="w-3/5 bg-[#475569] flex flex-col justify-between py-10 pr-10 text-white">
+            <div class="pt-20 pl-10 text-justify space-y-4 max-w-sm">
                 <p>
-                    Bibliothéka est un projet de fin d'année de licence en développement d'applications web, réalisé par
-                    une équipe de deux personnes passionnées. Notre application web s'adresse à tous les amateurs de
-                    lecture qui se retrouvent parfois perdus dans leurs multiples ouvrages. On a tous connu ce moment où
-                    on ne sait plus exactement où on en est dans notre lecture ou comment ranger notre bibliothèque
-                    personnelle. C'est là que Bibliothéka intervient. Elle offre une solution pratique pour garder une
-                    trace claire de notre progression dans nos livres. Avec Bibliothéka, on peut facilement marquer nos
-                    livres comme "en cours de lecture", "terminé" ou "à lire", et ainsi avoir une vision claire de notre
-                    parcours littéraire. Fini les lectures inachevées et les livres oubliés sur les étagères. Grâce à
-                    Bibliothéka, on peut organiser notre bibliothèque avec facilité et suivre notre progression pas à
-                    pas.
+                    Bibliothéka est une solution innovante conçue pour moderniser la gestion de votre bibliothèque
+                    personnelle. Notre plateforme facilite le suivi de vos lectures, vous permettant de marquer
+                    facilement les livres comme lus, en cours, ou à lire. Découvrez une nouvelle manière d'organiser vos
+                    ouvrages et de suivre vos progrès littéraires avec précision et élégance.
                 </p>
             </div>
-        </div>
 
-        <div class="contact-form" ref="contactHook">
-            <h2>Contactez-nous</h2>
-            <p>"Posez vos questions ou partagez vos suggestions ici pour que notre bibliothèque en ligne continue de
-                grandir et de répondre à vos besoins littéraires !"</p>
-            <form @submit.prevent="submitForm">
-                <label for="name">Votre nom:</label>
-                <input id="name" v-model="contact.name" type="text" required/>
-
-                <label for="email">Votre email:</label>
-                <input id="email" v-model="contact.email" type="email" required/>
-
-                <label for="message">Votre message:</label>
-                <textarea id="message" v-model="contact.message" required></textarea>
-
-                <button type="submit">Envoyer</button>
-            </form>
+            <div class="text-right">
+                <h1 class="text-8xl font-bold">Bibliothéka</h1>
+            </div>
         </div>
     </div>
 </template>

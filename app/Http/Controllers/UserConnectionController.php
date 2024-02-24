@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Notifications\ContactNotification;
 use App\Notifications\CustomResetPassword;
 use Carbon\Carbon;
+use http\Env\Response;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,6 +21,15 @@ use Illuminate\Support\Str;
 
 class UserConnectionController extends Controller
 {
+
+    public function checkAuth(Request $request) {
+        if (auth()->check()){
+            return response()->json(['isAuthenticated' => true]);
+        } else {
+            return response()->json(['isAuthenticated' => false],401);
+        }
+    }
+
     /**
      * This function handles user authentication and registration.
      *
@@ -167,10 +177,6 @@ class UserConnectionController extends Controller
             'success' => 'Votre mot de passe a été mis à jour',
         ], 200);
 
-    }
-
-    public function checkAuth(Request $request) {
-        return response()->json(['authenticated' => Auth::check()]);
     }
 
     public function logout(Request $request){
