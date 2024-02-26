@@ -31,9 +31,13 @@ Route::middleware('api')->group(function () {
     Route::post('/researchbook', [BooksController::class, 'retrieveBook'])->name('book.addCategory');
     Route::post('/addBook', [BooksController::class, 'addBook'])->name('book.addBook');
 
-    Route::middleware(['check.auth.token'])->group(function () {
+    Route::middleware(['auth:sanctum'])->group(function () {
         Route::post('/logout',[UserConnectionController::class, 'logout'])->name('user.logout');
         Route::get('/dashboard_data', [DashboardController::class, 'dashboardData']);
+        Route::get('/search-books', [BooksController::class, 'searchBooks']);
+
+
+
         Route::get('user/{id}', [UserController::class, 'show']);
         Route::put('user/{id}', [UserController::class, 'update']);
         Route::post('/update-profile-image/{id}', [UserController::class, 'updateProfileImage']);

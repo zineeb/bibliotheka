@@ -23,34 +23,67 @@ class BooksController extends Controller
      * @param Request $request
      * @return \Illuminate\Http\JsonResponse
      */
-    public function addCategory(Request $request)
-    {
-        // Search for an existing category with the same name as the one provided in the request.
-        $category = Category::where('name', '=', $request['category'])->first(['name']);
+//    public function addCategory(Request $request)
+//    {
+//        // Search for an existing category with the same name as the one provided in the request.
+//        $category = Category::where('name', '=', $request['category'])->first(['name']);
+//
+//        // If the category does not exist, create a new one.
+//        if ($category == null) {
+//            // Get the ID of the currently authenticated user.
+//            $user_id = Auth::id();
+//
+//            // Create a new category with the provided name and associate it with the current user.
+//            Category::create([
+//                'name' => $request['category'],
+//                'user_id' => $user_id,
+//            ]);
+//
+//            // Return a JSON response indicating the category has been created successfully.
+//            return response()->json([
+//                'okay' => 'La category a été créé.',
+//            ], 200);
+//
+//        } else {
+//            return response()->json([
+//                'notification' => 'La categorie existe déjà.',
+//                'category' => $category
+//            ], 200);
+//        }
+//
+//    }
 
-        // If the category does not exist, create a new one.
-        if ($category == null) {
-            // Get the ID of the currently authenticated user.
-            $user_id = Auth::id();
 
-            // Create a new category with the provided name and associate it with the current user.
-            Category::create([
-                'name' => $request['category'],
-                'user_id' => $user_id,
-            ]);
+    public function searchBooks(Request $request) {
+        $query = $request->query('query');
 
-            // Return a JSON response indicating the category has been created successfully.
-            return response()->json([
-                'okay' => 'La category a été créé.',
-            ], 200);
-
-        } else {
-            return response()->json([
-                'notification' => 'La categorie existe déjà.',
-                'category' => $category
-            ], 200);
+        if (empty($query)) {
+            return response()->json([]);
         }
 
+        $request_uri = 'https://www.googleapis.com/books/v1/volumes?q=' . urlencode($query);
+        $request_uri .= '&maxResults=5';
+
+        try {
+            $client = new Client([
+                'verify' => base_path('certs/cacert.pem'),
+                'curl' => [
+                    CURLOPT_SSLVERSION => CURL_SSLVERSION_TLSv1_2,
+                    CURLOPT_SSL_CIPHER_LIST => 'AES256-SHA256',
+                ],
+            ]);
+
+
+            // Make the API request and get the response.
+            $response = $client->get($request_uri);
+            $data = json_decode($response->getBody()->getContents(),true);
+
+            Log::info('data : ' . print_r($data,true));
+
+            return response()->json($data['items'] ?? []);
+        } catch (GuzzleException $e) {
+            return response()->json(['error' => 'Une erreur est survenue lors de la recherche du livre.'], 500);
+        }
     }
 
     /**

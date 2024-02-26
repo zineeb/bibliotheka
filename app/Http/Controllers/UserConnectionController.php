@@ -23,12 +23,24 @@ class UserConnectionController extends Controller
 {
 
     public function checkAuth(Request $request) {
-        if (auth()->check()){
-            return response()->json(['isAuthenticated' => true]);
+        Log::info('Check Auth Request:', [
+            'isAuthenticated' => auth()->check(),
+            'userId' => auth()->id(),
+            'session' => $request->session()->all(), // Affiche les données de session
+            'cookies' => $request->cookies->all(), // Affiche les cookies reçus
+        ]);
+
+        if (auth()->check()) {
+            return response()->json(['isAuthenticated' => true, 'userId' => auth()->id()]);
         } else {
-            return response()->json(['isAuthenticated' => false],401);
+            Log::warning('Unauthenticated access attempt.', [
+                'ip' => $request->ip(),
+                'route' => $request->path(),
+            ]);
+            return response()->json(['isAuthenticated' => false, 'userId' => null]);
         }
     }
+
 
     /**
      * This function handles user authentication and registration.
