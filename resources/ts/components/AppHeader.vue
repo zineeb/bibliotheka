@@ -32,7 +32,7 @@ const logout = async () => {
 </script>
 
 <template>
-    <header class="fixed top-0 left-0 w-full flex justify-between items-center px-5 py-3 bg-transparent text-[#0f172a] z-10">
+    <header class="fixed top-0 left-0 w-full flex justify-between items-center px-5 py-3 bg-white text-[#0f172a] shadow-md z-10">
         <nav class="w-full">
             <ul class="flex justify-around space-x-4 uppercase">
                 <li v-if="!isHomeRoute" class="nav-link">
@@ -52,5 +52,6 @@ const logout = async () => {
         </nav>
     </header>
 </template>
+
 
 

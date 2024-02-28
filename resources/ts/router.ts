@@ -6,8 +6,8 @@ import LoginAndRegister from '@/components/LoginAndRegister.vue';
 import ForgotPassword from '@/components/ForgotPassword.vue';
 import ResetPassword from '@/components/ResetPassword.vue';
 import Dashboard from '@/components/Dashboard.vue';
-import UserProfile from '@/components/UserInformations.vue';
 import AddBook from "@components/AddBook.vue";
+import UserProfile from "@components/UserProfile.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {path: '/', name: 'Home', component: Home},

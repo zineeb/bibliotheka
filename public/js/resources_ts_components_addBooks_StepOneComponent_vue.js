@@ -171,7 +171,6 @@ var __generator = undefined && undefined.__generator || function (thisArg, body)
             case 2:
               response = _a.sent();
               searchResults.value = response.data || [];
-              console.log('searchResults : ', searchResults.value);
               return [3 /*break*/, 4];
             case 3:
               error_1 = _a.sent();
@@ -220,7 +219,7 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h2", null, "Étape 1 : Recherche du livre", -1 /* HOISTED */);
 var _hoisted_2 = {
   key: 0,
-  "class": "border -2"
+  "class": "search-results"
 };
 var _hoisted_3 = ["onClick"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -231,15 +230,15 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     onInput: $setup.searchBooks,
     placeholder: "Commencer à taper pour rechercher un livre ...",
-    "class": "border p-2"
+    "class": "w-full p-3 bg-transparent border-b-2 border-gray-300 placeholder-gray-500 text-gray-600 focus:outline-none focus:border-blue-500"
   }, null, 544 /* NEED_HYDRATION, NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.searchQuery]]), $setup.searchResults.length > 0 ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("ul", _hoisted_2, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($setup.searchResults, function (book) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("li", {
       key: book.id,
       onClick: function onClick($event) {
         return $setup.selectBook(book);
       },
-      "class": "cursor-pointer hover:bg-blue-100 p--2"
-    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(book.volumeInfo.title) + " par " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(book.volumeInfo.authors.join(', ')), 9 /* TEXT, PROPS */, _hoisted_3);
+      "class": "cursor-pointer hover:bg-blue-100 p-2"
+    }, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(book.volumeInfo.title) + " par " + (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(book.volumeInfo.authors && book.volumeInfo.authors.length > 0 ? book.volumeInfo.authors.join(', ') : 'Auteur inconnu'), 9 /* TEXT, PROPS */, _hoisted_3);
   }), 128 /* KEYED_FRAGMENT */))])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)]);
 }
 

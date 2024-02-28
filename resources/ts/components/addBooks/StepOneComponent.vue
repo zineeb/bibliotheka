@@ -33,7 +33,6 @@ const searchBooks = async () => {
             }
         });
         searchResults.value = response.data || [];
-        console.log('searchResults : ' , searchResults.value);
     } catch (error) {
         console.error('Error searching books:', error);
         searchResults.value = [];
@@ -49,11 +48,12 @@ const selectBook = (book: Book) => {
 <template>
     <div>
         <h2>Étape 1 : Recherche du livre</h2>
-        <input type="text" v-model="searchQuery" @input="searchBooks" placeholder="Commencer à taper pour rechercher un livre ..." class="border p-2">
-        <ul v-if="searchResults.length > 0" class="border -2">
-            <li v-for="book in searchResults" :key="book.id" @click="selectBook(book)" class="cursor-pointer hover:bg-blue-100 p--2">
-                {{ book.volumeInfo.title }} par {{ book.volumeInfo.authors.join(', ') }}
+        <input type="text" v-model="searchQuery" @input="searchBooks" placeholder="Commencer à taper pour rechercher un livre ..." class="w-full p-3 bg-transparent border-b-2 border-gray-300 placeholder-gray-500 text-gray-600 focus:outline-none focus:border-blue-500">
+        <ul v-if="searchResults.length > 0" class="search-results">
+            <li v-for="book in searchResults" :key="book.id" @click="selectBook(book)" class="cursor-pointer hover:bg-blue-100 p-2">
+                {{ book.volumeInfo.title }} par {{ book.volumeInfo.authors && book.volumeInfo.authors.length > 0 ? book.volumeInfo.authors.join(', ') : 'Auteur inconnu' }}
             </li>
         </ul>
+
     </div>
 </template>

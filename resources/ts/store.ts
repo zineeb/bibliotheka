@@ -17,7 +17,13 @@ export const useAuthStore = defineStore('auth', () => {
 
     function setUserId(newUserId: number | null) {
         userId.value = newUserId;
+        if (newUserId) {
+            localStorage.setItem('userId', newUserId.toString());
+        } else {
+            localStorage.removeItem('userId');
+        }
     }
+
 
     function clearToken() {
         token.value = null;
@@ -37,5 +43,5 @@ export const useAuthStore = defineStore('auth', () => {
     }
 
 
-    return { token, userId, isLoggedIn, setToken, clearToken, initializeFromUrl };
+    return { token, userId, isLoggedIn, setToken, setUserId, clearToken, initializeFromUrl };
 });

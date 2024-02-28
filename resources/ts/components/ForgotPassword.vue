@@ -23,17 +23,30 @@ const sendResetLink = async () => {
 </script>
 
 <template>
-    <div class="forgot-password">
-        <div class="container-forgot">
-            <h2>Mot de passe oublié</h2>
-            <form @submit.prevent="sendResetLink">
-                <div>
-                    <label for="login-email">Email :</label>
-                    <input type="email" id="login-email" v-model="forgotPassword.email" required>
-                </div>
-                <button type="submit">Envoyer le lien de réinitialisation</button>
-            </form>
-            <div v-if="message">{{ message }}</div>
+    <div class="min-h-screen flex items-center justify-center bg-[#475569]">
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden max-w-md mx-4 md:mx-0">
+
+            <div class="px-8 py-10">
+                <h3 class="text-left text-2xl font-bold text-gray-500 mb-8">Mot de passe oublié : </h3>
+                <form @submit.prevent="sendResetLink" class="space-y-6">
+                    <!-- ADRESSE EMAIL -->
+                    <div>
+                        <label for="login-email" class="block text-sm font-medium text-gray-700">Adresse Email : </label>
+                        <input type="email" id="login-email" v-model="forgotPassword.email" required
+                               class="w-full p-3 bg-transparent border-b-2 border-gray-300 placeholder-gray-500 text-gray-600 focus:outline-none focus:border-blue-500"
+                               placeholder="Email">
+                    </div>
+                    <!-- BOUTON CONNEXION -->
+                    <div>
+                        <button type="submit"
+                                class="w-full p-3 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">
+                            Envoyer le lien de réinitialisation
+                        </button>
+                    </div>
+                </form>
+                <div v-if="message">{{ message }}</div>
+            </div>
         </div>
     </div>
 </template>
+
