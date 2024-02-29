@@ -18,7 +18,7 @@ class UserRegisterController extends Controller
      * This function handles user registration.
      *
      * @param Request $request
-     * @return \Illuminate\Http\JsonResponse
+     * @return mixed
      */
     public function userRegister(Request $request)
     {
@@ -28,7 +28,7 @@ class UserRegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
             'password_verification' => 'required|same:password',
-            'profil_picture' => 'sometimes|file|image|max:2048',
+            'profil_picture' => 'nullable|image|max:2048',
         ]);
 
         // If the validation fails, return an error response.
@@ -37,15 +37,12 @@ class UserRegisterController extends Controller
                 'errors' => $validateData->errors()
             ], 422);
         } else {
-            // Check if the user with the given email already exists.
             $user = User::where('email', $request->input('email'))->first();
             if ($user) {
-                // If the user already exists, return an error response.
                 return response()->json([
                     'email' => 'Un utilisateur avec cet email existe déjà'
                 ], 422);
             } else {
-                // Check if a profile picture was provided.
                 $profile_picture = 'images/utilisateur.png';
                 if ($request->hasFile('profil_picture')) {
                     $file = $request->file('profil_picture');
@@ -54,7 +51,6 @@ class UserRegisterController extends Controller
                     $profile_picture = 'images/profil_pictures/' . $filename;
                 }
 
-                // Create a new user with the validated data.
                 $user = User::create([
                     'name' => $request->input('username'),
                     'email' => $request->input('email'),
@@ -62,12 +58,11 @@ class UserRegisterController extends Controller
                     'profile_image' => $profile_picture,
                 ]);
 
-                // Create an authentication token for the user.
                 $token = $user->createToken('authToken')->plainTextToken;
-                // Return a success response with the authentication token.
+
                 return response()->json([
-                    'status' => 'success',
-                    'token' => $token
+                    'token' => $token,
+                    'userId' => $user->id
                 ]);
             }
         }

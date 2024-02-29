@@ -5,7 +5,7 @@
     <div class="flex h-screen overflow-hidden">
         <!-- PREMIERE PARTIE (45%) : Fond blanc avec affichage de plusieurs couverture de livre -->
         <div class="w-2/5 bg-white p-10 flex justify-center items-center">
-            <img src="#"/>
+            <img src="/images/home_background.png" class="w-full h-full object-cover"/>
         </div>
 
         <!-- DEUXIEME PARTIE (55%) : Contenu -->

@@ -24,10 +24,7 @@ class GoogleAuthController extends Controller
     public function handleGoogleCallback(Request $request)
     {
         try {
-            $googleUser = Socialite::driver('google')
-                ->stateless()
-                ->user();
-
+            $googleUser = Socialite::driver('google')->stateless()->user();
             $user = User::where('email', $googleUser->getEmail())->first();
 
             if (!$user) {
@@ -42,20 +39,18 @@ class GoogleAuthController extends Controller
             Auth::login($user);
             $token = $user->createToken('authToken')->plainTextToken;
 
-            $cookie = cookie('auth_token', $token, 60, null, null, true, true);
-            return redirect('/dashboard')->withCookie($cookie);
-
+            return redirect()->to('/dashboard?token=' . $token . '&userId=' . $user->id);
         } catch (\Exception $e) {
-            Log::error('Exception levée lors de handleGoogleCallback: ' . $e->getMessage());
-
+            Log::error('Exception raised during handleGoogleCallback:', [
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
             return response()->json([
-                'error' => 'Une erreur est survenue lors de la connexion avec Google',
+                'error' => 'An error occurred during the Google login process',
                 'message' => $e->getMessage(),
             ], 422);
         }
     }
 
+
 }
-//$cookie = cookie('auth_token', $token, 60, null, null, null, true);
-//
-//            return redirect()->away(env('VUE_APP_URL') . '/dashboard')->withCookie($cookie);

@@ -22,14 +22,6 @@ use Illuminate\Support\Str;
 class UserConnectionController extends Controller
 {
 
-    public function checkAuth(Request $request) {
-        if (auth()->check()){
-            return response()->json(['isAuthenticated' => true]);
-        } else {
-            return response()->json(['isAuthenticated' => false],401);
-        }
-    }
-
     /**
      * This function handles user authentication and registration.
      *
@@ -54,28 +46,18 @@ class UserConnectionController extends Controller
             if ($user) {
                 //Verification of the password against the hashed password in the database
                 if (Hash::check($request->input('password'), $user->password)) {
-                    //User login
-                    Auth::login($user);
-
                     $token = $user->createToken('authToken')->plainTextToken;
 
-                    $booksUser = Book::allBooks($user->id);
-                    $infosUser = User::allInformations($user->id);
-
                     return response()->json([
-                        'status' => 'success',
                         'token' => $token,
-                        'infos_user' => $infosUser,
-                        'books_user' => $booksUser,
-                    ], 200);
+                        'userId' => $user->id
+                    ]);
                 } else {
-                    //Redirection to the login view with the realized error
                     return response()->json([
                         'email' => 'Les informations de connexion sont incorrectes'
                     ], 422);
                 }
             } else {
-                //Redirection to the login view with the realized error
                 return response()->json([
                     'email' => 'Les informations de connexion sont incorrectes'
                 ], 422);

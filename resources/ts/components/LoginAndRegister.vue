@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {ref, reactive, onMounted} from "vue";
+import {ref, reactive, onMounted, computed} from "vue";
 import {useAuthStore} from "@/store";
 import axios from "axios";
 import {useRouter} from "vue-router";
@@ -20,6 +20,7 @@ interface FormErrors {
 
 const showLogin = ref(true);
 const recaptchaSiteKey = ref('6LcpBBokAAAAADc_7Wcm_XPCNLGGu3EUpyBJqj4J');
+const recaptchaSiteSecretKey = ref('6LcpBBokAAAAAETBdJPwz8Py6M2N9TWHYOZRGOcr');
 const authStore = useAuthStore();
 const router = useRouter();
 const errors = ref<FormErrors>({});
@@ -41,10 +42,10 @@ const selectedFile = ref<File | null>(null);
 const login = async () => {
     try {
         const response = await axios.post('api/login', loginForm);
-        if (response.data.status === 'success') {
+        if (response.data.token) {
             authStore.setToken(response.data.token);
-            router.push('/dashboard').catch(err => {
-            });
+            authStore.setUserId(response.data.userId);
+            await router.push({name: 'Dashboard', query: {token: response.data.token, userId: response.data.userId}});
         }
     } catch (error) {
         if (axios.isAxiosError(error) && error.response?.status === 422) {
@@ -52,6 +53,24 @@ const login = async () => {
         }
     }
 };
+
+const isUsernameValid = computed(() => {
+    return registerForm.username.length >= 3 && registerForm.username.length <= 255;
+});
+
+const isEmailValid = computed(() => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(registerForm.email);
+});
+
+const isPasswordValid = computed(() => {
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(registerForm.password);
+});
+
+const isPasswordConfirmationValid = computed(() => {
+    return registerForm.password_verification === registerForm.password;
+});
 
 const register = async () => {
     try {
@@ -70,10 +89,10 @@ const register = async () => {
                 'Content-Type': 'multipart/form-data'
             }
         });
-        if (response.data.status === 'success') {
+        if (response.data.token) {
             authStore.setToken(response.data.token);
-            router.push('/dashboard').catch(err => {
-            });
+            authStore.setUserId(response.data.userId);
+            await router.push({name: 'Dashboard', query: {token: response.data.token, userId: response.data.userId}});
         }
     } catch (error) {
         if (axios.isAxiosError(error) && error.response?.status === 422) {
@@ -82,17 +101,16 @@ const register = async () => {
     }
 };
 
-// const initRecaptcha = () => {
-//     if(grecaptcha) {
-//         grecaptcha.ready(() => {
-//             grecaptcha.render('recaptcha', {
-//                 'sitekey' : recaptchaSiteKey
-//             });
-//         })
-//     } else {
-//         setTimeout(initRecaptcha, 100);
-//     }
-// };
+const initRecaptcha = () => {
+    if (window.grecaptcha && window.grecaptcha.render) {
+        window.grecaptcha.render('recaptcha', {
+            'sitekey': recaptchaSiteKey.value
+        });
+    } else {
+        setTimeout(initRecaptcha, 100);
+    }
+};
+
 
 const loginWithGoogle = () => window.location.href = 'http://localhost:8000/auth/google';
 
@@ -104,14 +122,14 @@ const onFileChange = (event: Event) => {
     }
 }
 
-// onMounted(() => {
-//     initRecaptcha();
-// })
+onMounted(() => {
+    initRecaptcha();
+})
 </script>
 
 <template>
-    <div class="min-h-screen flex items-center justify-center bg-[#475569]">
-        <div class="bg-white rounded-2xl shadow-xl overflow-hidden max-w-md mx-4 md:mx-0">
+    <div class="flex justify-center bg-[#475569] pt-24 pb-10 min-h-screen"> <!-- Ajout de pb-10 pour le padding en bas et enlèvement du centering vertical -->
+        <div class="bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-4xl mx-4 md:mx-10 p-10"> <!-- Modification pour pleine largeur avec un max-w et ajout de padding -->
 
             <!-- PARTIE CONNEXION PAR DÉFAUT -->
             <div class="px-8 py-10" v-show="showLogin">
@@ -140,8 +158,9 @@ const onFileChange = (event: Event) => {
 
                 <!-- PARTIE MOT DE PASSE OUBLIE -->
                 <div class="text-center">
-                    <a href="#" class="text-blue-600 hover:underline">Mot de passe oublié ?</a>
+                    <router-link :to="{ name: 'ForgotPassword' }" class="text-blue-600 hover:underline">Mot de passe oublié ?</router-link>
                 </div>
+
 
             </div>
 
@@ -156,35 +175,53 @@ const onFileChange = (event: Event) => {
                             <input type="file" id="profil_picture" @change="onFileChange"
                                    class="w-full p-3 bg-transparent cursor-pointer">
                         </div>
-                        <small v-if="errors.profil_picture" class="block text-red-500">{{errors.profil_picture[0] }}</small>
+                        <small v-if="errors.profil_picture" class="block text-red-500">{{
+                                errors.profil_picture[0]
+                            }}</small>
                     </div>
                     <div class="flex flex-wrap -mx-3 mb-6">
                         <div class="w-full md:w-1/2 px-3 mb-6">
                             <input type="text" id="username" v-model="registerForm.username" required
                                    class="w-full bg-transparent border-b-2 border-gray-300 text-gray-700 focus:outline-none focus:border-blue-500"
                                    placeholder="Nom d'utilisateur">
-                            <small v-if="errors.username" class="block text-red-500">{{errors.username[0] }}</small>
+                            <small :class="{ 'text-green-500': isUsernameValid, 'text-red-500': !isUsernameValid }">
+                                Le nom d'utilisateur doit comporter entre 3 et 255 caractères.
+                            </small>
+                            <small v-if="errors.username" class="block text-red-500">{{ errors.username[0] }}</small>
                         </div>
                         <div class="w-full md:w-1/2 px-3 mb-6">
                             <input type="email" id="email" v-model="registerForm.email" required
                                    class="w-full bg-transparent border-b-2 border-gray-300 text-gray-700 focus:outline-none focus:border-blue-500"
                                    placeholder="Email">
-                            <small v-if="errors.email" class="block text-red-500">{{errors.email[0] }}</small>
+                            <small :class="{ 'text-green-500': isEmailValid, 'text-red-500': !isEmailValid }">
+                                Entrez une adresse email valide.
+                            </small>
+                            <small v-if="errors.email" class="block text-red-500">{{ errors.email[0] }}</small>
                         </div>
                         <div class="w-full md:w-1/2 px-3 mb-6">
                             <input type="password" id="password" v-model="registerForm.password" required
                                    class="w-full bg-transparent border-b-2 border-gray-300 text-gray-700 focus:outline-none focus:border-blue-500"
                                    placeholder="Mot de Passe">
-                            <small v-if="errors.password" class="block text-red-500">{{errors.password[0] }}</small>
+                            <small :class="{ 'text-green-500': isPasswordValid, 'text-red-500': !isPasswordValid }">
+                                Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial.
+                            </small>
+                            <small v-if="errors.password" class="block text-red-500">{{ errors.password[0] }}</small>
                         </div>
                         <div class="w-full md:w-1/2 px-3 mb-6">
                             <input type="password" id="password_verification"
                                    v-model="registerForm.password_verification" required
                                    class="w-full bg-transparent border-b-2 border-gray-300 text-gray-700 focus:outline-none focus:border-blue-500"
                                    placeholder="Vérification Mot de Passe">
-                            <small v-if="errors.password_verification" class="block text-red-500">{{errors.password_verification[0] }}</small>
+                            <small :class="{ 'text-green-500': isPasswordConfirmationValid, 'text-red-500': !isPasswordConfirmationValid }">
+                                Les mots de passe doivent correspondre.
+                            </small>
+                            <small v-if="errors.password_verification"
+                                   class="block text-red-500">{{ errors.password_verification[0] }}</small>
 
                         </div>
+                    </div>
+                    <div class="container-recaptcha flex justify-center mt-4">
+                        <div id="recaptcha" class="g-recaptcha"></div>
                     </div>
                     <div class="flex justify-center mt-4">
                         <button type="submit"
@@ -194,12 +231,6 @@ const onFileChange = (event: Event) => {
                     </div>
                 </form>
             </div>
-
-            <!-- CAPTCHA -->
-            <!--                    <div class="mb-5 container-recaptcha">-->
-            <!--                        <div id="recaptcha" class="g-recaptcha"></div>-->
-            <!--                    </div>-->
-
 
             <!-- Bouton Connexion/Inscription avec Google -->
             <div class="px-8 py-4">

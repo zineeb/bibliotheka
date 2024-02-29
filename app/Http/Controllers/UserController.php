@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Review;
+use App\Models\Status;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -45,9 +47,7 @@ class UserController extends Controller
             $validatedData['password'] = bcrypt($validatedData['password']);
         }
 
-        // Update the user with the validated data.
         $user->update($validatedData);
-        // Return the updated user data.
         return response()->json($user);
     }
 
@@ -55,9 +55,8 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        Log::info('request : ' . print_r($request->file('profile_image'),true));
-
         if ($request->hasFile('profile_image')) {
+            Log::info('profile image changed :');
             $file = $request->file('profile_image');
             $filename = time() . '.' . $file->getClientOriginalExtension();
             $file->move(public_path('images/profil_pictures/'), $filename);
@@ -66,7 +65,7 @@ class UserController extends Controller
             $user->save();
         }
 
-        return response()->json(['status' => 'success']);
+        return response()->json(['status' => 200]);
     }
 
     /**
@@ -79,11 +78,11 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        // Delete the user.
+        Review::where('user_id', $id)->delete();
+        Status::where('user_id',$id)->delete();
+
         $user->delete();
 
-        // Return a success message.
-        return response()->json(['message' => 'Compte supprimé avec succès']);
+        return response()->json(['status' => 200]);
     }
-
 }

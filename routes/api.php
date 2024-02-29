@@ -20,30 +20,24 @@ use App\Http\Controllers\BooksController;
 */
 
 Route::middleware('api')->group(function () {
-    Route::get('/check-auth', [UserConnectionController::class, 'checkAuth'])->name('user.checkAuth');
-
     Route::post('/register', [UserRegisterController::class, 'userRegister'])->name('user.register');
     Route::post('/login', [UserConnectionController::class, 'connectRegister'])->name('user.connection');
     Route::post('/forgot_password', [UserConnectionController::class, 'forgotPassword'])->name('user.forget_password');
+
     Route::post('/reset_password', [UserConnectionController::class, 'resetPassword'])->name('api.reset_password');
     Route::post('/contact', [UserConnectionController::class, 'sendEmail'])->name('api.send_email');
 
-    Route::post('/researchbook', [BooksController::class, 'retrieveBook'])->name('book.addCategory');
-    Route::post('/addBook', [BooksController::class, 'addBook'])->name('book.addBook');
-
-    Route::middleware(['check.auth.token'])->group(function () {
+    Route::middleware(['auth:sanctum'])->group(function () {
         Route::post('/logout',[UserConnectionController::class, 'logout'])->name('user.logout');
         Route::get('/dashboard_data', [DashboardController::class, 'dashboardData']);
+        Route::get('/search-books', [BooksController::class, 'searchBooks']);
+        Route::post('/addBook', [BooksController::class, 'addBook'])->name('book.addBook');
+        Route::post('/updateBook', [BooksController::class, 'updateBookData'])->name('book.updateBookData');
+        Route::post('/deletebook', [BooksController::class, 'deleteBook'])->name('book.deleteBook');
         Route::get('user/{id}', [UserController::class, 'show']);
         Route::put('user/{id}', [UserController::class, 'update']);
         Route::post('/update-profile-image/{id}', [UserController::class, 'updateProfileImage']);
         Route::delete('user/{id}', [UserController::class, 'destroy']);
-        Route::post('/addcategory', [BooksController::class, 'addCategory'])->name('book.addCategory');
-        Route::post('/researchbook', [BooksController::class, 'retrieveBook'])->name('book.addCategory');
-        Route::post('/addBook', [BooksController::class, 'addBook'])->name('book.addBook');
-        Route::post('/updateBook', [BooksController::class, 'updateStatusBook'])->name('book.updateStatusBook');
-        Route::post('/deletebook', [BooksController::class, 'deleteBook'])->name('book.deleteBook');
-
     });
 });
 

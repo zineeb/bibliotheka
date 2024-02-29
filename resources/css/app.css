@@ -24,3 +24,56 @@
     transform: scaleX(1);
     transform-origin: bottom left;
 }
+
+.search-results {
+    background-color: #f3f4f6; /* La couleur de fond de AddBook, à ajuster selon vos besoins */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optionnel, pour un peu d'ombre */
+}
+
+.search-results li {
+    padding: 10px;
+    list-style: none;
+}
+
+.search-results li:hover {
+    background-color: #e2e8f0; /* Une teinte plus claire que le fond */
+}
+
+.search-results li:not(:last-child) {
+    border-bottom: 1px solid #cbd5e1; /* Couleur de la bordure, à ajuster */
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Assurez-vous que ce soit supérieur à tout autre contenu */
+    background-color: rgba(0, 0, 0, 0.6); /* Pour l'ombre de fond */
+}
+
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.modal-header,
+.modal-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-body {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}

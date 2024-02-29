@@ -28,4 +28,3 @@ Route::middleware(['web'])->group(function () {
     Route::get('/auth/google', [GoogleAuthController::class, 'redirectToGoogle'])->name('auth.google');
     Route::get('/auth/callback/google', [GoogleAuthController::class, 'handleGoogleCallback']);
 });
-

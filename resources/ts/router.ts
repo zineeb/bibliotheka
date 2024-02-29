@@ -6,7 +6,8 @@ import LoginAndRegister from '@/components/LoginAndRegister.vue';
 import ForgotPassword from '@/components/ForgotPassword.vue';
 import ResetPassword from '@/components/ResetPassword.vue';
 import Dashboard from '@/components/Dashboard.vue';
-import UserProfile from '@/components/UserInformations.vue';
+import AddBook from "@components/AddBook.vue";
+import UserProfile from "@components/UserProfile.vue";
 
 const routes: Array<RouteRecordRaw> = [
     {path: '/', name: 'Home', component: Home},
@@ -15,6 +16,7 @@ const routes: Array<RouteRecordRaw> = [
     {path: '/forgot-password', name: 'ForgotPassword', component: ForgotPassword},
     {path: '/reset_password', name: 'ResetPassword', component: ResetPassword},
     {path: '/dashboard', name: 'Dashboard', component: Dashboard, meta: {requiresAuth: true}},
+    {path: '/addBooks', name: 'AddBook', component: AddBook},
     {path: '/user-profile/:id', name: 'UserProfile', component: UserProfile, props: true}
 ];
 
@@ -23,16 +25,10 @@ const router = createRouter({
     routes,
 });
 
-router.beforeEach(async (to, from, next) => {
+router.beforeEach((to, from, next) => {
     const authStore = useAuthStore();
-
-    if (to.meta.requiresAuth) {
-        await authStore.checkAuth();
-        if (authStore.isLoggedIn) {
-            next();
-        } else {
-            next({name: 'LoginAndRegister'});
-        }
+    if (to.meta.requiresAuth && !authStore.isLoggedIn) {
+        next({ name: 'LoginAndRegister' });
     } else {
         next();
     }
