@@ -19,8 +19,7 @@ interface FormErrors {
 }
 
 const showLogin = ref(true);
-const recaptchaSiteKey = ref('6LcpBBokAAAAADc_7Wcm_XPCNLGGu3EUpyBJqj4J');
-const recaptchaSiteSecretKey = ref('6LcpBBokAAAAAETBdJPwz8Py6M2N9TWHYOZRGOcr');
+const recaptchaSiteKey = ref(process.env.MIX_RECAPTCHA_SITE_KEY);
 const authStore = useAuthStore();
 const router = useRouter();
 const errors = ref<FormErrors>({});
