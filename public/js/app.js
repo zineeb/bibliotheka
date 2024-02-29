@@ -23442,7 +23442,7 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   "class": "w-2/5 bg-white p-10 flex justify-center items-center"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
   src: "/images/home_background.png",
-  "class": "w-full h-full object-cover"
+  "class": "object-cover"
 })], -1 /* HOISTED */);
 var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "w-3/5 bg-[#475569] flex flex-col justify-between py-10 pr-10 text-white"

@@ -54,19 +54,21 @@ const submitBook = async () => {
     <h2>Step 2: Confirm Book Details</h2>
     <div class="flex flex-col items-center p-8 bg-white rounded text-sm">
         <div v-if="props.book" class="w-full">
-            <h3 class="text-2xl font-bold text-gray-800 mb-4">{{ props.book.volumeInfo.title }}</h3>
+            <h3 class="text-2xl font-bold text-gray-800 mb-4">{{ props.book.volumeInfo.title || 'Titre non disponible' }}</h3>
             <div class="mb-2 text-gray-600">
-                {{ props.book.volumeInfo.authors.join(', ') }} | {{ props.book.volumeInfo.publishedDate }}
+                {{ (props.book.volumeInfo.authors && props.book.volumeInfo.authors.join(', ')) || 'Auteur(s) non disponible(s)' }}
+                |
+                {{ props.book.volumeInfo.publishedDate || 'Date non disponible' }}
             </div>
             <div class="italic mb-4 text-gray-600">
-                Catégorie : {{ props.book.volumeInfo.categories[0] }}
+                Catégorie : {{ props.book.volumeInfo.categories ? props.book.volumeInfo.categories[0] : 'Non spécifiée' }}
             </div>
             <div class="flex flex-col md:flex-row">
                 <div class="md:w-1/3 mb-4 md:mb-0">
-                    <img :src="props.book.volumeInfo.imageLinks.thumbnail" alt="Cover image" class="w-full"/>
+                    <img :src="props.book.volumeInfo.imageLinks?.thumbnail || '/images/default-cover.png'" alt="Couverture du livre" class="w-full"/>
                 </div>
                 <div class="md:w-2/3 ml-4">
-                    <p class="text-gray-600 text-justify">{{ props.book.volumeInfo.description }}</p>
+                    {{ props.book.volumeInfo.description || 'Description non disponible' }}
                     <div class="mt-4">
                         <label for="status" class="block text-gray-700 font-bold mb-2">Status de lecture:</label>
                         <select id="status" v-model="readingStatus" class="w-full p-3 bg-transparent border-b-2 border-gray-300 placeholder-gray-500 text-gray-600 focus:outline-none focus:border-blue-500">
